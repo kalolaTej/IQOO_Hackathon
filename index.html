@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgriSync — National Agricultural Market Platform</title>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased overflow-hidden flex flex-col h-screen">
+
+  <!-- TOP BAR LAUNCHER & SCREEN SWITCHER -->
+  <header class="h-12 bg-slate-950 text-white flex items-center justify-between px-4 border-b border-slate-800 shrink-0 z-50 shadow-md">
+    
+    <!-- Brand Title -->
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded bg-emerald-700 flex items-center justify-center text-white">
+        <span class="material-symbols-outlined text-lg">agriculture</span>
+      </div>
+      <span class="font-bold text-sm text-white">AgriSync Master Interface</span>
+      <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono border border-emerald-800">23 Screens Built</span>
+    </div>
+
+    <!-- Screen Dropdown Selector -->
+    <div class="flex items-center gap-3">
+      <label for="screenPicker" class="text-xs text-slate-400 font-medium hidden sm:inline">Select Layout Page:</label>
+      <select id="screenPicker" onchange="switchScreen(this.value)" class="bg-slate-900 text-emerald-300 font-semibold text-xs py-1 px-3 rounded border border-slate-700 outline-none cursor-pointer max-w-xs sm:max-w-md">
+        <!-- Populated via JS -->
+      </select>
+
+      <button onclick="reloadFrame()" class="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center gap-1" title="Reload View">
+        <span class="material-symbols-outlined text-sm">refresh</span>
+      </button>
+    </div>
+
+    <!-- Quick Role Pill -->
+    <div class="hidden md:flex items-center gap-2 text-xs text-slate-400">
+      <span>Role:</span>
+      <span id="roleLabelPill" class="text-emerald-400 font-semibold">Farmer</span>
+    </div>
+
+  </header>
+
+  <!-- FULLSCREEN PAGE VIEWPORT -->
+  <main class="flex-1 w-full h-full bg-white relative">
+    <iframe id="appFrame" src="layout/layout/farmer_operations_dashboard/code.html" title="AgriSync Viewport" class="w-full h-full border-none"></iframe>
+  </main>
+
+  <script>
+    const ALL_SCREENS = [
+      { category: 'Farmer Portal', screens: [
+        { name: '1. Farmer Operations Dashboard', role: 'Farmer', path: 'layout/layout/farmer_operations_dashboard/code.html' },
+        { name: '2. My Produce & Harvest Batches', role: 'Farmer', path: 'layout/layout/my_produce_harvest_batches/code.html' },
+        { name: '3. Selling Window Advisory', role: 'Farmer', path: 'layout/layout/selling_window_advisory/code.html' },
+        { name: '4. Verified Buyer Offers & Contracts', role: 'Farmer', path: 'layout/layout/verified_buyer_matches_contracts/code.html' },
+        { name: '5. Mandi Market Prices (Agmarknet)', role: 'Farmer', path: 'layout/layout/market_prices/code.html' },
+        { name: '6. Pimpalgaon APMC Market Profile', role: 'Farmer', path: 'layout/layout/market_detail_pimpalgaon_apmc/code.html' },
+        { name: '7. Storage Discovery & Warehousing', role: 'Farmer', path: 'layout/layout/storage_discovery_warehousing/code.html' },
+        { name: '8. Rural Drayage & Transport Options', role: 'Farmer', path: 'layout/layout/transport_options_rural_drayage/code.html' },
+        { name: '9. My Transactions & Settlements', role: 'Farmer', path: 'layout/layout/my_transactions_settlements/code.html' },
+        { name: '10. Transaction Detail (#SAUDA-2024-8842)', role: 'Farmer', path: 'layout/layout/transaction_detail_sauda_2024_8842/code.html' },
+        { name: '11. Crop Protection Field Incidents', role: 'Farmer', path: 'layout/layout/crop_protection_field_incidents/code.html' },
+        { name: '12. Incident Analytics Dashboard', role: 'Farmer', path: 'layout/layout/crop_protection_incident_analytics/code.html' },
+        { name: '13. Farm Profile & Account Settings', role: 'Farmer', path: 'layout/layout/settings_farm_profile/code.html' },
+      ]},
+      { category: 'APMC Yard Kiosk', screens: [
+        { name: '14. Mandi Live Procurement Queue', role: 'APMC Official', path: 'layout/layout/mandi_procurement_live_queue/code.html' },
+        { name: '15. APMC Gate Security ANPR Kiosk', role: 'Security', path: 'layout/layout/apmc_gate_security_anpr_barrier_terminal/code.html' },
+        { name: '16. Weighbridge Operator Console', role: 'Operator', path: 'layout/layout/apmc_mandi_yard_weighbridge_operator_console/code.html' },
+        { name: '17. NIR Quality Assayer Inspection', role: 'Quality Assayer', path: 'layout/layout/apmc_quality_assayer_nir_mobile_inspection/code.html' },
+      ]},
+      { category: 'Buyer Portal', screens: [
+        { name: '18. Institutional Buyer Bids & POs', role: 'Institutional Buyer', path: 'layout/layout/institutional_buyer_procurement_bids/code.html' },
+      ]},
+      { category: 'Logistics', screens: [
+        { name: '19. Driver Fast-Track Gate Pass', role: 'Truck Driver', path: 'layout/layout/agrisync_driver_gate_pass_apmc_fast_track/code.html' },
+      ]},
+      { category: 'Public & Onboarding', screens: [
+        { name: '20. AgriSync Public Portal Homepage', role: 'Public', path: 'layout/layout/agrisync_public_portal/code.html' },
+        { name: '21. How AgriSync Works Explainer', role: 'Public', path: 'layout/layout/agrisync_how_it_works/code.html' },
+        { name: '22. Farmer Registration & e-KYC', role: 'Public', path: 'layout/layout/farmer_registration_onboarding/code.html' },
+      ]},
+      { category: 'Design System', screens: [
+        { name: '23. AgriCore Design System Tokens', role: 'Design System', path: 'layout/layout/agricore_operational_design_system/DESIGN.md' },
+      ]}
+    ];
+
+    function initPicker() {
+      const select = document.getElementById('screenPicker');
+      let html = '';
+      
+      ALL_SCREENS.forEach(cat => {
+        html += `<optgroup label="--- ${cat.category} ---">`;
+        cat.screens.forEach(s => {
+          html += `<option value="${s.path}" data-role="${s.role}">${s.name}</option>`;
+        });
+        html += `</optgroup>`;
+      });
+
+      select.innerHTML = html;
+    }
+
+    function switchScreen(path) {
+      const frame = document.getElementById('appFrame');
+      const select = document.getElementById('screenPicker');
+      const selectedOption = select.options[select.selectedIndex];
+      const role = selectedOption.getAttribute('data-role');
+
+      document.getElementById('roleLabelPill').innerText = role;
+      frame.src = path;
+    }
+
+    function reloadFrame() {
+      const frame = document.getElementById('appFrame');
+      frame.src = frame.src;
+    }
+
+    window.addEventListener('DOMContentLoaded', initPicker);
+  </script>
+</body>
+</html>

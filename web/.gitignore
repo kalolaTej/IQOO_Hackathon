@@ -1,0 +1,42 @@
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+!web/src/lib/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv
+venv/
+ENV/
+.pytest_cache/
+# yolo model weights & output detections
+*.pt
+*.onnx
+*.engine
+ai/detections/*
+!ai/detections/.gitkeep
+# environment and secrets
+.env
+.env.*
+!.env.example
+# editor and os
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#00456c","primary-container":"#166534","primary-fixed-dim":"#8bd79b","on-tertiary-container":"#a7d4ff","surface-variant":"#dae2fd","on-secondary-container":"#57657a","on-error":"#ffffff","on-tertiary-fixed":"#001d32","secondary-fixed":"#d5e3fc","surface-container-highest":"#dae2fd","on-primary-fixed":"#00210b","on-primary":"#ffffff","outline":"#707a6f","on-primary-container":"#93e0a2","on-primary-fixed-variant":"#005226","surface-dim":"#d2d9f4","inverse-surface":"#283044","primary":"#004c22","on-secondary-fixed":"#0d1c2e","error":"#ba1a1a","inverse-on-surface":"#eef0ff","surface-tint":"#1f6c3a","on-background":"#131b2e","primary-fixed":"#a6f4b5","secondary-fixed-dim":"#b9c7df","surface-container-lowest":"#ffffff","surface-container":"#eaedff","on-surface":"#131b2e","error-container":"#ffdad6","surface":"#faf8ff","on-secondary-fixed-variant":"#3a485b","surface-container-high":"#e2e7ff","on-error-container":"#93000a","on-tertiary":"#ffffff","secondary-container":"#d5e3fc","secondary":"#515f74","tertiary-fixed":"#cde5ff","surface-bright":"#faf8ff","on-tertiary-fixed-variant":"#004b74","tertiary-container":"#005d90","on-secondary":"#ffffff","on-surface-variant":"#404940","surface-container-low":"#f2f3ff","inverse-primary":"#8bd79b","tertiary-fixed-dim":"#94ccff","outline-variant":"#bfc9bd","background":"#faf8ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","margin-desktop":"2rem","space-xl":"1.5rem","gutter-desktop":"1.5rem","space-lg":"1rem","margin":"1rem","space-sm":"0.5rem","space-md":"0.75rem","gutter":"1rem"},"fontFamily":{"headline-xl":["Inter"],"label-md":["Inter"],"headline-sm":["Inter"],"data-tabular":["Inter"],"display-lg":["Inter"],"body-sm":["Inter"],"headline-xl-mobile":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"label-xs":["Inter"],"headline-md":["Inter"],"label-sm":["Inter"],"display-sm":["Inter"],"headline-lg":["Inter"]},"fontSize":{"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"data-tabular":["13px",{"lineHeight":"18px","fontWeight":"500"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-xs":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"26px","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-sm":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-low"><span class="material-symbols-outlined text-primary text-headline-lg">corporate_fare</span><div><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">AgriSync Ops</h1><span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Institutional Mandi Portal</span></div></div><div class="px-space-md py-space-sm"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider px-space-sm font-semibold">Procurement Core</span></div><nav class="px-space-sm flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-md rounded-lg shadow-sm"><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="buyer-procurement-bids" href="#"><span class="material-symbols-outlined text-headline-sm">gavel</span><span>Buyer Procurement &amp; Bids</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="apmc-mandi-yard-weighbridge" href="#"><span class="material-symbols-outlined text-headline-sm">scale</span><span>APMC Mandi Yard &amp; Weighbridge</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="contracts-escrow-vault" href="#"><span class="material-symbols-outlined text-headline-sm">account_balance</span><span>Contracts &amp; Escrow Vault</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="quality-assay-certifications" href="#"><span class="material-symbols-outlined text-headline-sm">biotech</span><span>Quality &amp; Assay Certifications</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="transport-drayage-manifests" href="#"><span class="material-symbols-outlined text-headline-sm">local_shipping</span><span>Transport &amp; Drayage Manifests</span></a></nav></div><div class="p-space-md bg-surface-container-low flex flex-col gap-space-sm"><div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">APMC Act Sec 32A</span><span class="flex items-center gap-space-xs font-label-xs text-label-xs text-primary font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Active</span></div><div class="flex items-center justify-between pt-space-xs"><span class="font-label-xs text-label-xs text-on-surface-variant font-medium">e-NAM Gateway</span><span class="font-data-tabular text-data-tabular text-secondary font-semibold">SYNCHRONIZED</span></div></div><div class="flex flex-col gap-space-xs pt-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" href="#"><span class="material-symbols-outlined text-headline-sm">contact_support</span><span>24/7 Mandi Support Desk</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg bg-surface hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm text-primary">agriculture</span><span>Switch to Farmer View</span></span><span class="material-symbols-outlined text-label-sm text-outline">arrow_forward</span></a></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #166534
+- Font: inter
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VsF-L6I3tE2D1Pj_JGkEYkBtjjjttdW-IC_bURjItqEVAbExCowlczxuwi0YaCUNCgY3v37ZSlmnVxg91XttY4CpRJKKXAGWnP5AhwgIokjv0x2j54XgDe1T2Q2mdTMQHs6TA8b3cFoBsPyv6uqSnc9EsLqV5CIlBgTSM9lW2LGfHaRqzautgUxfLaTtdqzoOm594gaVqnZj47fkm0ZFoMeH09Y_kIMVoJAbFMzseV4fGnyFQPShTJdPE"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">AgriSync Institutional</span></div><div class="h-5 w-px bg-surface-container-high"></div><span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary-container text-on-secondary-fixed font-label-xs text-label-xs rounded font-semibold"><span class="material-symbols-outlined text-label-md">verified_user</span><span>Institutional Buyer / APMC Operator</span></span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Agmarknet &amp; Mandi Sync:</span><span class="font-data-tabular text-data-tabular text-primary font-semibold">LIVE (0.4s)</span></div><div class="flex items-center bg-surface-container p-space-xs rounded-lg"><button class="px-space-sm py-space-xs bg-surface-container-lowest text-on-surface font-label-xs text-label-xs rounded font-semibold shadow-sm" type="button">EN</button><button class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface font-label-xs text-label-xs rounded font-semibold" type="button">मराठी</button></div><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-headline-md">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VaCanNSiOlb0P5wd-6oUJB7tcOHS6tZeMOym5ap2YUpudZ6v1DkHWBsBCOYtaqL0_DNqJ1Tw3zXDs6RZTTS9WQI9JLDB4n3jkE_MVLWcYIDsC0pahXOGK11ZOS1ruqj4JI1GUKcS2hk7ilNVzonsRSgGtKLuia9txcZ5YXOum_PJl0m4Epzt01xzsnFF8lSaz8vCs6yuyji-RBN3F4TCxkMpleBntpjb7Iab_R0x_gZCUoZfyxWlIAtwM"/><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm text-on-surface leading-tight font-semibold">APMC Desk #04</span><span class="font-label-xs text-label-xs text-on-surface-variant leading-tight">Vashi Terminal</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Operator Command Bar / Telemetry Header -->
+<section class="w-full bg-surface-container-low px-space-xl py-space-md shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-md">
+<!-- Title, Mandi ID & Licensed Desk Operator -->
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-0.5 bg-primary-container text-on-primary rounded font-label-xs text-label-xs tracking-wider uppercase">
+<span class="material-symbols-outlined text-[14px]">terminal</span>WB-03 Active
+          </span>
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-semibold">
+            APMC Mandi Yard &amp; Weighbridge Operator Console
+          </span>
+</div>
+<div class="flex items-center gap-space-md mt-0.5 flex-wrap">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-label-sm text-primary">location_on</span>
+<span class="font-medium text-on-surface">Pimpalgaon Baswant APMC (Main Yard)</span>
+<span class="text-outline-variant">/</span>
+<span>Gate #2 &amp; Platform Weighbridge WB-03</span>
+</div>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-label-sm">badge</span>
+<span>Duty: <strong class="text-on-surface font-medium">Shri S. G. Deshmukh</strong> (APMC-NSK-OP-441)</span>
+</div>
+</div>
+</div>
+<!-- Quick Actions for Weighbridge Desk -->
+<div class="flex items-center gap-space-sm flex-wrap self-start xl:self-auto">
+<button class="inline-flex items-center gap-space-xs px-space-md h-9 bg-surface-container-lowest text-on-surface hover:bg-surface hover:text-primary transition-colors rounded-lg font-label-md text-label-md font-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-headline-sm">confirmation_number</span>
+<span>Emergency Token</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md h-9 bg-surface-container-lowest text-on-surface hover:bg-surface hover:text-error transition-colors rounded-lg font-label-md text-label-md font-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-headline-sm text-error">tune</span>
+<span>Manual Override</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md h-9 bg-surface-container-lowest text-on-surface hover:bg-surface transition-colors rounded-lg font-label-md text-label-md font-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-headline-sm">receipt_long</span>
+<span>Print Tare Docket</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md h-9 bg-primary-container text-on-primary hover:bg-primary transition-colors rounded-lg font-label-md text-label-md font-medium shadow-sm" type="button">
+<span class="material-symbols-outlined text-headline-sm">menu_book</span>
+<span>Day Closing Ledger</span>
+</button>
+</div>
+</div>
+<!-- Live Telemetry Status Ticker -->
+<div class="mt-space-md pt-space-xs flex items-center justify-between gap-space-lg overflow-x-auto">
+<div class="flex items-center gap-space-xl text-on-surface-variant font-label-xs text-label-xs whitespace-nowrap">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="uppercase tracking-wider">Weighbridge Sensor BLE:</span>
+<span class="font-data-tabular text-data-tabular font-semibold text-primary">ONLINE (Oct 2024 Calibrated)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-primary">check_circle</span>
+<span class="uppercase tracking-wider">Tare Scale Auto-Zero:</span>
+<span class="font-data-tabular text-data-tabular font-semibold text-on-surface">VERIFIED (±0.00 kg)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-tertiary">speed</span>
+<span class="uppercase tracking-wider">Queue Flow:</span>
+<span class="font-data-tabular text-data-tabular font-semibold text-tertiary">OPTIMAL (~11m Dwell)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">photo_camera</span>
+<span class="uppercase tracking-wider">ANPR Camera:</span>
+<span class="font-data-tabular text-data-tabular font-semibold text-on-surface">LPR-CAM-02 (SYNCED)</span>
+</div>
+</div>
+<div class="hidden lg:flex items-center gap-space-xs text-on-surface-variant font-label-xs text-label-xs whitespace-nowrap">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Mandi Standard Time: <span class="font-data-tabular font-semibold text-on-surface" id="live-clock">11:42:08 AM IST</span></span>
+</div>
+</div>
+</section>
+<!-- Real-Time Yard Traffic KPIs (4 Cards) -->
+<section class="w-full px-space-xl py-space-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- KPI 1: Vehicles in Yard -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Vehicles in Yard</span>
+<span class="font-display-sm text-display-sm font-semibold text-on-surface mt-1">28 <span class="font-headline-sm text-headline-sm text-on-surface-variant">/ 45 Cap</span></span>
+</div>
+<span class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-lg">local_shipping</span>
+</span>
+</div>
+<div class="mt-space-md">
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 62%;"></div>
+</div>
+<div class="flex items-center justify-between mt-space-xs text-on-surface-variant font-label-xs text-label-xs">
+<span>62% Capacity Occupied</span>
+<span class="font-data-tabular font-medium text-on-surface">14 Tractors • 14 Trucks</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Avg Weighbridge Wait -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Avg Weighbridge Wait</span>
+<span class="font-display-sm text-display-sm font-semibold text-primary mt-1">11.4 <span class="font-headline-sm text-headline-sm font-medium">Mins</span></span>
+</div>
+<span class="w-9 h-9 rounded-lg bg-primary-container/10 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-lg">avg_time</span>
+</span>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-primary font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span>↓ 72% faster vs manual queues (Pre-booked)</span>
+</div>
+</div>
+<!-- KPI 3: Lots Weighed Today -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Lots Weighed Today</span>
+<span class="font-display-sm text-display-sm font-semibold text-on-surface mt-1">142 <span class="font-headline-sm text-headline-sm text-on-surface-variant">Lots</span></span>
+</div>
+<span class="w-9 h-9 rounded-lg bg-secondary-container text-on-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-lg">inventory_2</span>
+</span>
+</div>
+<div class="mt-space-md flex items-center justify-between font-label-xs text-label-xs text-on-surface-variant">
+<span>Gross Volume Handled</span>
+<span class="font-data-tabular font-semibold text-on-surface">1,820.40 MT</span>
+</div>
+</div>
+<!-- KPI 4: Auto-DBT Triggers Fired -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Auto-DBT Released</span>
+<span class="font-display-sm text-display-sm font-semibold text-on-surface mt-1">₹1.48 <span class="font-headline-sm text-headline-sm text-on-surface-variant">Cr</span></span>
+</div>
+<span class="w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-headline-lg">account_balance_wallet</span>
+</span>
+</div>
+<div class="mt-space-md flex items-center gap-space-xs text-on-surface-variant font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+<span class="text-on-surface font-medium">Sec 32A e-Settlement Active</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Operational Workstation: 60% Left / 40% Right Split -->
+<section class="w-full px-space-xl pb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Live Weighbridge Inspection & Active Token Queue (7 Cols / ~60%) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Active Weighment Platform Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Card Header / Camera Feeds -->
+<div class="p-space-lg bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-3 h-3 rounded-full bg-error animate-ping"></span>
+<div>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+                  Active Platform: Weighbridge WB-03
+                </span>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wide">
+                  Sensor Telemetry ID: APMC-WB03-LCELL4 • Calibration Class III
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-start sm:self-auto">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-highest text-on-surface font-data-tabular text-label-xs rounded font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary">videocam</span> ANPR Live Match
+              </span>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-primary-container text-on-primary font-label-xs text-label-xs rounded font-medium">
+                Vehicle Stationary
+              </span>
+</div>
+</div>
+<!-- Vehicle & Lot Overview Mosaic -->
+<div class="p-space-lg grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Tractor Details & ANPR Snapshot -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider font-semibold">Tractor &amp; Trolley</span>
+<div class="font-headline-lg text-headline-lg font-semibold text-on-surface mt-0.5">MH-15-BJ-9182</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Swaraj 855 FE (Red Trolley)</div>
+</div>
+<span class="px-space-sm py-0.5 bg-surface-container-highest text-on-surface font-label-xs text-label-xs rounded font-semibold uppercase">Token #B-14</span>
+</div>
+<div class="mt-space-md flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Dnyaneshwar Khanderao</span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant">+91 98231 44210 (Aadhaar Verified)</span>
+</div>
+</div>
+</div>
+<!-- Farmer, Lot & Mandi Sauda -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider font-semibold">Farmer &amp; Commodity</span>
+<span class="font-label-xs text-label-xs text-primary font-semibold">Lot #LOT-2024-098</span>
+</div>
+<div class="font-headline-lg text-headline-lg font-semibold text-on-surface mt-0.5">Rajesh Dashrath Patil</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Garwa Red Onion (Nashik Quality) • 480 Bags</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between font-label-xs text-label-xs">
+<span class="text-on-surface-variant">Contracted Buyer:</span>
+<span class="font-semibold text-primary">Maharshi Agro Exports (SAUDA-8842)</span>
+</div>
+</div>
+</div>
+<!-- Real-Time Digital Scale Matrix -->
+<div class="px-space-lg pb-space-md">
+<div class="bg-inverse-surface text-inverse-on-surface p-space-lg rounded-xl shadow-inner flex flex-col">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-xs text-label-xs text-inverse-on-surface/70 uppercase tracking-widest font-semibold flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                  Telemetry Loadcell Strain Matrix (WB-03)
+                </span>
+<span class="font-data-tabular text-label-xs text-primary-fixed-dim uppercase tracking-wider">ISO/IEC 17025 Compliant</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-xs">
+<!-- Gross Weight -->
+<div class="bg-inverse-surface/60 p-space-md rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-inverse-on-surface/80 uppercase">Gross Weight (Loaded)</span>
+<div class="font-display-sm text-display-sm font-semibold tracking-tight text-inverse-on-surface mt-1">
+                    28,420 <span class="font-body-sm text-body-sm font-normal text-inverse-on-surface/70">kg</span>
+</div>
+<span class="font-label-xs text-label-xs text-inverse-on-surface/60 mt-1">Live Telemetry Read</span>
+</div>
+<!-- Tare Weight -->
+<div class="bg-inverse-surface/60 p-space-md rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-inverse-on-surface/80 uppercase">Registered Tare (Empty)</span>
+<div class="font-display-sm text-display-sm font-semibold tracking-tight text-inverse-on-surface mt-1">
+                    4,420 <span class="font-body-sm text-body-sm font-normal text-inverse-on-surface/70">kg</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary-fixed-dim mt-1">Vehicle RFID Tare Match</span>
+</div>
+<!-- Net Weight Highlighted -->
+<div class="bg-primary-container p-space-md rounded-lg flex flex-col text-on-primary">
+<span class="font-label-xs text-label-xs text-on-primary/90 uppercase font-semibold">Net Payable Produce</span>
+<div class="font-display-sm text-display-sm font-semibold tracking-tight mt-1">
+                    24,000 <span class="font-body-sm text-body-sm font-normal text-on-primary/80">kg</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-primary/90 font-medium mt-1">= 24.0 MT (480 Bags @ 50kg)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Assaying & QC Pre-Check Strip -->
+<div class="px-space-lg pb-space-lg">
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">water_drop</span>
+<span class="text-on-surface-variant">Moisture:</span>
+<span class="font-data-tabular font-semibold text-on-surface">11.4%</span>
+<span class="font-label-xs text-label-xs text-primary font-semibold">(Limit ≤12%)</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">grain</span>
+<span class="text-on-surface-variant">Foreign Matter:</span>
+<span class="font-data-tabular font-semibold text-on-surface">0.8%</span>
+<span class="font-label-xs text-label-xs text-primary font-semibold">(Clean)</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary">category</span>
+<span class="text-on-surface-variant">Grade:</span>
+<span class="inline-flex items-center px-space-sm py-0.5 bg-secondary-container text-on-secondary-fixed font-label-xs text-label-xs rounded font-semibold">
+                    Grade A (45–65mm)
+                  </span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs font-label-xs text-label-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>QC Lab #02 Certified</span>
+</div>
+</div>
+</div>
+<!-- Operator Primary Action Trigger Bar -->
+<div class="px-space-lg py-space-md bg-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-primary text-headline-sm">security</span>
+<span>Double Authorization Enabled for Sec 32A Release</span>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-space-md h-9 bg-surface-container-lowest text-on-surface hover:bg-surface transition-colors rounded-lg font-label-md text-label-md font-medium shadow-sm" type="button">
+                Flag Re-Sample
+              </button>
+<button class="flex-1 sm:flex-initial px-space-md h-9 bg-surface-container-lowest text-on-surface hover:bg-surface transition-colors rounded-lg font-label-md text-label-md font-medium shadow-sm flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+<span>Slip (मराठी/EN)</span>
+</button>
+<button class="flex-1 sm:flex-initial px-space-lg h-9 bg-primary-container hover:bg-primary text-on-primary transition-colors rounded-lg font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs shadow-sm" id="btn-authorize" onclick="authorizeTare()" type="button">
+<span class="material-symbols-outlined text-[18px]">lock_open</span>
+<span id="btn-auth-text">Authorize Tare &amp; Fire DBT</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Inbound Gate Queue / Advance Token Stack -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-headline-md text-primary">swap_vert</span>
+<div>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+                  Inbound Yard Gate Queue (Next in Sequence)
+                </span>
+<p class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">
+                  Automated Slot Booking via Farmer App • Pre-Triaged
+                </p>
+</div>
+</div>
+<span class="inline-flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-highest text-on-surface font-data-tabular text-label-xs rounded font-medium">
+              3 Trucks in Standby
+            </span>
+</div>
+<!-- Queue Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase">
+<th class="py-space-sm px-space-md font-semibold">Token / ETA</th>
+<th class="py-space-sm px-space-md font-semibold">Vehicle &amp; Class</th>
+<th class="py-space-sm px-space-md font-semibold">Farmer &amp; Commodity</th>
+<th class="py-space-sm px-space-md font-semibold text-right">Est. Volume</th>
+<th class="py-space-sm px-space-md font-semibold text-center">Assigned Bay</th>
+<th class="py-space-sm px-space-md font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-data-tabular font-semibold text-primary">#B-15</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">ETA: 8 mins</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">MH-15-DC-3301</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Mahindra Bolero Maxi</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Kisan Bapu Jadhav</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Nashik Red Onion</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-data-tabular text-data-tabular font-medium whitespace-nowrap">
+                    3.50 MT
+                  </td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex px-space-sm py-0.5 bg-surface-container-high text-on-surface font-label-xs text-label-xs rounded font-medium">
+                      WB-02 (Aux)
+                    </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-xs text-label-xs font-medium" type="button">
+                      Call Gate
+                    </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-data-tabular font-semibold text-primary">#B-16</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">ETA: 14 mins</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">MH-15-ET-5519</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">John Deere 5310 Tractor</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Sunita Santosh Shinde</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">JS-335 Yellow Soybean</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-data-tabular text-data-tabular font-medium whitespace-nowrap">
+                    12.00 MT
+                  </td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex px-space-sm py-0.5 bg-primary-container/15 text-primary font-label-xs text-label-xs rounded font-semibold">
+                      WB-03 (Next)
+                    </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-xs text-label-xs font-medium" type="button">
+                      Queue Pin
+                    </button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-data-tabular font-semibold text-primary">#B-17</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">ETA: 22 mins</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">MH-15-GV-7740</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Eicher Pro 3016 (16T)</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Haribhau Pandurang Gite</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">White Onion Export</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-right font-data-tabular text-data-tabular font-medium whitespace-nowrap">
+                    16.00 MT
+                  </td>
+<td class="py-space-sm px-space-md text-center whitespace-nowrap">
+<span class="inline-flex px-space-sm py-0.5 bg-surface-container-high text-on-surface font-label-xs text-label-xs rounded font-medium">
+                      WB-01 (Export)
+                    </span>
+</td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-label-xs text-label-xs font-medium" type="button">
+                      Inspect Pass
+                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Auction Bay Coordination & Yard Security (5 Cols / ~40%) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Live Auction Bay Status -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-headline-sm">storefront</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Live Mandi Auction Bays</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> E-NAM Synced
+            </span>
+</div>
+<div class="space-y-space-sm mt-space-sm">
+<!-- Bay 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  Bay 1: Onion Shed A
+                </span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-medium">Open Bidding</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Current High Bid:</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-primary font-data-tabular">₹2,540 / Qtl</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs pt-1">
+<span>Adtya: Om Traders (#46)</span>
+<span>32 Lots Cleared</span>
+</div>
+</div>
+<!-- Bay 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                  Bay 2: Direct Farmgate Delivery Shed
+                </span>
+<span class="font-label-xs text-label-xs text-tertiary font-medium">Escrow Loading</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Procuring Entity:</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Maharshi Agro Exports</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs pt-1">
+<span>3 Trailers Currently Loading</span>
+<span class="text-primary font-semibold">100% Escrow Backed</span>
+</div>
+</div>
+<!-- Bay 3 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                  Bay 3: Grain &amp; Oilseed Platform
+                </span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-medium">QC Testing</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Testing Stream:</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">JS-335 Yellow Soybean</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs pt-1">
+<span>12 Rapid NIR Tests Completed</span>
+<span>Moisture Avg: 10.8%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sensor Diagnostics & Calibrations -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-headline-sm text-primary">sensors</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">WB-03 Hardware Diagnostics</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-semibold">ISO Class III</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm mt-space-sm">
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Zero Drift Balance</span>
+<span class="font-data-tabular text-headline-sm font-semibold text-primary mt-1">±0.02 kg</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Pass (Limit: ±0.05)</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Load Cells Status</span>
+<span class="font-data-tabular text-headline-sm font-semibold text-primary mt-1">4 / 4 Online</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Analog-to-Digital OK</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">CCTV High-Speed ANPR</span>
+<span class="font-data-tabular text-headline-sm font-semibold text-on-surface mt-1">99.8% Recog</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Plate: MH-15-BJ-9182</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Thermal Slip Printer</span>
+<span class="font-data-tabular text-headline-sm font-semibold text-primary mt-1">Ready</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Paper Roll: 84%</span>
+</div>
+</div>
+</div>
+<!-- APMC Statutory Compliance & Anti-Vigilance Desk -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col">
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-headline-sm text-primary">policy</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">APMC Act 1963 Compliance</span>
+</div>
+<span class="inline-flex px-space-sm py-0.5 bg-primary-container text-on-primary font-label-xs text-label-xs rounded font-semibold">
+              Sec 32A ACTIVE
+            </span>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-lg mt-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-medium text-on-surface">Unauthorized Hamali Deductions</span>
+<span class="font-label-xs text-label-xs text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check_circle</span> 0 Violations
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Automated bag weighment deduction is strictly locked at APMC mandated standard 1.0 kg/gunny bag. Any non-standard docking requires APMC Secretary digital counter-signature.
+            </p>
+</div>
+<!-- Emergency Inspector Intercom -->
+<div class="mt-space-md flex items-center justify-between pt-space-xs font-label-xs text-label-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-label-sm text-error">call</span>
+<span>APMC Vigilance Flying Squad:</span>
+<span class="font-semibold text-on-surface">+91 253 234881</span>
+</div>
+<button class="px-space-sm py-1 bg-surface-container text-on-surface hover:bg-surface-container-high rounded font-medium" type="button">
+              Intercom Call
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Live Clock Updater
+  function updateClock() {
+    const clockEl = document.getElementById('live-clock');
+    if (clockEl) {
+      const now = new Date();
+      clockEl.textContent = now.toLocaleTimeString('en-IN', { hour12: true }) + ' IST';
+    }
+  }
+  setInterval(updateClock, 1000);
+
+  // Tare Authorization Micro-Interaction
+  function authorizeTare() {
+    const btn = document.getElementById('btn-authorize');
+    const text = document.getElementById('btn-auth-text');
+    if (!btn || !text) return;
+    
+    text.textContent = "Disbursing DBT...";
+    btn.classList.remove('bg-primary-container');
+    btn.classList.add('bg-tertiary');
+    
+    setTimeout(() => {
+      text.textContent = "DBT Released (₹3,84,000)!";
+      btn.classList.remove('bg-tertiary');
+      btn.classList.add('bg-primary');
+      
+      setTimeout(() => {
+        text.textContent = "Tare Authorized & Logged";
+      }, 2000);
+    }, 1200);
+  }
+</script></main></div></body></html>

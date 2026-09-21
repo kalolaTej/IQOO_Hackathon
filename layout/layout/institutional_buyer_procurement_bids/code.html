@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"tertiary":"#00456c","primary-container":"#166534","primary-fixed-dim":"#8bd79b","on-tertiary-container":"#a7d4ff","surface-variant":"#dae2fd","on-secondary-container":"#57657a","on-error":"#ffffff","on-tertiary-fixed":"#001d32","secondary-fixed":"#d5e3fc","surface-container-highest":"#dae2fd","on-primary-fixed":"#00210b","on-primary":"#ffffff","outline":"#707a6f","on-primary-container":"#93e0a2","on-primary-fixed-variant":"#005226","surface-dim":"#d2d9f4","inverse-surface":"#283044","primary":"#004c22","on-secondary-fixed":"#0d1c2e","error":"#ba1a1a","inverse-on-surface":"#eef0ff","surface-tint":"#1f6c3a","on-background":"#131b2e","primary-fixed":"#a6f4b5","secondary-fixed-dim":"#b9c7df","surface-container-lowest":"#ffffff","surface-container":"#eaedff","on-surface":"#131b2e","error-container":"#ffdad6","surface":"#faf8ff","on-secondary-fixed-variant":"#3a485b","surface-container-high":"#e2e7ff","on-error-container":"#93000a","on-tertiary":"#ffffff","secondary-container":"#d5e3fc","secondary":"#515f74","tertiary-fixed":"#cde5ff","surface-bright":"#faf8ff","on-tertiary-fixed-variant":"#004b74","tertiary-container":"#005d90","on-secondary":"#ffffff","on-surface-variant":"#404940","surface-container-low":"#f2f3ff","inverse-primary":"#8bd79b","tertiary-fixed-dim":"#94ccff","outline-variant":"#bfc9bd","background":"#faf8ff"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","margin-desktop":"2rem","space-xl":"1.5rem","gutter-desktop":"1.5rem","space-lg":"1rem","margin":"1rem","space-sm":"0.5rem","space-md":"0.75rem","gutter":"1rem"},"fontFamily":{"headline-xl":["Inter"],"label-md":["Inter"],"headline-sm":["Inter"],"data-tabular":["Inter"],"display-lg":["Inter"],"body-sm":["Inter"],"headline-xl-mobile":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"label-xs":["Inter"],"headline-md":["Inter"],"label-sm":["Inter"],"display-sm":["Inter"],"headline-lg":["Inter"]},"fontSize":{"headline-xl":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"headline-sm":["16px",{"lineHeight":"24px","fontWeight":"600"}],"data-tabular":["13px",{"lineHeight":"18px","fontWeight":"500"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-xl-mobile":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-xs":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"26px","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"display-sm":["30px",{"lineHeight":"38px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-low"><span class="material-symbols-outlined text-primary text-headline-lg">corporate_fare</span><div><h1 class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">AgriSync Ops</h1><span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Institutional Mandi Portal</span></div></div><div class="px-space-md py-space-sm"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider px-space-sm font-semibold">Procurement Core</span></div><nav class="px-space-sm flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-md rounded-lg shadow-sm"><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="buyer-procurement-bids" href="#"><span class="material-symbols-outlined text-headline-sm">gavel</span><span>Buyer Procurement &amp; Bids</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="apmc-mandi-yard-weighbridge" href="#"><span class="material-symbols-outlined text-headline-sm">scale</span><span>APMC Mandi Yard &amp; Weighbridge</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="contracts-escrow-vault" href="#"><span class="material-symbols-outlined text-headline-sm">account_balance</span><span>Contracts &amp; Escrow Vault</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="quality-assay-certifications" href="#"><span class="material-symbols-outlined text-headline-sm">biotech</span><span>Quality &amp; Assay Certifications</span></a><a class="flex items-center gap-space-md px-space-md py-space-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface rounded-lg transition-colors font-label-md text-label-md" data-path="transport-drayage-manifests" href="#"><span class="material-symbols-outlined text-headline-sm">local_shipping</span><span>Transport &amp; Drayage Manifests</span></a></nav></div><div class="p-space-md bg-surface-container-low flex flex-col gap-space-sm"><div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">APMC Act Sec 32A</span><span class="flex items-center gap-space-xs font-label-xs text-label-xs text-primary font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Active</span></div><div class="flex items-center justify-between pt-space-xs"><span class="font-label-xs text-label-xs text-on-surface-variant font-medium">e-NAM Gateway</span><span class="font-data-tabular text-data-tabular text-secondary font-semibold">SYNCHRONIZED</span></div></div><div class="flex flex-col gap-space-xs pt-space-xs"><a class="flex items-center gap-space-sm px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" href="#"><span class="material-symbols-outlined text-headline-sm">contact_support</span><span>24/7 Mandi Support Desk</span></a><a class="flex items-center justify-between px-space-sm py-space-xs rounded-lg bg-surface hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-colors" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-headline-sm text-primary">agriculture</span><span>Switch to Farmer View</span></span><span class="material-symbols-outlined text-label-sm text-outline">arrow_forward</span></a></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #166534
+- Font: inter
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VsF-L6I3tE2D1Pj_JGkEYkBtjjjttdW-IC_bURjItqEVAbExCowlczxuwi0YaCUNCgY3v37ZSlmnVxg91XttY4CpRJKKXAGWnP5AhwgIokjv0x2j54XgDe1T2Q2mdTMQHs6TA8b3cFoBsPyv6uqSnc9EsLqV5CIlBgTSM9lW2LGfHaRqzautgUxfLaTtdqzoOm594gaVqnZj47fkm0ZFoMeH09Y_kIMVoJAbFMzseV4fGnyFQPShTJdPE"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">AgriSync Institutional</span></div><div class="h-5 w-px bg-surface-container-high"></div><span class="inline-flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary-container text-on-secondary-fixed font-label-xs text-label-xs rounded font-semibold"><span class="material-symbols-outlined text-label-md">verified_user</span><span>Institutional Buyer / APMC Operator</span></span></div><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-low"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Agmarknet &amp; Mandi Sync:</span><span class="font-data-tabular text-data-tabular text-primary font-semibold">LIVE (0.4s)</span></div><div class="flex items-center bg-surface-container p-space-xs rounded-lg"><button class="px-space-sm py-space-xs bg-surface-container-lowest text-on-surface font-label-xs text-label-xs rounded font-semibold shadow-sm" type="button">EN</button><button class="px-space-sm py-space-xs text-on-surface-variant hover:text-on-surface font-label-xs text-label-xs rounded font-semibold" type="button">मराठी</button></div><button class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-headline-md">notifications</span><span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VaCanNSiOlb0P5wd-6oUJB7tcOHS6tZeMOym5ap2YUpudZ6v1DkHWBsBCOYtaqL0_DNqJ1Tw3zXDs6RZTTS9WQI9JLDB4n3jkE_MVLWcYIDsC0pahXOGK11ZOS1ruqj4JI1GUKcS2hk7ilNVzonsRSgGtKLuia9txcZ5YXOum_PJl0m4Epzt01xzsnFF8lSaz8vCs6yuyji-RBN3F4TCxkMpleBntpjb7Iab_R0x_gZCUoZfyxWlIAtwM"/><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm text-on-surface leading-tight font-semibold">APMC Desk #04</span><span class="font-label-xs text-label-xs text-on-surface-variant leading-tight">Vashi Terminal</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Command Context Bar -->
+<div class="w-full bg-surface-container-low px-space-xl py-space-md">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Title & Corporate ID -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded bg-primary-container text-on-primary font-label-xs text-label-xs uppercase tracking-wider font-semibold">
+<span class="material-symbols-outlined text-label-sm">verified</span>
+            APMC Desk Live
+          </span>
+<span class="text-on-surface-variant font-label-xs text-label-xs">|</span>
+<span class="font-data-tabular text-data-tabular text-on-surface-variant font-medium">Session ID: <span class="text-on-surface font-semibold">MH-APMC-NSK-8821</span></span>
+<span class="text-on-surface-variant font-label-xs text-label-xs">|</span>
+<span class="inline-flex items-center gap-space-xs text-label-xs font-label-xs text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+            e-NAM Synchronized
+          </span>
+</div>
+<div class="flex items-baseline gap-space-md flex-wrap">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Institutional Buyer Procurement &amp; Live Bids</h1>
+<span class="font-label-md text-label-md text-secondary font-medium">Kharif 2024 Late Onion &amp; Soybean Mandate</span>
+</div>
+<div class="flex items-center gap-space-lg flex-wrap text-label-xs font-label-xs text-on-surface-variant pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-label-md text-secondary">domain</span>
+<span>Buyer Entity: <strong class="text-on-surface font-semibold">Maharshi Agro Exports Ltd.</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-label-md text-secondary">badge</span>
+<span>Reg ID: <strong class="text-on-surface font-semibold font-data-tabular">APEDA-REG-MH-2019-948</strong></span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-label-md text-primary">account_balance_wallet</span>
+<span>Escrow Nodal Vault: <strong class="text-primary font-semibold font-data-tabular">₹42,50,000</strong> (ICICI Agr Nodal)</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap self-start xl:self-center">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md rounded shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-headline-sm text-secondary">download</span>
+<span>Export Ledger (CSV)</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-label-md text-label-md rounded shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-headline-sm text-primary">add_card</span>
+<span>Deposit to Escrow Vault</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-lg py-space-sm bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md rounded shadow-sm transition-colors font-medium" type="button">
+<span class="material-symbols-outlined text-headline-sm">local_offer</span>
+<span>Create Forward Sauda Offer</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Operational Summary KPIs (4 Cards Bento Bar) -->
+<div class="px-space-xl py-space-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Total Procured (Kharif '24)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">Garwa Red Onion, Sharbati, JS-335</span>
+</div>
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-headline-sm">inventory_2</span>
+</div>
+</div>
+<div class="pt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-sm text-display-sm text-on-surface font-semibold font-data-tabular">184.5</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-medium">MT</span>
+</div>
+<span class="inline-flex items-center gap-0.5 px-space-sm py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">trending_up</span>
+            +22% target
+          </span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Escrow Vault Quarantined</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">3 Farmgate Saudas in Weighing Tare</span>
+</div>
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-headline-sm">lock_clock</span>
+</div>
+</div>
+<div class="pt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-sm text-display-sm text-on-surface font-semibold font-data-tabular">₹18,40,000</span>
+</div>
+<span class="inline-flex items-center gap-0.5 px-space-sm py-0.5 rounded bg-surface-container-high text-secondary font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">security</span>
+            Auto-disburse
+          </span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Active Live Bids</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">Pimpalgaon &amp; Lasalgaon Clusters</span>
+</div>
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-headline-sm">gavel</span>
+</div>
+</div>
+<div class="pt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-sm text-display-sm text-on-surface font-semibold font-data-tabular">6</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-medium">Open Requests</span>
+</div>
+<span class="inline-flex items-center gap-0.5 px-space-sm py-0.5 rounded bg-surface-variant text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
+            4 Verified Resp.
+          </span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Avg Quality Score</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">Moisture 10.8% | Zero Rejections</span>
+</div>
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-headline-sm">verified_user</span>
+</div>
+</div>
+<div class="pt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-sm text-display-sm text-primary-container font-bold font-data-tabular">Grade A</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium font-data-tabular">(94.2%)</span>
+</div>
+<span class="inline-flex items-center gap-0.5 px-space-sm py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">check_circle</span>
+            Agmarknet FAQ
+          </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Primary Content Grid: 65% Left / 35% Right -->
+<div class="px-space-xl pb-space-xl grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- ==================== LEFT COLUMN (65%) ==================== -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl min-w-0">
+<!-- Operational Subhead & Filters -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-headline-md">tune</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">APMC Farmer Harvest Lots &amp; Direct Bids</span>
+</div>
+<div class="flex items-center gap-space-xs text-label-xs font-label-xs text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>Live Mandi Feed: <strong class="text-on-surface font-data-tabular">28 lots available</strong></span>
+</div>
+</div>
+<!-- Filter Controls Bar -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-xs">
+<div>
+<label class="block font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold mb-1">Commodity</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-sm pr-space-lg bg-surface text-on-surface rounded font-body-sm text-body-sm appearance-none focus:outline-none focus:bg-surface-container">
+<option selected="">All Commodities</option>
+<option>Garwa Red Onion (Nashik)</option>
+<option>Soybean JS-335</option>
+<option>Maize Yellow Grain</option>
+<option>Moong Whole</option>
+<option>Table Grapes (Thompson)</option>
+</select>
+<span class="material-symbols-outlined text-label-sm absolute right-2 top-2.5 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold mb-1">District / Mandi Zone</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-sm pr-space-lg bg-surface text-on-surface rounded font-body-sm text-body-sm appearance-none focus:outline-none focus:bg-surface-container">
+<option selected="">All Zones (Nashik Belt)</option>
+<option>Pimpalgaon APMC Yard</option>
+<option>Lasalgaon Onion Mandi</option>
+<option>Niphad Farmgates</option>
+<option>Dindori FPO Hub</option>
+</select>
+<span class="material-symbols-outlined text-label-sm absolute right-2 top-2.5 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold mb-1">Quality Assay</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-sm pr-space-lg bg-surface text-on-surface rounded font-body-sm text-body-sm appearance-none focus:outline-none focus:bg-surface-container">
+<option selected="">Grade A &amp; Export FAQ</option>
+<option>Grade A (&gt;90% Score)</option>
+<option>Standard FAQ</option>
+<option>Industrial Processing Grade</option>
+</select>
+<span class="material-symbols-outlined text-label-sm absolute right-2 top-2.5 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+<div>
+<label class="block font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold mb-1">Sort Metric</label>
+<div class="relative">
+<select class="w-full h-9 pl-space-sm pr-space-lg bg-surface text-on-surface rounded font-body-sm text-body-sm appearance-none focus:outline-none focus:bg-surface-container">
+<option selected="">Distance: Closest First</option>
+<option>Bid Expiry: Ending Soon</option>
+<option>Volume: High to Low</option>
+<option>Price: Lowest First</option>
+</select>
+<span class="material-symbols-outlined text-label-sm absolute right-2 top-2.5 pointer-events-none text-secondary">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Harvest Lots Cards -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Live Farmer Harvest Lots</span>
+<span class="px-space-xs py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-data-tabular text-label-xs font-semibold">3 Immediate Action</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Direct Mandi Auction Rules Enforced (Sec 32A)</span>
+</div>
+<!-- Lot 1: Garwa Red Onion -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Freshly harvested Indian Garwa red onions stacked in ventilated crates on an agricultural Mandi yard concrete pad under soft early morning natural sunlight with deep red tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZRdxSm7rpw4LZXDam88RQBKfzdFwkv4ul0PnwIyWktAiCIt8hH4xNafYSG791o4yy00uRmXGsM-sM70veFL0XE9esABFVJ00FHPxKvke6c67wjlA0gE4_NGn-YxQDGq_uJdhgeReCg8QI8LMqCfytI1WKA9TtaOBartX9jpDZbi7gmTPYhOgEu1h-YL6ZGTELGEFj4cQ-BnjYAwzFg-7w2ZhUKfGJzv1Qt7fs-b2ySdVNL5A_8zZ7"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Lot #LOT-2024-102</span>
+<span class="inline-flex items-center gap-0.5 px-space-sm py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">verified</span> KYC Level 3
+                  </span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-data-tabular">Exp: 02h 14m</span>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant pt-0.5">
+<span class="material-symbols-outlined text-label-sm text-secondary">person</span>
+<span class="font-medium text-on-surface">Rajesh D. Patil</span>
+<span>•</span>
+<span>Niphad Taluka, Nashik</span>
+<span class="font-data-tabular text-primary font-semibold">(8.4 km via SH-17)</span>
+</div>
+</div>
+</div>
+<!-- Volume and Price Stamp -->
+<div class="flex sm:flex-col items-baseline sm:items-end justify-between gap-space-xs bg-surface-container-low sm:bg-transparent p-space-sm sm:p-0 rounded">
+<span class="font-label-xs text-label-xs text-secondary font-medium">Farmer Asking Price</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl text-primary font-bold font-data-tabular">₹2,550</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">/ Qtl</span>
+</div>
+<span class="font-data-tabular text-body-sm text-on-surface font-semibold">24.0 MT Total Lot</span>
+</div>
+</div>
+<!-- Quality Metric Pills Bento Row -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm p-space-md rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Commodity Grade</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Garwa Red Onion</span>
+<span class="font-data-tabular text-label-xs text-secondary">Size 45-65mm Dia</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Assay Moisture</span>
+<span class="font-body-md text-body-md text-primary font-semibold font-data-tabular">11.2% Moisture</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Within APMC &lt;12% Tol.</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Conditioning</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Solar Polyhouse</span>
+<span class="font-label-xs text-label-xs text-secondary">Cured &amp; Bagged (480 Bags)</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Mandi Benchmark</span>
+<div class="flex items-center gap-1">
+<span class="font-data-tabular font-body-md text-body-md text-on-surface font-semibold">₹2,510/Qtl</span>
+<span class="material-symbols-outlined text-label-sm text-error">arrow_upward</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary font-medium font-data-tabular">+₹40 Premium Lot</span>
+</div>
+</div>
+<!-- Interactive Action Desk for Lot 1 -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs text-label-xs font-label-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-label-md text-primary">account_balance</span>
+<span>Escrow Auto-Lock requirement: <strong class="text-on-surface font-data-tabular font-semibold">₹6,12,000</strong></span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 sm:flex-initial px-space-md py-space-sm bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md rounded font-medium transition-colors" type="button">
+                Inspect Quality Slip
+              </button>
+<button class="flex-1 sm:flex-initial px-space-md py-space-sm bg-surface-container-highest text-primary hover:bg-surface-variant font-label-md text-label-md rounded font-medium transition-colors" type="button">
+                Place Counter Bid
+              </button>
+<button class="flex-1 sm:flex-initial px-space-lg py-space-sm bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md rounded font-semibold shadow-sm transition-colors" type="button">
+                Instant Sauda @ ₹2,550
+              </button>
+</div>
+</div>
+</div>
+<!-- Lot 2: Sahyadri FPO Export Table Grapes -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High quality green Thompson seedless export table grapes in plastic harvest crates at a modern pre-cooling packhouse in Maharashtra India" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmdyjDMB9DAFFvE_wx98qrt3u9-jBpAOWBuBba4SDDQtNuROItZ1820l1Ny8Fbwg5Tg9xb6PAOHHXOSaI0Us406DnHoXpo0-idgK5EWZKZYnXkKoKFAEXiGd5CTIl87FbEEleGEWaajI5a5VXoqHDzbJcAAqD9WTX0RLHSNxy206eX5hfQqeI_ZnasBDO8AydjJ5h0jKR0D90xHnkI3xdbwmbrPGT0f5bxevTQkXpe_oZ2eI6WbD_2"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Lot #LOT-2024-105</span>
+<span class="inline-flex items-center gap-0.5 px-space-sm py-0.5 rounded bg-secondary-container text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">groups</span> FPO Producer Cluster
+                  </span>
+<span class="font-label-xs text-label-xs text-on-surface-variant font-data-tabular">Exp: 05h 48m</span>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant pt-0.5">
+<span class="material-symbols-outlined text-label-sm text-secondary">corporate_fare</span>
+<span class="font-medium text-on-surface">Sahyadri Farmers Producer Co-op</span>
+<span>•</span>
+<span>Dindori Hub</span>
+<span class="font-data-tabular text-primary font-semibold">(14.2 km via SH-19)</span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-baseline sm:items-end justify-between gap-space-xs bg-surface-container-low sm:bg-transparent p-space-sm sm:p-0 rounded">
+<span class="font-label-xs text-label-xs text-secondary font-medium">Cluster Reserve Price</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl text-tertiary font-bold font-data-tabular">₹8,200</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">/ Qtl</span>
+</div>
+<span class="font-data-tabular text-body-sm text-on-surface font-semibold">45.0 MT Pre-Chilled</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm p-space-md rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Variety</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Thompson Seedless</span>
+<span class="font-data-tabular text-label-xs text-secondary">Berry Dia: 18mm+</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Brix Sweetness</span>
+<span class="font-body-md text-body-md text-primary font-semibold font-data-tabular">17.5° Brix Sugar</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Refractometer Assayed</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Cold Chain Status</span>
+<span class="font-body-md text-body-md text-on-surface font-medium">Pre-Cooled (2°C)</span>
+<span class="font-label-xs text-label-xs text-secondary">Palletized 5kg punnets</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">GlobalGAP Cert</span>
+<div class="flex items-center gap-1">
+<span class="font-data-tabular font-body-md text-body-md text-primary font-semibold">GGN-4059-881</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-surface-variant">EU MRL Residue Compliant</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs text-label-xs font-label-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-label-md text-primary">ac_unit</span>
+<span>Drayage: Reefer Transport manifests ready for Vashi Cold Terminal</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 sm:flex-initial px-space-md py-space-sm bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md rounded font-medium transition-colors" type="button">
+                Assay Certificate
+              </button>
+<button class="flex-1 sm:flex-initial px-space-lg py-space-sm bg-tertiary text-on-tertiary hover:bg-tertiary-container font-label-md text-label-md rounded font-semibold shadow-sm transition-colors" type="button">
+                Submit Escrow Bid (₹8,200/Qtl)
+              </button>
+</div>
+</div>
+</div>
+<!-- Lot 3: Soybean JS-335 -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Clean golden yellow soybean harvest grains in gunny sack bags on a mandi testing tray in Lasalgaon Maharashtra" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYYrtIcjgORIZ8OVwclzIJ21MecruUpXkWWLdImFCix9ATSFSkIyAUVF5xz_gRQAITLEkwRE4Gd5P2AQIk-4lD1ia_Ld0_r8KVS3QViJEmHFagPd1SOWw9u8rodhE2f-CTArHEYf0rWQoRsDuIWD6rrwkPMlsl8brcx41bH-rzv2si09vl3cc-VgaZ2wziNfuEQ6O8UHmxJ0sW3j4MtZdvvDLolHOGg9vLoACKxjGr0clb6M_G9bOG"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Lot #LOT-2024-099</span>
+<span class="inline-flex items-center gap-0.5 px-space-sm py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">verified</span> KYC Level 3
+                  </span>
+<span class="font-label-xs text-label-xs text-error font-semibold font-data-tabular">Closes in 18 min</span>
+</div>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant pt-0.5">
+<span class="material-symbols-outlined text-label-sm text-secondary">person</span>
+<span class="font-medium text-on-surface">Suresh K. Bhadane</span>
+<span>•</span>
+<span>Lasalgaon APMC Sub-Yard</span>
+<span class="font-data-tabular text-primary font-semibold">(18.0 km)</span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-baseline sm:items-end justify-between gap-space-xs bg-surface-container-low sm:bg-transparent p-space-sm sm:p-0 rounded">
+<span class="font-label-xs text-label-xs text-secondary font-medium">Asking Price</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-xl text-headline-xl text-primary font-bold font-data-tabular">₹4,850</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">/ Qtl</span>
+</div>
+<span class="font-data-tabular text-body-sm text-on-surface font-semibold">18.5 MT Bulk</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm p-space-md rounded-lg bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Grade</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Soybean JS-335</span>
+<span class="font-label-xs text-label-xs text-secondary">High Protein 38.4%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Moisture Content</span>
+<span class="font-body-md text-body-md text-primary font-semibold font-data-tabular">9.8% (Dry)</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Max threshold 10.0%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Foreign Matter</span>
+<span class="font-body-md text-body-md text-on-surface font-medium font-data-tabular">&lt; 1.5%</span>
+<span class="font-label-xs text-label-xs text-secondary">Graded &amp; De-stoned</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Pimpalgaon Spot</span>
+<div class="flex items-center gap-1">
+<span class="font-data-tabular font-body-md text-body-md text-on-surface font-semibold">₹4,875/Qtl</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary font-medium font-data-tabular">-₹25 Below Spot</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs text-label-xs font-label-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-label-md text-primary">pin_drop</span>
+<span>Yard Holding Bay #B-04 ready for weighbridge tare test</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex-1 sm:flex-initial px-space-md py-space-sm bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md rounded font-medium transition-colors" type="button">
+                Audit Lab Sample
+              </button>
+<button class="flex-1 sm:flex-initial px-space-lg py-space-sm bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md rounded font-semibold shadow-sm transition-colors" type="button">
+                Match Bid @ ₹4,850
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Forward Contracts Table Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-headline-md">receipt_long</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Active Forward Mandi Contracts (e-Sauda Ledger)</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Legally binding forward trades under Maharashtra APMC Act</span>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-highest text-secondary font-label-xs text-label-xs font-semibold font-data-tabular">
+            2 Active Execution Orders
+          </span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-secondary font-label-xs text-label-xs uppercase tracking-wider">
+<th class="py-space-sm px-space-md">Sauda ID</th>
+<th class="py-space-sm px-space-md">Farmer / FPO Partner</th>
+<th class="py-space-sm px-space-md">Commodity</th>
+<th class="py-space-sm px-space-md text-right">Volume</th>
+<th class="py-space-sm px-space-md text-right">Agreed Rate</th>
+<th class="py-space-sm px-space-md text-center">Escrow Status</th>
+<th class="py-space-sm px-space-md">Transit / Gate Tare</th>
+<th class="py-space-sm px-space-md text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low text-body-sm font-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md font-semibold text-primary font-data-tabular">#SAUDA-2024-8842</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Rajesh D. Patil</span>
+<span class="text-label-xs text-on-surface-variant">Niphad Agr Producer</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Garwa Red Onion</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right font-data-tabular font-semibold text-on-surface">24.0 MT</td>
+<td class="py-space-md px-space-md text-right font-data-tabular text-on-surface font-medium">₹2,520/Qtl</td>
+<td class="py-space-md px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded bg-surface-container text-primary font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">lock</span>
+                    Locked (₹6.04L)
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-label-xs font-semibold text-tertiary">MH-15-BJ-9182 (Tractor)</span>
+<span class="text-label-xs text-on-surface-variant font-data-tabular">ETA 25m • Lasalgaon Gate #2</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="px-space-sm py-1 rounded bg-primary-container text-on-primary hover:bg-primary text-label-xs font-label-xs font-medium transition-colors" type="button">
+                    Track Drayage
+                  </button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-space-md px-space-md font-semibold text-secondary font-data-tabular">#SAUDA-2024-8819</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Vasant FPO Co-op</span>
+<span class="text-label-xs text-on-surface-variant">Yeola Collective</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Maize Feed Grain</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right font-data-tabular font-semibold text-on-surface">30.0 MT</td>
+<td class="py-space-md px-space-md text-right font-data-tabular text-on-surface font-medium">₹2,150/Qtl</td>
+<td class="py-space-md px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-xs text-label-xs font-semibold">
+<span class="material-symbols-outlined text-label-sm">check_circle</span>
+                    Disbursed (DBT)
+                  </span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="text-label-xs font-semibold text-primary">Weighed &amp; Unloaded</span>
+<span class="text-label-xs text-on-surface-variant font-data-tabular">Slip #WBR-09412</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="px-space-sm py-1 rounded bg-surface-container text-on-surface hover:bg-surface-container-high text-label-xs font-label-xs font-medium transition-colors" type="button">
+                    View e-Sauda Slip
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- ==================== RIGHT COLUMN (35%) ==================== -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg min-w-0">
+<!-- Mandi Yard Price Comparison Ticker -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-headline-sm">query_stats</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Agmarknet Mandi Ticker</h3>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-primary font-data-tabular text-label-xs font-semibold">Live 11:42 IST</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time modal mandi prices vs Maharshi Agro direct offer rates</span>
+<!-- Ticker Item 1 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Lasalgaon APMC</span>
+<span class="font-label-xs text-label-xs px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary font-semibold">Onion Garwa</span>
+</div>
+<div class="flex items-baseline justify-between pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Yard Modal Price</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface font-data-tabular">₹2,480<span class="text-label-xs font-normal text-secondary">/Qtl</span></span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Our Direct Offer</span>
+<span class="font-headline-md text-headline-md font-bold text-primary font-data-tabular">₹2,550<span class="text-label-xs font-normal text-secondary">/Qtl</span></span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between text-label-xs font-label-xs text-primary font-medium">
+<span>Direct Farmgate Incentive:</span>
+<span class="font-data-tabular font-semibold">+₹70/Qtl (Premium)</span>
+</div>
+</div>
+<!-- Ticker Item 2 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Pimpalgaon Yard</span>
+<span class="font-label-xs text-label-xs px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary font-semibold">Soybean JS-335</span>
+</div>
+<div class="flex items-baseline justify-between pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Yard Modal Price</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface font-data-tabular">₹4,875<span class="text-label-xs font-normal text-secondary">/Qtl</span></span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Our Direct Offer</span>
+<span class="font-headline-md text-headline-md font-bold text-primary font-data-tabular">₹4,850<span class="text-label-xs font-normal text-secondary">/Qtl</span></span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between text-label-xs font-label-xs text-secondary font-medium">
+<span>Direct Farmgate Differential:</span>
+<span class="font-data-tabular font-semibold">-₹25/Qtl (Zero Yard Cess)</span>
+</div>
+</div>
+<!-- Ticker Item 3 -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Vashi Terminal (Navi Mumbai)</span>
+<span class="font-label-xs text-label-xs px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary font-semibold">Export Grapes</span>
+</div>
+<div class="flex items-baseline justify-between pt-space-xs">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Port Terminal Benchmark</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface font-data-tabular">₹8,900<span class="text-label-xs font-normal text-secondary">/Qtl</span></span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-xs text-label-xs text-on-surface-variant">Farmgate Ex-Packhouse</span>
+<span class="font-headline-md text-headline-md font-bold text-tertiary font-data-tabular">₹8,200<span class="text-label-xs font-normal text-secondary">/Qtl</span></span>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between text-label-xs font-label-xs text-tertiary font-medium">
+<span>Estimated Drayage Margin:</span>
+<span class="font-data-tabular font-semibold">₹700/Qtl</span>
+</div>
+</div>
+<!-- Mini Visual Chart: 7-Day Trend Sparkline (SVG) -->
+<div class="pt-space-xs flex flex-col gap-space-xs">
+<div class="flex justify-between items-center text-label-xs font-label-xs text-on-surface-variant">
+<span>Nashik Onion Modal 7-Day Trend</span>
+<span class="text-primary font-semibold font-data-tabular">▲ +6.4% Week</span>
+</div>
+<div class="w-full h-12 bg-surface-container-low rounded flex items-center px-space-sm">
+<svg class="w-full h-8 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 300 40">
+<path d="M0,32 L40,28 L80,30 L120,22 L160,25 L200,15 L240,18 L280,8 L300,10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<circle class="fill-primary" cx="300" cy="10" r="3"></circle>
+</svg>
+</div>
+</div>
+</div>
+<!-- Escrow Quarantined Wallet Summary -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-headline-sm">shield</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Escrow Quarantined Vault</h3>
+</div>
+<span class="material-symbols-outlined text-label-md text-primary" title="Secured by ICICI Bank Agricultural Settlement Framework">verified_user</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-space-sm">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-secondary">Nodal Balance Available</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface font-data-tabular">₹24,10,000</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 43%;"></div>
+</div>
+<div class="flex justify-between items-center text-label-xs font-label-xs text-on-surface-variant">
+<span>Locked in Bids: <strong class="text-on-surface font-data-tabular">₹18,40,000 (43%)</strong></span>
+<span>Vault Total: <strong class="text-on-surface font-data-tabular">₹42,50,000</strong></span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-label-md text-primary flex-shrink-0 mt-0.5">check</span>
+<span><strong>Maharashtra APMC Act Sec 32A:</strong> Full settlement funds auto-released to farmer via PFMS DBT within 60 mins of weighbridge tare confirmation.</span>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-label-md text-primary flex-shrink-0 mt-0.5">lock_reset</span>
+<span><strong>1-Click Bid Cancel Refund:</strong> Unmatched bids instantaneously unlock funds back to the unencumbered vault wallet.</span>
+</div>
+</div>
+<div class="pt-space-xs flex gap-space-sm">
+<button class="w-full py-space-sm px-space-md bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md rounded font-medium transition-colors" type="button">
+            Audit Vault Ledger
+          </button>
+</div>
+</div>
+<!-- Mandi Quality Benchmark Assistant -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-headline-sm">biotech</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Agmark Grade Assay Rules</h3>
+</div>
+<div class="flex flex-col gap-space-xs text-body-sm font-body-sm text-on-surface-variant">
+<div class="p-space-sm bg-surface-container-low rounded flex items-center justify-between">
+<span class="font-medium text-on-surface">Garwa Red Onion</span>
+<span class="font-data-tabular text-label-xs text-primary font-semibold">Moisture ≤ 12.0% | Rot &lt; 2.0%</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded flex items-center justify-between">
+<span class="font-medium text-on-surface">Soybean JS-335</span>
+<span class="font-data-tabular text-label-xs text-primary font-semibold">Moisture ≤ 10.0% | FM &lt; 2.0%</span>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded flex items-center justify-between">
+<span class="font-medium text-on-surface">Export Grapes</span>
+<span class="font-data-tabular text-label-xs text-tertiary font-semibold">Brix ≥ 16.5° | Zero MRL</span>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-variant/40 flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary flex-shrink-0">scale</span>
+<span class="font-label-xs text-label-xs text-on-surface">
+            Weighbridge tare records are auto-captured via connected digital scales with CCTV visual stamps to prevent grading disputes.
+          </span>
+</div>
+</div>
+<!-- Mandi Trade Ombudsman Helpline & Support -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-secondary uppercase tracking-wider font-semibold">APMC Desk Support</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-headline-sm">support_agent</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Trade Ombudsman Desk</span>
+<span class="font-data-tabular text-body-sm text-on-surface-variant">Toll Free: 1800-233-0498</span>
+</div>
+</div>
+<div class="pt-space-xs flex justify-between text-label-xs font-label-xs text-secondary">
+<span>Lasalgaon Gate In-Charge: Officer V. Jadhav</span>
+<a class="text-primary hover:underline font-semibold" href="#">Raise Dispute</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for fast counter-bid modal or confirmation feedback
+  document.addEventListener('DOMContentLoaded', () => {
+    const instantSaudaBtn = document.querySelectorAll('button');
+    instantSaudaBtn.forEach(btn => {
+      if (btn.textContent.includes('Instant Sauda')) {
+        btn.addEventListener('click', () => {
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<span class="material-symbols-outlined text-label-md animate-spin">sync</span> Locking Escrow...';
+          btn.classList.add('opacity-75');
+          setTimeout(() => {
+            btn.innerHTML = '<span class="material-symbols-outlined text-label-md">check</span> Sauda Confirmed';
+            btn.classList.remove('opacity-75');
+            btn.classList.add('bg-primary');
+          }, 1200);
+        });
+      }
+    });
+  });
+</script></main></div></body></html>

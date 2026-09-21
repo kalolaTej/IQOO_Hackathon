@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-surface-variant': '#404940', 'primary': '#004c22', 'outline': '#707a6f', 'tertiary-fixed-dim': '#94ccff', 'inverse-on-surface': '#eef0ff', 'on-tertiary': '#ffffff', 'surface-container-highest': '#dae2fd', 'on-secondary': '#ffffff', 'on-primary': '#ffffff', 'on-primary-fixed': '#00210b', 'secondary-fixed-dim': '#b9c7df', 'on-error': '#ffffff', 'tertiary': '#00456c', 'outline-variant': '#bfc9bd', 'on-primary-fixed-variant': '#005226', 'primary-fixed': '#a6f4b5', 'secondary-container': '#d5e3fc', 'surface-container-high': '#e2e7ff', 'surface': '#faf8ff', 'surface-container-low': '#f2f3ff', 'tertiary-container': '#005d90', 'primary-fixed-dim': '#8bd79b', 'surface-dim': '#d2d9f4', 'tertiary-fixed': '#cde5ff', 'on-secondary-fixed': '#0d1c2e', 'inverse-primary': '#8bd79b', 'surface-container-lowest': '#ffffff', 'on-secondary-fixed-variant': '#3a485b', 'on-error-container': '#93000a', 'error': '#ba1a1a', 'on-primary-container': '#93e0a2', 'surface-container': '#eaedff', 'on-tertiary-fixed-variant': '#004b74', 'error-container': '#ffdad6', 'inverse-surface': '#283044', 'secondary': '#515f74', 'primary-container': '#166534', 'on-tertiary-fixed': '#001d32', 'on-background': '#131b2e', 'background': '#faf8ff', 'secondary-fixed': '#d5e3fc', 'surface-bright': '#faf8ff', 'surface-variant': '#dae2fd', 'on-surface': '#131b2e', 'on-tertiary-container': '#a7d4ff', 'surface-tint': '#1f6c3a', 'on-secondary-container': '#57657a' }, borderRadius: { 'DEFAULT': '0.125rem', 'lg': '0.25rem', 'xl': '0.5rem', 'full': '0.75rem' }, spacing: { 'margin-desktop': '2rem', 'space-md': '0.75rem', 'margin': '1rem', 'gutter-desktop': '1.5rem', 'space-xs': '0.25rem', 'space-lg': '1rem', 'gutter': '1rem', 'space-xl': '1.5rem', 'space-sm': '0.5rem' }, fontFamily: { 'label-xs': ['Inter'], 'headline-xl': ['Inter'], 'data-tabular': ['Inter'], 'body-lg': ['Inter'], 'label-md': ['Inter'], 'display-lg': ['Inter'], 'headline-xl-mobile': ['Inter'], 'display-sm': ['Inter'], 'label-sm': ['Inter'], 'headline-sm': ['Inter'], 'headline-lg': ['Inter'], 'headline-md': ['Inter'], 'body-sm': ['Inter'], 'body-md': ['Inter'] }, fontSize: { 'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.03em', fontWeight: '600' }], 'headline-xl': ['24px', { lineHeight: '32px', letterSpacing: '-0.01em', fontWeight: '600' }], 'data-tabular': ['13px', { lineHeight: '18px', fontWeight: '500' }], 'body-lg': ['16px', { lineHeight: '24px', fontWeight: '400' }], 'label-md': ['14px', { lineHeight: '20px', fontWeight: '500' }], 'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.02em', fontWeight: '700' }], 'headline-xl-mobile': ['20px', { lineHeight: '28px', letterSpacing: '-0.01em', fontWeight: '600' }], 'display-sm': ['30px', { lineHeight: '38px', letterSpacing: '-0.015em', fontWeight: '600' }], 'label-sm': ['12px', { lineHeight: '16px', fontWeight: '500' }], 'headline-sm': ['16px', { lineHeight: '24px', fontWeight: '600' }], 'headline-lg': ['20px', { lineHeight: '28px', letterSpacing: '-0.005em', fontWeight: '600' }], 'headline-md': ['18px', { lineHeight: '26px', fontWeight: '600' }], 'body-sm': ['13px', { lineHeight: '18px', fontWeight: '400' }], 'body-md': ['14px', { lineHeight: '20px', fontWeight: '400' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-space-lg flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="Brand logo. - Primary color: #166534
+- Font: inter
+- Mode: light
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VsF-L6I3tE2D1Pj_JGkEYkBtjjjttdW-IC_bURjItqEVAbExCowlczxuwi0YaCUNCgY3v37ZSlmnVxg91XttY4CpRJKKXAGWnP5AhwgIokjv0x2j54XgDe1T2Q2mdTMQHs6TA8b3cFoBsPyv6uqSnc9EsLqV5CIlBgTSM9lW2LGfHaRqzautgUxfLaTtdqzoOm594gaVqnZj47fkm0ZFoMeH09Y_kIMVoJAbFMzseV4fGnyFQPShTJdPE"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-label-xs text-label-xs uppercase tracking-wider text-primary-container font-semibold">APMC Security</span><span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span></div><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Optical Scanner</h1></div></div><div class="flex items-center gap-space-sm shrink-0"><div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded-full text-on-surface"><span class="material-symbols-outlined text-[16px] text-primary-container">warehouse</span><span class="font-label-xs text-label-xs font-semibold whitespace-nowrap">Gate #2 (Bypass)</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full gap-space-md p-space-sm sm:p-space-md">
+<!-- TOP RUNNING TERMINAL & GATE METADATA -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between flex-wrap gap-space-xs">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="flex h-2.5 w-2.5 rounded-full bg-primary shrink-0 animate-ping"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Pimpalgaon Baswant APMC • Gate #2</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">NH-3 Bypass Lane • Heavy Tractor Fast-Track</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container hover:bg-surface-container-high rounded text-on-surface transition-colors" id="lang-toggle-btn">
+<span class="material-symbols-outlined text-[16px] text-primary">volume_up</span>
+<span class="font-label-xs text-label-xs font-semibold">मराठी घोषणा (Broadcast)</span>
+</button>
+</div>
+</div>
+<!-- Diagnostic Micro Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs pt-space-xs bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-secondary">Marshal on Duty</span>
+<span class="font-data-tabular text-data-tabular text-on-surface font-semibold truncate">Hav. S.K. Shinde (#MS-204)</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-secondary">ANPR Cam (#CAM-02)</span>
+<span class="font-data-tabular text-data-tabular text-primary-container font-semibold truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span> 60 FPS • 99.8% Acc
+        </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-secondary">Magnetic AC-3000</span>
+<span class="font-data-tabular text-data-tabular text-on-surface font-semibold truncate flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">lock</span> LOCKED (AUTO-ARMED)
+        </span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-secondary">Gate Latency Avg</span>
+<span class="font-data-tabular text-data-tabular text-primary font-semibold">18s / Vehicle</span>
+</div>
+</div>
+</div>
+<!-- MAIN OPERATIONAL GRID: VIEWFINDER + MATCH VERIFICATION -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- LEFT COLUMN: OPTICAL ANPR VIEWFINDER (5 COLS ON DESKTOP) -->
+<div class="lg:col-span-5 flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Feed Topbar -->
+<div class="bg-inverse-surface text-inverse-on-surface px-space-md py-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="flex h-2 w-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-xs text-label-xs tracking-wider uppercase font-semibold">LIVE FEED • SONY STARLIGHT IR</span>
+</div>
+<span class="font-data-tabular text-label-xs text-inverse-on-surface/80">LATENCY 42ms</span>
+</div>
+<!-- Camera Viewport with License Recognition Overlay -->
+<div class="relative w-full aspect-video bg-inverse-surface flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High angle outdoor security terminal camera capture of a red Swaraj agricultural tractor trolley loaded high with red onion mesh bags approaching an industrial electronic boom barrier gate at Pimpalgaon Baswant APMC yard in bright natural daylight, clear license plate visible" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuifkQigh95MoBWLEsRsUEi6EwAGB70gCWU8IlSKZTgJjTl03fAEEsb8O4jAPZVh4h-FC2m5-8mp9iL2AXAbTRv8FhTX8pJWXZmmdZGxWNPIkoqDe7Of65eNArjPAn6VYu8RQ9N_CuI0IVaeiCYAVMvRlWJwcjoH5Fh2xlzic_fu3EreD8tAH8z2TMZwux0U8wz8Cfs2TSCaEdxdlRfL_1PMxvdGAYdBCqYf1Tm1IB5rL498sDkIXu"/>
+<!-- ANPR Optical Target HUD -->
+<div class="absolute inset-0 pointer-events-none p-space-sm flex flex-col justify-between">
+<!-- Viewport Reticle Corners -->
+<div class="flex justify-between w-full opacity-60">
+<span class="material-symbols-outlined text-surface text-[24px]">crop_free</span>
+<span class="material-symbols-outlined text-surface text-[24px]">crop_free</span>
+</div>
+<!-- Plate Lock Bounding Box -->
+<div class="self-center flex flex-col items-center gap-1">
+<div class="bg-primary-container/90 backdrop-blur-sm text-on-primary px-space-sm py-0.5 rounded shadow flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span class="font-label-xs text-label-xs font-bold tracking-wider">99.4% OPTICAL MATCH</span>
+</div>
+<div class="px-space-md py-space-xs bg-surface-container-lowest/95 backdrop-blur-md rounded shadow-lg flex items-center gap-2">
+<span class="px-1.5 py-0.5 bg-surface-container text-on-surface font-label-xs text-label-xs font-bold rounded">IND</span>
+<span class="font-headline-sm text-headline-sm tracking-widest text-on-surface font-bold">MH-15-BJ-9182</span>
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+</div>
+</div>
+<!-- Timestamp & Speed -->
+<div class="flex justify-between items-end text-inverse-on-surface bg-inverse-surface/60 backdrop-blur-sm px-space-sm py-1 rounded">
+<span class="font-data-tabular text-label-xs">SPEED: 06 KM/H • LANE #2</span>
+<span class="font-data-tabular text-label-xs" id="clock-display">11:42:08 AM</span>
+</div>
+</div>
+</div>
+<!-- Camera Control Action Buttons -->
+<div class="p-space-sm bg-surface-container-low flex items-center gap-space-xs justify-between">
+<button class="flex-1 flex items-center justify-center gap-space-xs py-space-xs px-space-sm bg-surface-container-lowest hover:bg-surface-container text-on-surface rounded font-label-xs text-label-xs font-semibold shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary">photo_camera</span>
+<span>Capture Manual Snapshot</span>
+</button>
+<button class="flex items-center justify-center gap-space-xs py-space-xs px-space-sm bg-surface-container-lowest hover:bg-surface-container text-primary font-label-xs text-label-xs font-semibold rounded shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Re-Scan</span>
+</button>
+</div>
+</div>
+<!-- Quick Fast-Pass & Offline Verification Fallback -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">pin</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Offline Passcode &amp; QR</span>
+</div>
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed rounded text-label-xs font-label-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> VERIFIED
+          </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<!-- 6-digit split PIN Display -->
+<div class="flex-1 grid grid-cols-6 gap-1 bg-surface-container-low p-space-xs rounded-lg">
+<div class="flex items-center justify-center py-2 bg-surface-container-lowest rounded font-headline-md text-headline-md text-primary font-bold shadow-xs">7</div>
+<div class="flex items-center justify-center py-2 bg-surface-container-lowest rounded font-headline-md text-headline-md text-primary font-bold shadow-xs">4</div>
+<div class="flex items-center justify-center py-2 bg-surface-container-lowest rounded font-headline-md text-headline-md text-primary font-bold shadow-xs">8</div>
+<div class="flex items-center justify-center py-2 bg-surface-container-lowest rounded font-headline-md text-headline-md text-primary font-bold shadow-xs">1</div>
+<div class="flex items-center justify-center py-2 bg-surface-container-lowest rounded font-headline-md text-headline-md text-primary font-bold shadow-xs">9</div>
+<div class="flex items-center justify-center py-2 bg-surface-container-lowest rounded font-headline-md text-headline-md text-primary font-bold shadow-xs">2</div>
+</div>
+<button class="flex flex-col items-center justify-center px-space-md py-2 bg-surface-container hover:bg-surface-container-high rounded-lg text-on-surface shadow-xs transition-colors shrink-0">
+<span class="material-symbols-outlined text-[20px] text-primary">qr_code_scanner</span>
+<span class="font-label-xs text-label-xs font-semibold mt-0.5">Scan QR</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Pre-authorized Driver FastPass synced via MahaAPMC Gate API with 256-bit signature.</p>
+</div>
+</div>
+<!-- RIGHT COLUMN: CONSIGNMENT VERIFICATION & DISPATCH CARD (7 COLS) -->
+<div class="lg:col-span-7 flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-md">
+<!-- Header: Match Alert & Token Badge -->
+<div class="flex items-start justify-between flex-wrap gap-space-sm pb-space-xs">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 bg-primary-container text-on-primary rounded font-label-xs text-label-xs font-bold uppercase tracking-wider">Matched: Sauda #8842</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded font-label-xs text-label-xs font-bold">Driver Terminal #04</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Swaraj 855 FE • Red Trolley</h2>
+<span class="font-data-tabular text-data-tabular text-secondary">Assigned Token: <strong class="text-on-surface font-bold">B-14 (FAST-TRACK TROLLEY)</strong></span>
+</div>
+<!-- Target Weighbridge Routing Indicator -->
+<div class="flex flex-col items-end bg-surface-container-low px-space-md py-space-xs rounded-xl shadow-xs">
+<span class="font-label-xs text-label-xs uppercase font-semibold text-secondary">Designated Tare Scale</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[22px]">scale</span>
+<span class="font-display-sm text-display-sm text-primary-container font-extrabold tracking-tight">WB-03</span>
+</div>
+</div>
+</div>
+<!-- Multi-party Logistics Specification Matrix -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm bg-surface-container-low p-space-md rounded-xl">
+<!-- Driver & Union -->
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">airline_seat_recline_normal</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs uppercase text-secondary">Driver &amp; Crew</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Dnyaneshwar Khanderao</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Nashik Krishi Vahatuk (Union #402)</span>
+</div>
+</div>
+<!-- Farmer Producer -->
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">agriculture</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs uppercase text-secondary">Origin Farmer</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Rajesh D. Patil</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Niphad Taluka, Nashik Circle</span>
+</div>
+</div>
+<!-- Buyer & Registration -->
+<div class="flex items-start gap-space-xs sm:col-span-2 pt-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">corporate_fare</span>
+<div class="flex flex-col min-w-0 w-full">
+<span class="font-label-xs text-label-xs uppercase text-secondary">Licensed APMC Buyer</span>
+<div class="flex items-center justify-between flex-wrap gap-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Maharshi Agro Exports Ltd.</span>
+<span class="font-label-xs text-label-xs font-mono text-secondary bg-surface-container-lowest px-2 py-0.5 rounded">APEDA-REG-MH-2019-948</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Cargo & Escrow Protection Clearance Box -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<!-- Cargo Weight Spec -->
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-secondary font-semibold">Declared Produce &amp; Volume</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display-sm text-display-sm text-on-surface font-bold">24.0</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-medium">MT (480 Bags)</span>
+</div>
+<div class="flex items-center gap-1 mt-2 text-primary font-semibold font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px]">eco</span>
+<span>Garwa Red Onion • Grade A</span>
+</div>
+</div>
+<!-- Escrow Quarantine Badge -->
+<div class="bg-primary-fixed/40 p-space-md rounded-xl flex flex-col justify-between">
+<span class="font-label-xs text-label-xs uppercase tracking-wider text-on-primary-fixed-variant font-semibold">APMC Escrow Settlement</span>
+<div class="flex items-center gap-1.5 mt-1 text-primary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+<span class="font-headline-md text-headline-md text-on-primary-fixed font-bold">100% Pre-Funded</span>
+</div>
+<span class="font-label-xs text-label-xs text-on-primary-fixed-variant mt-2 font-medium">Maha APMC Act Sec 32A Quarantined</span>
+</div>
+</div>
+<!-- OPERATOR PRIMARY ACTIONS SECTION -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<!-- Oversized Primary Barrier Release Trigger -->
+<button class="w-full py-4 px-space-lg bg-primary hover:bg-primary-container text-on-primary active:scale-[0.99] rounded-xl shadow-md flex items-center justify-between transition-all" id="barrier-release-cta">
+<div class="flex items-center gap-space-sm text-left">
+<div class="w-10 h-10 rounded-lg bg-on-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-on-primary">lock_open</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg font-bold leading-tight">OPEN BOOM BARRIER</span>
+<span class="font-label-xs text-label-xs text-on-primary/80 font-medium">Direct Inbound Route to Weighbridge Tare Scale WB-03</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[28px] text-on-primary shrink-0">arrow_forward</span>
+</button>
+<!-- Dual Secondary Contingency Controls -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs mt-space-xs">
+<button class="py-2.5 px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold rounded-lg flex items-center justify-center gap-space-xs shadow-xs transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">alt_route</span>
+<span>Divert to Aux Scale WB-02</span>
+</button>
+<button class="py-2.5 px-space-md bg-error-container hover:bg-error-container/80 text-on-error-container font-label-md text-label-md font-semibold rounded-lg flex items-center justify-center gap-space-xs shadow-xs transition-colors">
+<span class="material-symbols-outlined text-[18px] text-error">flag</span>
+<span>Flag Security Lock / Impound</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- GATE TRAFFIC & QUEUE COMPACT DATA STRIP -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between flex-wrap gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">queue</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Gate #2 Inbound Queue Overview</h3>
+</div>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-xs text-label-xs">
+<span>Inbound Pending: <strong class="text-on-surface font-bold font-data-tabular">3 Vehicles</strong></span>
+<span>•</span>
+<span>Cycles Today: <strong class="text-on-surface font-bold font-data-tabular">142 Bar Openings</strong></span>
+</div>
+</div>
+<!-- Live Staged Queue Items Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<!-- Active Staged Unit (Current) -->
+<div class="p-space-sm bg-primary-fixed/20 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-2 h-2 rounded-full bg-primary shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-primary font-bold uppercase tracking-wider">CURRENT AT BOOM</span>
+<span class="font-data-tabular text-data-tabular font-bold text-on-surface truncate">#B-14 • MH-15-BJ-9182</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">Swaraj 855 (24 MT Onion)</span>
+</div>
+</div>
+<span class="px-1.5 py-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded font-bold shrink-0">LOCKED</span>
+</div>
+<!-- Next In Queue (1st Pending) -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-secondary font-bold uppercase tracking-wider">NEXT IN LINE (STAGED)</span>
+<span class="font-data-tabular text-data-tabular font-bold text-on-surface truncate">#B-15 • MH-15-DC-3301</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">Bolero Maxi (3.2 MT Onion)</span>
+</div>
+</div>
+<span class="px-1.5 py-0.5 bg-surface-container text-on-surface-variant font-label-xs text-label-xs rounded font-bold shrink-0">WAIT 01m</span>
+</div>
+<!-- 2nd Pending In Queue -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs min-w-0">
+<span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-xs text-label-xs text-secondary font-bold uppercase tracking-wider">APPROACHING LANE</span>
+<span class="font-data-tabular text-data-tabular font-bold text-on-surface truncate">#B-16 • MH-15-EG-4490</span>
+<span class="font-body-sm text-body-sm text-secondary truncate">John Deere 5050 (18 MT Grapes)</span>
+</div>
+</div>
+<span class="px-1.5 py-0.5 bg-surface-container text-on-surface-variant font-label-xs text-label-xs rounded font-bold shrink-0">WAIT 03m</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal Client-side Micro-Interactions Script -->
+<script>
+  (function initTerminalLogic() {
+    // 1. Interactive Barrier Release Simulation
+    const releaseBtn = document.getElementById('barrier-release-cta');
+    if (releaseBtn) {
+      releaseBtn.addEventListener('click', () => {
+        const confirmed = confirm('GATE COMMAND: Release Boom Barrier for Swaraj Tractor MH-15-BJ-9182 to Weighbridge WB-03?');
+        if (confirmed) {
+          releaseBtn.classList.remove('bg-primary', 'hover:bg-primary-container');
+          releaseBtn.classList.add('bg-tertiary-container');
+          releaseBtn.innerHTML = `
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-[28px] animate-spin text-on-primary">sync</span>
+              <div class="flex flex-col text-left">
+                <span class="font-headline-lg text-headline-lg font-bold">BARRIER OPENING...</span>
+                <span class="font-label-xs text-label-xs text-on-primary/80">Sensors Clear &bull; 10s Hold Armed</span>
+              </div>
+            </div>
+            <span class="font-label-md text-label-md font-bold text-on-primary">AUTO-CLOSE: 10s</span>
+          `;
+          setTimeout(() => {
+            alert('GATE EVENT: Vehicle MH-15-BJ-9182 cleared boom sensor. Barrier returning to locked state.');
+            location.reload();
+          }, 3500);
+        }
+      });
+    }
+
+    // 2. Language Broadcast Toggle Simulation
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) {
+      langBtn.addEventListener('click', () => {
+        const audioMsg = 'गाडी क्रमांक MH-15-BJ-9182, वजन काटा क्रमांक ३ कडे रवाना व्हा.';
+        alert('📢 Lane Loudspeaker Announcing: "' + audioMsg + '"');
+      });
+    }
+
+    // 3. Live Digital Seconds Clock for Video Feed
+    const clock = document.getElementById('clock-display');
+    if (clock) {
+      setInterval(() => {
+        const now = new Date();
+        clock.textContent = now.toLocaleTimeString('en-US', { hour12: true });
+      }, 1000);
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.06)]" data-active-classes="text-primary-container font-semibold"><div class="flex justify-around items-center h-20 px-space-sm"><a class="flex flex-col items-center justify-center min-w-[60px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="barrier-queue" href="#"><span class="material-symbols-outlined text-[24px]">view_list</span><span class="font-label-xs text-label-xs">Queue</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[60px] min-h-[44px] gap-1 transition-colors text-primary-container font-semibold" data-path="optical-scanner" href="#"><span class="material-symbols-outlined text-[24px]">qr_code_scanner</span><span class="font-label-xs text-label-xs">ANPR Scan</span></a><a class="flex flex-col items-center justify-center min-w-[60px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="barrier-controls" href="#"><span class="material-symbols-outlined text-[24px]">cloud_download</span><span class="font-label-xs text-label-xs">Boom Gate</span></a><a class="flex flex-col items-center justify-center min-w-[60px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="gate-log" href="#"><span class="material-symbols-outlined text-[24px]">history</span><span class="font-label-xs text-label-xs">Logs</span></a><a class="flex flex-col items-center justify-center min-w-[60px] min-h-[44px] gap-1 text-on-surface-variant hover:text-on-surface transition-colors" data-path="emergency-controls" href="#"><span class="material-symbols-outlined text-[24px] text-error">fmd_bad</span><span class="font-label-xs text-label-xs text-error">Security</span></a></div></nav></body></html>

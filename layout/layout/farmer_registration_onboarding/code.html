@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-secondary-container": "#57657a",
+          "on-tertiary-container": "#a7d4ff",
+          "background": "#faf8ff",
+          "tertiary-fixed": "#cde5ff",
+          "primary": "#004c22",
+          "secondary-fixed-dim": "#b9c7df",
+          "on-primary": "#ffffff",
+          "tertiary": "#00456c",
+          "surface-container-high": "#e2e7ff",
+          "surface-tint": "#1f6c3a",
+          "on-error": "#ffffff",
+          "secondary": "#515f74",
+          "on-tertiary": "#ffffff",
+          "on-secondary-fixed-variant": "#3a485b",
+          "surface-container-low": "#f2f3ff",
+          "outline-variant": "#bfc9bd",
+          "on-primary-container": "#93e0a2",
+          "surface-variant": "#dae2fd",
+          "primary-container": "#166534",
+          "outline": "#707a6f",
+          "secondary-fixed": "#d5e3fc",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-highest": "#dae2fd",
+          "on-surface": "#131b2e",
+          "on-surface-variant": "#404940",
+          "surface-container": "#eaedff",
+          "secondary-container": "#d5e3fc",
+          "inverse-on-surface": "#eef0ff",
+          "primary-fixed-dim": "#8bd79b",
+          "surface-dim": "#d2d9f4",
+          "inverse-primary": "#8bd79b",
+          "on-background": "#131b2e",
+          "tertiary-fixed-dim": "#94ccff",
+          "primary-fixed": "#a6f4b5",
+          "on-tertiary-fixed-variant": "#004b74",
+          "on-primary-fixed": "#00210b",
+          "tertiary-container": "#005d90",
+          "on-primary-fixed-variant": "#005226",
+          "error-container": "#ffdad6",
+          "surface-bright": "#faf8ff",
+          "on-secondary": "#ffffff",
+          "on-error-container": "#93000a",
+          "on-tertiary-fixed": "#001d32",
+          "error": "#ba1a1a",
+          "inverse-surface": "#283044",
+          "surface": "#faf8ff",
+          "on-secondary-fixed": "#0d1c2e"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem",
+          "gutter-desktop": "1.5rem",
+          "space-lg": "1rem",
+          "space-xl": "1.5rem",
+          "margin-desktop": "2rem",
+          "space-md": "0.75rem",
+          "gutter": "1rem",
+          "margin": "1rem"
+        },
+        "fontFamily": {
+          "data-tabular": ["Inter"],
+          "display-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "body-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "display-lg": ["Inter"],
+          "label-md": ["Inter"],
+          "headline-sm": ["Inter"],
+          "label-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "label-xs": ["Inter"],
+          "headline-xl": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-xl-mobile": ["Inter"]
+        },
+        "fontSize": {
+          "data-tabular": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+          "display-sm": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+          "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+          "headline-lg": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+          "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+          "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+          "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+          "headline-md": ["18px", {"lineHeight": "26px", "fontWeight": "600"}],
+          "label-xs": ["11px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+          "headline-xl": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+          "headline-xl-mobile": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-background font-body-md text-body-md text-on-surface min-h-screen flex flex-col justify-center items-center"><main class="w-full max-w-md mx-auto p-space-lg"><div class="flex flex-col w-full">
+<!-- Top Trust & Regulatory Header Strip -->
+<div class="bg-surface-container-low rounded-xl p-space-md mb-space-lg shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm text-label-xs font-label-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs text-primary font-label-sm">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span>UIDAI Aadhaar Verified</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+<span>Regulated by Maharashtra APMC Act 1963 Sec 32A</span>
+</div>
+<div class="flex items-center gap-space-xs bg-primary-fixed text-on-primary-fixed px-space-sm py-0.5 rounded-full font-label-xs">
+<span class="material-symbols-outlined text-[14px]">price_check</span>
+<span>Zero Registration Fee</span>
+</div>
+</div>
+</div>
+<!-- Header Section -->
+<div class="mb-space-xl">
+<div class="flex items-center gap-space-xs text-primary font-label-sm mb-space-xs">
+<span class="material-symbols-outlined text-[18px]">agriculture</span>
+<span class="tracking-wider uppercase">AGRISYNC PORTAL ONBOARDING</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">
+      Farmer Producer Registration & APMC KYC
+    </h1>
+<p class="font-body-md text-body-md text-secondary mt-space-xs max-w-3xl">
+      Create your verified digital farm passport in 5 quick steps. Link your 7/12 extract, enable automated escrow DBT payouts, and sync nearby mandi weighbridges.
+    </p>
+</div>
+<!-- 5-Step Progress Stepper -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm mb-space-xl">
+<div class="flex items-center justify-between overflow-x-auto pb-space-xs pt-1">
+<!-- Step 1: Active -->
+<div class="flex items-center gap-space-sm min-w-max">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-sm">
+          1
+        </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Personal & Mobile</span>
+<span class="font-label-xs text-label-xs text-primary font-medium">In Progress</span>
+</div>
+</div>
+<div class="h-0.5 w-6 sm:w-10 bg-surface-variant mx-space-xs"></div>
+<!-- Step 2 -->
+<div class="flex items-center gap-space-sm min-w-max opacity-75">
+<div class="w-7 h-7 rounded-full bg-surface-container text-secondary flex items-center justify-center font-label-sm">
+          2
+        </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Land & Holdings</span>
+<span class="font-label-xs text-label-xs text-on-secondary-container">7/12 Extract</span>
+</div>
+</div>
+<div class="h-0.5 w-6 sm:w-10 bg-surface-variant mx-space-xs"></div>
+<!-- Step 3 -->
+<div class="flex items-center gap-space-sm min-w-max opacity-75">
+<div class="w-7 h-7 rounded-full bg-surface-container text-secondary flex items-center justify-center font-label-sm">
+          3
+        </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Crop Profile</span>
+<span class="font-label-xs text-label-xs text-on-secondary-container">Kharif / Rabi</span>
+</div>
+</div>
+<div class="h-0.5 w-6 sm:w-10 bg-surface-variant mx-space-xs"></div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm min-w-max opacity-75">
+<div class="w-7 h-7 rounded-full bg-surface-container text-secondary flex items-center justify-center font-label-sm">
+          4
+        </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Banking DBT</span>
+<span class="font-label-xs text-label-xs text-on-secondary-container">Escrow Node</span>
+</div>
+</div>
+<div class="h-0.5 w-6 sm:w-10 bg-surface-variant mx-space-xs"></div>
+<!-- Step 5 -->
+<div class="flex items-center gap-space-sm min-w-max opacity-75">
+<div class="w-7 h-7 rounded-full bg-surface-container text-secondary flex items-center justify-center font-label-sm">
+          5
+        </div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary">Mandi Logistics</span>
+<span class="font-label-xs text-label-xs text-on-secondary-container">Yard Sync</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Grid: Form Body + Assistive Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Col: Comprehensive KYC Registration Form -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Section 1: Farmer Personal Details -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">badge</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">1. Farmer Personal Details</h2>
+</div>
+<!-- Language Selector Switcher -->
+<div class="flex items-center bg-surface-container-low p-0.5 rounded-lg text-label-xs font-label-xs">
+<button class="px-space-xs py-1 rounded bg-primary text-on-primary font-semibold" type="button">मराठी (Default)</button>
+<button class="px-space-xs py-1 rounded text-secondary hover:text-on-surface" type="button">English</button>
+<button class="px-space-xs py-1 rounded text-secondary hover:text-on-surface" type="button">हिन्दी</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Full Name (as per 7/12 & Aadhaar)</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface flex items-center justify-between">
+<span>Rajesh Dashrath Patil</span>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Father's / Guardian's Name</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface">
+<span>Dashrath Bhikaji Patil</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Primary Mobile (e-Mandi Alerts)</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface flex items-center justify-between">
+<span class="font-data-tabular text-data-tabular">+91 98224 81029</span>
+<span class="bg-primary-fixed text-on-primary-fixed text-[11px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> OTP Verified
+              </span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">UIDAI Aadhaar Virtual ID / e-KYC</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface flex items-center justify-between">
+<span class="font-data-tabular text-data-tabular tracking-wider">XXXX-XXXX-8921</span>
+<span class="bg-surface-container-high text-on-secondary-container text-[11px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">fingerprint</span> e-KYC Matched
+              </span>
+</div>
+</div>
+<div class="sm:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Farm Postal Address & Revenue Village</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">location_on</span>
+<span>Baswant Shivar, Taluka Niphad, District Nashik, Maharashtra - 422303</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Land Records & Parcel Geofence -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center gap-space-xs pb-space-sm mb-space-md">
+<span class="material-symbols-outlined text-primary text-[22px]">terrain</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">2. Land Records & Parcel Geofence (7/12 & 8A Extract)</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md mb-space-md">
+<div class="bg-surface-container-low rounded-lg p-space-sm">
+<span class="block font-label-xs text-label-xs text-on-secondary-container">TOTAL CULTIVABLE HOLDING</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-display-sm text-display-sm text-on-surface">12.5</span>
+<span class="font-label-md text-label-md text-secondary">Acres (5.05 Hectares)</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-lg p-space-sm">
+<span class="block font-label-xs text-label-xs text-on-secondary-container">SURVEY / GAT NUMBER</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-lg text-headline-lg text-on-surface">Gat No. 342, S.No. 44/2A</span>
+</div>
+</div>
+</div>
+<!-- Document Preview Tile -->
+<div class="bg-surface-container rounded-lg p-space-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">picture_as_pdf</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">7_12_Extract_Niphad_Patil.pdf</p>
+<p class="font-label-xs text-label-xs text-on-secondary-container">1.8 MB • Digitally Signed by MahaBhumi Portal</p>
+</div>
+</div>
+<span class="bg-primary-container text-on-primary text-[11px] font-medium px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cloud_done</span> Verified 7/12
+          </span>
+</div>
+<!-- Field Boundary Geofence Illustration Micro-map -->
+<div class="relative bg-surface-container-high rounded-lg p-space-md mb-space-md overflow-hidden">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[18px] text-primary">polyline</span>
+<span>Cadastral Boundary Geofence Plot</span>
+</div>
+<span class="font-label-xs text-label-xs text-primary font-medium">GPS Accuracy: ± 0.4m</span>
+</div>
+<svg class="w-full h-24 text-primary" fill="none" viewbox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="currentColor" fill-opacity="0.12" points="40,20 180,15 260,40 380,25 460,75 320,85 150,70 50,65" stroke="currentColor" stroke-dasharray="4 2" stroke-width="2"></polygon>
+<circle cx="40" cy="20" fill="currentColor" r="4"></circle>
+<circle cx="180" cy="15" fill="currentColor" r="4"></circle>
+<circle cx="260" cy="40" fill="currentColor" r="4"></circle>
+<circle cx="380" cy="25" fill="currentColor" r="4"></circle>
+<circle cx="460" cy="75" fill="currentColor" r="4"></circle>
+<circle cx="320" cy="85" fill="currentColor" r="4"></circle>
+<circle cx="150" cy="70" fill="currentColor" r="4"></circle>
+<circle cx="50" cy="65" fill="currentColor" r="4"></circle>
+<text fill="#004c22" font-size="11" font-weight="600" x="210" y="55">Patil Parcel #342 (12.5 Ac)</text>
+</svg>
+</div>
+<!-- Perimeter Protection Add-on -->
+<label class="flex items-start gap-space-sm cursor-pointer p-space-sm bg-surface-container-low rounded-lg">
+<input checked="" class="mt-1 accent-primary w-4 h-4 rounded" type="checkbox"/>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Request Solar Acoustic Wildlife Repeller Node deployment</span>
+<span class="font-body-sm text-body-sm text-secondary block mt-0.5">
+              Subsidized under AgriSync Farmer Shield program. Safeguards against wild boars and nilgai with solar-powered frequency perimeter units.
+            </span>
+</div>
+</label>
+</section>
+<!-- Section 3: Current Kharif / Rabi Crop Profile -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center gap-space-xs pb-space-sm mb-space-md">
+<span class="material-symbols-outlined text-primary text-[22px]">psychiatry</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">3. Current Kharif / Rabi Crop Profile</h2>
+</div>
+<div class="mb-space-md">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-space-xs">Primary Commercial Crops in Ground</label>
+<div class="flex flex-wrap gap-space-xs">
+<span class="bg-primary text-on-primary px-space-sm py-1.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">eco</span> Red Onion (Garwa)
+            </span>
+<span class="bg-primary text-on-primary px-space-sm py-1.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">grain</span> Soybean (JS-335)
+            </span>
+<span class="bg-primary text-on-primary px-space-sm py-1.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">nutrition</span> Table Grapes (Thompson)
+            </span>
+<button class="bg-surface-container-high text-on-surface-variant px-space-sm py-1.5 rounded-full text-label-sm font-label-sm flex items-center gap-1 hover:bg-secondary-fixed" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span> Add Variety
+            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Estimated Season Harvest Volume</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm">36.0 MT</span>
+<span class="font-label-sm text-label-sm text-secondary">360 Quintals (approx 720 Bags)</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Primary Post-Harvest Storage Node</label>
+<div class="flex items-center gap-space-xs pt-1">
+<label class="flex-1 flex items-center gap-2 p-2 rounded-lg bg-surface-container cursor-pointer">
+<input checked="" class="accent-primary" name="storage" type="radio"/>
+<span class="font-label-sm text-label-sm text-on-surface">On-Farm Chawl</span>
+</label>
+<label class="flex-1 flex items-center gap-2 p-2 rounded-lg bg-surface-container-low cursor-pointer">
+<input class="accent-primary" name="storage" type="radio"/>
+<span class="font-label-sm text-label-sm text-secondary">Cold Storage</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Bank Account for Instant Escrow DBT -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center gap-space-xs pb-space-sm mb-space-md">
+<span class="material-symbols-outlined text-primary text-[22px]">account_balance</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">4. Bank Account for Instant Escrow DBT</h2>
+</div>
+<div class="bg-primary-container text-on-primary rounded-xl p-space-md mb-space-md">
+<div class="flex justify-between items-start mb-space-md">
+<div>
+<p class="font-label-xs text-label-xs text-on-primary-container tracking-wider uppercase">PRIMARY SETTLEMENT NODE</p>
+<h3 class="font-headline-lg text-headline-lg text-on-primary font-bold">Bank of Maharashtra</h3>
+<p class="font-body-sm text-body-sm opacity-90">Niphad Branch • IFSC: MAHB0000214</p>
+</div>
+<span class="bg-primary-fixed text-on-primary-fixed px-2 py-1 rounded text-label-xs font-label-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span> Aadhaar Seeded Mandate
+            </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-data-tabular text-data-tabular text-[18px] tracking-widest">•••• •••• •••• 4019</span>
+<span class="font-label-sm text-label-sm bg-primary px-2.5 py-1 rounded text-on-primary">NACH DBT Enabled</span>
+</div>
+</div>
+<div class="flex items-start gap-space-xs p-space-sm bg-surface-container-low rounded-lg text-body-sm font-body-sm text-secondary">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">shield</span>
+<span>Regulatory Note: All escrow disbursements from certified APMC commission agents are transferred directly to this verified account with zero brokerage deductions under automated e-Mandi T+0 clearing.</span>
+</div>
+</section>
+<!-- Section 5: Primary Mandi Hub & Drayage Connectivity -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center gap-space-xs pb-space-sm mb-space-md">
+<span class="material-symbols-outlined text-primary text-[22px]">storefront</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">5. Primary Mandi Hub & Drayage Connectivity</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md mb-space-md">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Default Selling Mandi Yard</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface flex items-center justify-between">
+<span>Pimpalgaon Baswant APMC (Main Yard)</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">keyboard_arrow_down</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Secondary / Backup Yard</label>
+<div class="bg-surface-container-low rounded-lg px-space-sm py-2 text-body-md font-body-md text-on-surface flex items-center justify-between">
+<span>Lasalgaon APMC (Asia's Largest)</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">keyboard_arrow_down</span>
+</div>
+</div>
+<div class="sm:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Harvest Morning Transport Arrangement</label>
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+<span class="font-body-md text-body-md text-on-surface">Need local tractor trolley drayage support for auction morning dispatches</span>
+</div>
+<span class="bg-surface-container text-on-surface text-[11px] font-semibold px-2 py-0.5 rounded">Requested</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Action Stepper Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg text-secondary hover:text-on-surface font-label-md text-label-md flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+          Save Draft & Complete Later
+        </button>
+<button class="w-full sm:w-auto bg-primary-container hover:bg-primary text-on-primary px-space-xl py-2.5 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 shadow-sm transition-colors" id="proceedBtn" type="button">
+<span>Verify & Proceed to Step 2: Farm Parcel Mapping</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Col: Assistive Sidebar & Value Proposition Card -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Why Complete KYC Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center gap-space-xs mb-space-md pb-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">verified</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Why Complete KYC?</h3>
+</div>
+<div class="flex flex-col gap-space-md text-body-sm font-body-sm">
+<!-- Point 1 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex-shrink-0 flex items-center justify-center font-label-xs font-semibold mt-0.5">
+              1
+            </div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Zero Demurrage at APMC</span>
+<p class="text-secondary mt-0.5">Get automated digital tare slips and express gate entry tokens with no weighbridge queue delays.</p>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex-shrink-0 flex items-center justify-center font-label-xs font-semibold mt-0.5">
+              2
+            </div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">100% Escrow Protection</span>
+<p class="text-secondary mt-0.5">Buyers must pre-deposit auction funds in bank nodal accounts before your produce departs your farmgate.</p>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex-shrink-0 flex items-center justify-center font-label-xs font-semibold mt-0.5">
+              3
+            </div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Subsidized Transport</span>
+<p class="text-secondary mt-0.5">Access pre-fixed freight rates backed by Nashik Rural Transport Union for seamless haulage.</p>
+</div>
+</div>
+<!-- Point 4 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-surface-container text-primary flex-shrink-0 flex items-center justify-center font-label-xs font-semibold mt-0.5">
+              4
+            </div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Dedicated Field Helpdesk</span>
+<p class="text-secondary mt-0.5">Call our Niphad Farmer Coordinator at <strong>1800 233 4567</strong> or request doorstep field assistance.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Field Photo Verification Context Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm overflow-hidden">
+<div class="relative rounded-lg overflow-hidden mb-space-sm h-40">
+<img class="w-full h-full object-cover" data-alt="A proud Indian farmer standing in a flourishing green onion and grape agricultural field under warm morning sunlight with a rural Maharashtra landscape in the background, professional documentary photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ7J534J6cVZRkMOboykub3ibx-LKuN9EsRVjgqblj_0d6JslAHRBa5JXP6kD41MF1xEqs1vFbGoueeZDUPvENSjs6jRMhqO909VWnJOIAJq1c7NqjPSlZtpAq1WMuRA_-OT4MInQotXurgfhOxKXdSKvvjRkmg6Fslt_dnPk74_LD3ljJt1jkqxIg7Ix6mLlrY0a1k8GXVysgPTVloF4XxpqXOi1mQ_6bV2pnPDgcsyOu1sVw-7-s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-space-sm">
+<span class="text-on-primary font-label-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span> On-ground Mandi Verification Team Active
+            </span>
+</div>
+</div>
+<div class="flex items-center justify-between text-label-xs font-label-xs text-on-secondary-container">
+<span>APMC Officer: <strong>S. G. Deshmukh</strong></span>
+<span class="text-primary font-semibold">Niphad Sub-Division</span>
+</div>
+</div>
+<!-- Doorstep Assistance Request Box -->
+<div class="bg-tertiary-fixed rounded-xl p-space-md text-on-tertiary-fixed shadow-sm">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[20px]">support_agent</span>
+<h4 class="font-headline-sm text-headline-sm font-semibold">Need Help With 7/12 Upload?</h4>
+</div>
+<p class="font-body-sm text-body-sm mb-space-sm text-on-secondary-fixed-variant">
+          Our village Krishi Mitra can visit your farm to scan your physical land records and verify Aadhaar biometrics.
+        </p>
+<button class="w-full bg-tertiary text-on-tertiary py-2 rounded-lg font-label-sm text-label-sm font-medium hover:bg-tertiary-container transition-colors" type="button">
+          Book Free Doorstep Krishi Mitra Visit
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  document.getElementById('proceedBtn')?.addEventListener('click', function() {
+    const btn = this;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span> Validating Records with MahaBhumi...';
+    btn.classList.add('opacity-80', 'pointer-events-none');
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span> Geofencing Initialized!';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('opacity-80', 'pointer-events-none');
+      }, 1500);
+    }, 1200);
+  });
+</script></main></body></html>
