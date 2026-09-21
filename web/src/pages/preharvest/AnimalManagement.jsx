@@ -110,21 +110,23 @@ export const AnimalManagement = () => {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {toastMessage && (
-        <div className="fixed top-5 right-5 z-50 p-4 rounded-2xl bg-[#047857] text-white font-extrabold text-xs shadow-2xl flex items-center gap-3 border border-[#a7f3d0] animate-in fade-in slide-in-from-top-4 duration-300">
-          <Volume2 size={20} className="animate-spin text-[#dcfce7]" />
-          <span>{toastMessage}</span>
-          <button onClick={() => setToastMessage(null)} className="ml-2 font-bold opacity-80 hover:opacity-100">✕</button>
+        <div className="fixed top-4 left-4 right-4 sm:left-auto sm:right-5 sm:max-w-md z-50 p-3.5 sm:p-4 rounded-2xl bg-[#047857] text-white font-extrabold text-xs shadow-2xl flex items-center justify-between gap-3 border border-[#a7f3d0] animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="flex items-center gap-2">
+            <Volume2 size={18} className="animate-spin text-[#dcfce7] shrink-0" />
+            <span className="text-[11px] sm:text-xs">{toastMessage}</span>
+          </div>
+          <button onClick={() => setToastMessage(null)} className="font-bold opacity-80 hover:opacity-100 p-1 cursor-pointer shrink-0">✕</button>
         </div>
       )}
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-2 border-b border-slate-200">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black text-[#0f172a] tracking-tight">YOLO11n Animal Target Management</h1>
-            <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] border border-[#bbf7d0]">
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] tracking-tight">YOLO11n Animal Target Management</h1>
+            <span className="text-[10px] sm:text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] border border-[#bbf7d0]">
               11 Supported Classes
             </span>
           </div>
@@ -133,15 +135,15 @@ export const AnimalManagement = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-600 font-bold flex items-center gap-1">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <span className="text-xs text-slate-600 font-bold flex items-center gap-1 shrink-0">
               <Sliders size={14} /> Risk Tier:
             </span>
             <select
               value={filterRisk}
               onChange={(e) => setFilterRisk(e.target.value)}
-              className="text-xs font-bold bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-[#0f172a] outline-none shadow-2xs"
+              className="w-full sm:w-auto text-xs font-bold bg-white border border-slate-200 rounded-xl px-3 py-2 text-[#0f172a] outline-none shadow-2xs min-h-[36px]"
             >
               <option value="All">All Risk Tiers</option>
               <option value="Critical">Critical (Elephant, Bear)</option>
@@ -154,7 +156,7 @@ export const AnimalManagement = () => {
       </div>
 
       {/* Animal Class Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         {filteredAnimals.map((animal) => {
           const setting = animalSettings[animal.id] || { enabled: true, todayCount: 0, lastDetected: 'Never' };
           const isEnabled = setting.enabled !== false;
@@ -181,9 +183,9 @@ export const AnimalManagement = () => {
                       isEnabled ? 'hover:scale-105' : 'grayscale opacity-50'
                     }`}
                   />
-                  <div className="absolute top-3 left-3">
+                  <div className="absolute top-2.5 left-2.5">
                     <span
-                      className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-xs uppercase tracking-wider ${
+                      className={`text-[9px] sm:text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-xs uppercase tracking-wider ${
                         isCritical
                           ? 'bg-red-600 text-white'
                           : isHigh
@@ -196,16 +198,16 @@ export const AnimalManagement = () => {
                       {animal.risk} Risk
                     </span>
                   </div>
-                  <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-xs px-2.5 py-0.5 rounded text-[10px] font-mono text-white">
+                  <div className="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded text-[10px] font-mono text-white">
                     COCO: {animal.id}
                   </div>
                 </div>
 
                 {/* Details */}
                 <div className="p-4 space-y-3">
-                  <div className="flex items-start justify-between">
+                  <div className="flex items-start justify-between gap-2">
                     <div>
-                      <h3 className="font-black text-base text-[#0f172a]">{animal.name}</h3>
+                      <h3 className="font-black text-sm sm:text-base text-[#0f172a]">{animal.name}</h3>
                       <p className="text-[11px] text-slate-500 mt-0.5">{animal.desc}</p>
                     </div>
                     <button
@@ -256,7 +258,7 @@ export const AnimalManagement = () => {
                 </span>
                 <button
                   onClick={() => handleTriggerSiren(animal)}
-                  className="px-3 py-1.5 bg-white hover:bg-slate-100 text-[#0f172a] border border-slate-200 rounded-lg text-xs font-bold transition-all flex items-center gap-1 shadow-2xs cursor-pointer active:scale-95"
+                  className="px-3 py-1.5 bg-white hover:bg-slate-100 text-[#0f172a] border border-slate-200 rounded-lg text-xs font-bold transition-all flex items-center gap-1 shadow-2xs cursor-pointer active:scale-95 min-h-[34px]"
                 >
                   <Volume2 size={13} className="text-[#047857]" /> Test Siren
                 </button>

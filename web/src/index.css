@@ -25,18 +25,34 @@
     font-family: 'Inter', sans-serif;
     background-color: #f4fbf7;
     color: #0f172a;
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
   
   /* Tabular numbers for financial and weight data */
   .font-data-tabular {
     font-feature-settings: "tnum" 1, "cv05" 1;
   }
+
+  /* Support mobile safe-area insets */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+}
+
+/* Card utility base helper for consistent mobile cards */
+.card-base {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 /* Custom smooth scrollbar using Green-White palette */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #f0fdf4;
@@ -68,3 +84,4 @@
     margin: 0 auto !important;
   }
 }
+

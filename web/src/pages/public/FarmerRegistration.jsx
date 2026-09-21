@@ -79,23 +79,23 @@ export const FarmerRegistration = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4fbf7] text-[#0f172a] font-sans py-10 px-6">
+    <div className="min-h-screen bg-[#f4fbf7] text-[#0f172a] font-sans py-6 sm:py-10 px-3.5 sm:px-6">
       <div className="max-w-3xl mx-auto">
         {/* Header Branding */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="flex justify-center mb-3">
             <LanguageSwitcher size="sm" />
           </div>
-          <Link to="/" className="inline-flex items-center gap-3 mb-3">
-            <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-14 h-14 rounded-2xl object-contain shadow-md bg-white p-1 border border-[#dcfce7]" />
-            <span className="text-3xl font-black text-[#166534] tracking-tight">AgriSync</span>
+          <Link to="/" className="inline-flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+            <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl object-contain shadow-md bg-white p-1 border border-[#dcfce7]" />
+            <span className="text-2xl sm:text-3xl font-black text-[#166534] tracking-tight">AgriSync</span>
           </Link>
-          <h1 className="text-2xl font-extrabold text-[#0f172a]">{t('auth.onboardingTitle', 'User Onboarding & Role e-KYC Registration')}</h1>
+          <h1 className="text-xl sm:text-2xl font-extrabold text-[#0f172a]">{t('auth.onboardingTitle', 'User Onboarding & Role e-KYC Registration')}</h1>
           <p className="text-xs text-slate-600 mt-1">{t('auth.onboardingSubtitle', 'Select your platform role and verify credentials for direct Mandi queue slots, NIR quality certificates, and escrow payments.')}</p>
         </div>
 
         {submitted ? (
-          <div className="bg-white rounded-2xl p-8 text-center border border-slate-200 shadow-xl space-y-3">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 text-center border border-slate-200 shadow-xl space-y-3">
             <div className="w-16 h-16 rounded-full bg-[#dcfce7] text-[#047857] flex items-center justify-center mx-auto">
               <span className="material-symbols-outlined text-3xl">check_circle</span>
             </div>
@@ -105,17 +105,17 @@ export const FarmerRegistration = () => {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xl space-y-6">
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-4 sm:p-8 border border-slate-200 shadow-xl space-y-5 sm:space-y-6">
             
             {/* Role Selection Box */}
-            <div className="bg-[#f0fdf4] border-2 border-[#047857] p-5 rounded-2xl space-y-3">
+            <div className="bg-[#f0fdf4] border-2 border-[#047857] p-4 sm:p-5 rounded-2xl space-y-3">
               <label className="block text-xs font-black uppercase text-[#166534] tracking-wider">
                 {t('auth.selectRole', 'Select Platform Account Role *')}
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-xs">
                 <label className={`p-3 rounded-xl border-2 flex items-center gap-3 cursor-pointer transition-all ${formData.role === 'farmer' ? 'bg-[#047857] text-white border-[#047857] font-bold shadow-xs' : 'bg-white text-slate-800 border-slate-200 hover:border-[#047857]'}`}>
                   <input type="radio" name="role" value="farmer" checked={formData.role === 'farmer'} onChange={(e) => setFormData({...formData, role: e.target.value})} className="hidden" />
-                  <span className="material-symbols-outlined text-xl">agriculture</span>
+                  <span className="material-symbols-outlined text-xl shrink-0">agriculture</span>
                   <div>
                     <div className="font-extrabold">{t('role.farmer', 'Farmer Producer (FPO)')}</div>
                     <div className="text-[10px] opacity-80">Produce, Mandi slots, Sale Advisory</div>
@@ -124,7 +124,7 @@ export const FarmerRegistration = () => {
 
                 <label className={`p-3 rounded-xl border-2 flex items-center gap-3 cursor-pointer transition-all ${formData.role === 'apmc' ? 'bg-[#047857] text-white border-[#047857] font-bold shadow-xs' : 'bg-white text-slate-800 border-slate-200 hover:border-[#047857]'}`}>
                   <input type="radio" name="role" value="apmc" checked={formData.role === 'apmc'} onChange={(e) => setFormData({...formData, role: e.target.value})} className="hidden" />
-                  <span className="material-symbols-outlined text-xl">warehouse</span>
+                  <span className="material-symbols-outlined text-xl shrink-0">warehouse</span>
                   <div>
                     <div className="font-extrabold">{t('role.apmc', 'APMC Mandi Official')}</div>
                     <div className="text-[10px] opacity-80">Queue, ANPR Gate, Weighbridge, Assayer</div>
@@ -133,7 +133,7 @@ export const FarmerRegistration = () => {
 
                 <label className={`p-3 rounded-xl border-2 flex items-center gap-3 cursor-pointer transition-all ${formData.role === 'buyer' ? 'bg-[#047857] text-white border-[#047857] font-bold shadow-xs' : 'bg-white text-slate-800 border-slate-200 hover:border-[#047857]'}`}>
                   <input type="radio" name="role" value="buyer" checked={formData.role === 'buyer'} onChange={(e) => setFormData({...formData, role: e.target.value})} className="hidden" />
-                  <span className="material-symbols-outlined text-xl">storefront</span>
+                  <span className="material-symbols-outlined text-xl shrink-0">storefront</span>
                   <div>
                     <div className="font-extrabold">{t('role.buyer', 'Institutional Buyer')}</div>
                     <div className="text-[10px] opacity-80">Purchase Orders, Direct Bids, Escrow</div>
@@ -142,7 +142,7 @@ export const FarmerRegistration = () => {
 
                 <label className={`p-3 rounded-xl border-2 flex items-center gap-3 cursor-pointer transition-all ${formData.role === 'driver' ? 'bg-[#047857] text-white border-[#047857] font-bold shadow-xs' : 'bg-white text-slate-800 border-slate-200 hover:border-[#047857]'}`}>
                   <input type="radio" name="role" value="driver" checked={formData.role === 'driver'} onChange={(e) => setFormData({...formData, role: e.target.value})} className="hidden" />
-                  <span className="material-symbols-outlined text-xl">local_shipping</span>
+                  <span className="material-symbols-outlined text-xl shrink-0">local_shipping</span>
                   <div>
                     <div className="font-extrabold">{t('role.driver', 'Logistics Drayage Driver')}</div>
                     <div className="text-[10px] opacity-80">Fast-Track Gate Pass & Yard Entry</div>
@@ -151,20 +151,20 @@ export const FarmerRegistration = () => {
               </div>
             </div>
 
-            <div className="border-b border-slate-100 pb-4">
+            <div className="border-b border-slate-100 pb-3">
               <h2 className="text-base font-extrabold text-[#0f172a] flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#047857]">badge</span> {t('auth.identityInfo', 'Identity Information')}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">{t('auth.fullName', 'Full Registered Name *')}</label>
                 <input 
                   type="text" 
                   value={formData.fullName}
                   onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
                 />
                 {errors.fullName && <span className="text-[10px] font-bold text-red-600 mt-0.5 block">{errors.fullName}</span>}
               </div>
@@ -175,7 +175,7 @@ export const FarmerRegistration = () => {
                   type="tel" 
                   value={formData.mobile}
                   onChange={(e) => setFormData({...formData, mobile: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
                 />
                 {errors.mobile && <span className="text-[10px] font-bold text-red-600 mt-0.5 block">{errors.mobile}</span>}
               </div>
@@ -186,7 +186,7 @@ export const FarmerRegistration = () => {
                   type="text" 
                   value={formData.aadhaar}
                   onChange={(e) => setFormData({...formData, aadhaar: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
                 />
                 {errors.aadhaar && <span className="text-[10px] font-bold text-red-600 mt-0.5 block">{errors.aadhaar}</span>}
               </div>
@@ -196,7 +196,7 @@ export const FarmerRegistration = () => {
                 <select 
                   value={formData.mandi}
                   onChange={(e) => setFormData({...formData, mandi: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   <option>Pimpalgaon Baswant APMC (Nashik)</option>
                   <option>Lasalgaon APMC (Nashik)</option>
@@ -206,20 +206,20 @@ export const FarmerRegistration = () => {
               </div>
             </div>
 
-            <div className="border-b border-slate-100 pb-4 pt-2">
+            <div className="border-b border-slate-100 pb-3 pt-2">
               <h2 className="text-base font-extrabold text-[#0f172a] flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#047857]">account_balance</span> {t('auth.bankEscrowInfo', 'Bank Account for Direct Escrow DBT')}
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">{t('auth.bankAccount', 'Bank Account Number *')}</label>
                 <input 
                   type="text" 
                   value={formData.bankAccount}
                   onChange={(e) => setFormData({...formData, bankAccount: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
                 />
                 {errors.bankAccount && <span className="text-[10px] font-bold text-red-600 mt-0.5 block">{errors.bankAccount}</span>}
               </div>
@@ -230,13 +230,13 @@ export const FarmerRegistration = () => {
                   type="text" 
                   value={formData.ifsc}
                   onChange={(e) => setFormData({...formData, ifsc: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
                 />
                 {errors.ifsc && <span className="text-[10px] font-bold text-red-600 mt-0.5 block">{errors.ifsc}</span>}
               </div>
             </div>
 
-            <div className="border-b border-slate-100 pb-4 pt-2">
+            <div className="border-b border-slate-100 pb-3 pt-2">
               <h2 className="text-base font-extrabold text-[#0f172a] flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#047857]">lock</span> {t('auth.accountSecurity', 'Account Security')}
               </h2>
@@ -249,17 +249,17 @@ export const FarmerRegistration = () => {
                   type="password" 
                   value={formData.password || ''}
                   onChange={(e) => setFormData({...formData, password: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
                 />
                 {errors.password && <span className="text-[10px] font-bold text-red-600 mt-0.5 block">{errors.password}</span>}
               </div>
             </div>
 
-            <div className="pt-4 flex items-center justify-between">
-              <Link to="/" className="text-xs font-bold text-slate-500 hover:text-[#0f172a]">{t('common.cancel', 'Cancel')}</Link>
+            <div className="pt-4 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
+              <Link to="/" className="w-full sm:w-auto text-center text-xs font-bold text-slate-500 hover:text-[#0f172a] py-2">{t('common.cancel', 'Cancel')}</Link>
               <button 
                 type="submit" 
-                className="px-6 py-2.5 bg-[#047857] text-white hover:bg-[#065f46] font-extrabold text-xs rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-6 py-3 bg-[#047857] text-white hover:bg-[#065f46] font-extrabold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
               >
                 <span className="material-symbols-outlined text-base">verified_user</span> {t('auth.registerNow', 'Register Account & Launch Workspace')}
               </button>

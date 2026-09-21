@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Navbar from './Navbar';
@@ -7,6 +7,23 @@ export const DashboardLayout = ({ children }) => {
   const { user, t, getRoleLabel } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Close mobile sidebar on route change
+  useEffect(() => {
+    setSidebarOpen(false);
+  }, [location.pathname]);
+
+  // Close mobile sidebar on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setSidebarOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   // Role-aware navigation definitions with i18n keys
   const navByRole = {
@@ -100,17 +117,40 @@ export const DashboardLayout = ({ children }) => {
   const currentNavGroups = navByRole[user?.role] || navByRole.farmer;
 
   return (
-    <div className="min-h-screen bg-[#f4fbf7] flex">
-      {/* Fixed Sidebar Navigation */}
-      <aside className="fixed left-0 top-0 h-full w-64 bg-[#0f172a] text-white z-50 flex flex-col justify-between py-4 shadow-xl border-r border-[#1e293b]">
+    <div className="min-h-screen bg-[#f4fbf7] flex flex-col lg:flex-row w-full overflow-x-hidden">
+      {/* Mobile Drawer Backdrop Overlay */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-45 lg:hidden transition-opacity duration-300"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Responsive Sidebar Navigation Drawer */}
+      <aside
+        className={`fixed left-0 top-0 h-full w-64 bg-[#0f172a] text-white z-50 flex flex-col justify-between py-4 shadow-2xl border-r border-[#1e293b] transition-transform duration-300 ease-in-out ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        }`}
+      >
         <div>
-          {/* Brand Logo & Title */}
-          <div className="px-4 pb-4 flex items-center gap-3 border-b border-[#1e293b]">
-            <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-10 h-10 rounded-xl object-contain shadow-xs bg-white p-0.5 border border-[#dcfce7]" />
-            <div>
-              <span className="text-base font-black text-white tracking-tight block">AgriSync</span>
-              <span className="text-[10px] text-[#a7f3d0] font-bold uppercase tracking-wider block">{getRoleLabel(user?.role)}</span>
+          {/* Brand Logo & Title with Close button for mobile */}
+          <div className="px-4 pb-4 flex items-center justify-between border-b border-[#1e293b]">
+            <div className="flex items-center gap-3">
+              <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-10 h-10 rounded-xl object-contain shadow-xs bg-white p-0.5 border border-[#dcfce7]" />
+              <div>
+                <span className="text-base font-black text-white tracking-tight block">AgriSync</span>
+                <span className="text-[10px] text-[#a7f3d0] font-bold uppercase tracking-wider block">{getRoleLabel(user?.role)}</span>
+              </div>
             </div>
+            {/* Close Button on Mobile Drawer */}
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-[#1e293b] transition-colors"
+              aria-label="Close menu"
+            >
+              <span className="material-symbols-outlined text-xl">close</span>
+            </button>
           </div>
 
           {/* Nav Items */}
@@ -127,6 +167,7 @@ export const DashboardLayout = ({ children }) => {
                       <Link
                         key={iIdx}
                         to={item.path}
+                        onClick={() => setSidebarOpen(false)}
                         className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs transition-all ${
                           isActive
                             ? 'bg-[#047857] text-white font-bold shadow-md translate-x-0.5'
@@ -149,6 +190,7 @@ export const DashboardLayout = ({ children }) => {
           <nav className="space-y-1">
             <Link
               to="/settings"
+              onClick={() => setSidebarOpen(false)}
               className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs transition-all ${
                 location.pathname === '/settings'
                   ? 'bg-[#047857] text-white font-bold'
@@ -160,6 +202,7 @@ export const DashboardLayout = ({ children }) => {
             </Link>
             <Link
               to="/"
+              onClick={() => setSidebarOpen(false)}
               className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs text-slate-300 hover:bg-[#1e293b] hover:text-white transition-all"
             >
               <span className="material-symbols-outlined text-lg text-[#a7f3d0]">logout</span>
@@ -178,9 +221,9 @@ export const DashboardLayout = ({ children }) => {
       </aside>
 
       {/* Main Layout Body */}
-      <div className="pl-64 flex-1 flex flex-col min-w-0">
-        <Navbar />
-        <main className="pt-16 min-h-screen p-6 bg-[#f4fbf7]">
+      <div className="pl-0 lg:pl-64 flex-1 flex flex-col min-w-0 w-full">
+        <Navbar onToggleSidebar={() => setSidebarOpen((prev) => !prev)} sidebarOpen={sidebarOpen} />
+        <main className="pt-16 min-h-screen p-3 sm:p-6 bg-[#f4fbf7] w-full max-w-full overflow-x-hidden safe-bottom">
           {children}
         </main>
       </div>
@@ -189,4 +232,5 @@ export const DashboardLayout = ({ children }) => {
 };
 
 export default DashboardLayout;
+
 

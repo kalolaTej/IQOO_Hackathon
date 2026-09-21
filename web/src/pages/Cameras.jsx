@@ -227,10 +227,10 @@ export default function Cameras() {
       )}
 
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-2 border-b border-slate-200">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black text-[#0f172a] tracking-tight">Perimeter Camera Management & IoT Nodes</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] tracking-tight">Perimeter Camera Management & IoT Nodes</h1>
             <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] border border-[#bbf7d0]">
               {activeCount} / {cameras.length} Active Nodes
             </span>
@@ -240,13 +240,13 @@ export default function Cameras() {
           </p>
         </div>
 
-        <div className="flex items-center gap-2.5 self-start sm:self-auto">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 self-start sm:self-auto">
           <button
             onClick={() => {
               setCameraToEdit(null)
               setIsAddModalOpen(true)
             }}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#047857] hover:bg-[#065f46] text-white text-xs font-extrabold transition-all shadow-md cursor-pointer active:scale-95"
+            className="flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-[#047857] hover:bg-[#065f46] text-white text-xs font-extrabold transition-all shadow-md cursor-pointer active:scale-95"
           >
             <Plus size={15} />
             <span>+ Add IP Camera</span>
@@ -255,7 +255,7 @@ export default function Cameras() {
           <button
             onClick={handleRefresh}
             disabled={refreshing}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-[#0f172a] text-xs font-bold transition-colors shadow-2xs cursor-pointer"
+            className="flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-[#0f172a] text-xs font-bold transition-colors shadow-2xs cursor-pointer"
           >
             <RefreshCw size={14} className={refreshing ? 'animate-spin text-[#047857]' : ''} />
             <span>Refresh</span>
@@ -265,7 +265,7 @@ export default function Cameras() {
 
       {/* Zone Filter Pills */}
       {zones.length > 1 && (
-        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
           <span className="text-xs text-slate-500 font-bold flex items-center gap-1 mr-1 shrink-0">
             <Filter size={14} /> Filter Zone:
           </span>
@@ -273,7 +273,7 @@ export default function Cameras() {
             <button
               key={zone}
               onClick={() => setSelectedZone(zone)}
-              className={`px-3 py-1 text-xs rounded-full font-bold transition-colors whitespace-nowrap cursor-pointer ${
+              className={`px-3 py-1 text-xs rounded-full font-bold transition-colors whitespace-nowrap cursor-pointer shrink-0 ${
                 selectedZone === zone
                   ? 'bg-[#047857] text-white shadow-2xs'
                   : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'

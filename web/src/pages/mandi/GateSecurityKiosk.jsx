@@ -54,38 +54,38 @@ export const GateSecurityKiosk = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold text-[#047857] uppercase tracking-wider">APMC Gate Terminal Kiosk</span>
           <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 border border-amber-300">
             DIGITAL ANPR CAMERA SIMULATION
           </span>
         </div>
-        <h1 className="text-2xl font-black text-[#0f172a]">ANPR Gate Security Console</h1>
+        <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] mt-1">ANPR Gate Security Console</h1>
         <p className="text-xs text-slate-500 font-medium mt-0.5">
           Automated number-plate recognition & gate barrier access validation terminal.
         </p>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xl grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-xl grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
         {/* Left Column: Camera Simulation Feed & Manual Scanner Controls */}
         <div className="space-y-4">
           {/* Simulated ANPR Viewport */}
-          <div className="h-56 bg-[#0f172a] rounded-xl flex flex-col items-center justify-center text-white relative overflow-hidden border border-slate-800">
+          <div className="h-52 sm:h-56 bg-[#0f172a] rounded-xl flex flex-col items-center justify-center text-white relative overflow-hidden border border-slate-800">
             {/* Viewport scan lines */}
             <div className="absolute inset-0 bg-linear-to-b from-transparent via-emerald-500/10 to-transparent animate-pulse pointer-events-none" />
 
             {/* Simulation Header Badge */}
-            <div className="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[10px] px-2 py-0.5 rounded font-black tracking-wider shadow-xs">
-              DIGITAL ANPR CAMERA SIMULATION
+            <div className="absolute top-3 left-3 bg-amber-500 text-slate-950 text-[9px] sm:text-[10px] px-2 py-0.5 rounded font-black tracking-wider shadow-xs">
+              DIGITAL ANPR SIMULATION
             </div>
 
             <div className="absolute top-3 right-3 bg-slate-900/80 text-emerald-400 text-[10px] px-2 py-0.5 rounded font-mono border border-emerald-500/30">
               FPS: 30 • 1080P
             </div>
 
-            <div className="text-center space-y-2 z-10">
-              <Camera size={44} className="mx-auto text-emerald-400 opacity-80" />
-              <div className="text-[11px] font-mono text-slate-300 tracking-wider">
+            <div className="text-center space-y-2 z-10 p-2">
+              <Camera size={38} className="mx-auto text-emerald-400 opacity-80" />
+              <div className="text-[10px] sm:text-[11px] font-mono text-slate-300 tracking-wider">
                 ANPR OPTICAL SENSOR OVERLAY
               </div>
               <div className="inline-block px-3 py-1 bg-black/60 border border-emerald-400/50 rounded-lg text-xs font-mono font-black text-emerald-300">
@@ -94,9 +94,9 @@ export const GateSecurityKiosk = () => {
             </div>
 
             {/* Bottom Gate Indicator */}
-            <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono px-2 py-1 bg-black/70 rounded">
-              <span className="text-slate-400">TARGET GATE: {activeRecord.gate}</span>
-              <span className={barrierOpen ? 'text-emerald-400 font-bold' : 'text-slate-400 font-bold'}>
+            <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[9px] sm:text-[10px] font-mono px-2 py-1 bg-black/70 rounded">
+              <span className="text-slate-400 truncate">GATE: {activeRecord.gate}</span>
+              <span className={barrierOpen ? 'text-emerald-400 font-bold shrink-0' : 'text-slate-400 font-bold shrink-0'}>
                 {barrierOpen ? 'BARRIER: LIFTED' : 'BARRIER: LOWERED'}
               </span>
             </div>
@@ -107,7 +107,7 @@ export const GateSecurityKiosk = () => {
             <label className="block text-xs font-bold text-[#0f172a] mb-1">
               Active Queue Token Under Inspection
             </label>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
               {QUEUE_RECORDS.map((rec, idx) => (
                 <button
                   key={rec.token}
@@ -118,8 +118,8 @@ export const GateSecurityKiosk = () => {
                       : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
                   }`}
                 >
-                  <div className="font-data-tabular">{rec.token}</div>
-                  <div className="text-[10px] opacity-80 truncate">{rec.expectedPlate}</div>
+                  <div className="font-data-tabular text-[11px] sm:text-xs">{rec.token}</div>
+                  <div className="text-[9px] sm:text-[10px] opacity-80 truncate">{rec.expectedPlate}</div>
                 </button>
               ))}
             </div>

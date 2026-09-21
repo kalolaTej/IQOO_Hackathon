@@ -68,20 +68,20 @@ export const TransactionDetail = () => {
   return (
     <div className="space-y-6 max-w-3xl mx-auto">
       {/* Header Navigation */}
-      <div className="flex items-center justify-between print:hidden">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 print:hidden">
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-bold text-[#047857] uppercase tracking-wider">Certified Electronic Sauda Slip</span>
             <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 border border-amber-300">
               SIMULATED ESCROW SETTLEMENT NODE
             </span>
           </div>
-          <h1 className="text-2xl font-black text-[#0f172a]">Transaction #{txData.id}</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] mt-1">Transaction #{txData.id}</h1>
         </div>
 
         <Link
           to="/transactions"
-          className="px-3.5 py-1.5 bg-slate-100 text-[#0f172a] border border-slate-200 rounded-xl text-xs font-bold hover:bg-slate-200 flex items-center gap-1 transition-colors"
+          className="self-start sm:self-auto px-3.5 py-2 bg-slate-100 text-[#0f172a] border border-slate-200 rounded-xl text-xs font-bold hover:bg-slate-200 flex items-center gap-1.5 transition-colors"
         >
           <ArrowLeft size={13} />
           <span>Back to Ledger</span>
@@ -89,24 +89,24 @@ export const TransactionDetail = () => {
       </div>
 
       {/* Main Slip Card */}
-      <div id="sauda-slip-card" className="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl space-y-6 print:shadow-none print:border-none">
-        <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+      <div id="sauda-slip-card" className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-xl space-y-5 sm:space-y-6 print:shadow-none print:border-none">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#047857] text-white flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-[#047857] text-white flex items-center justify-center font-bold shrink-0">
               <FileText size={22} />
             </div>
             <div>
-              <div className="font-black text-base text-[#0f172a]">Commercial Mandi Settlement Voucher</div>
+              <div className="font-black text-sm sm:text-base text-[#0f172a]">Commercial Mandi Settlement Voucher</div>
               <div className="text-xs text-[#047857] font-bold">Simulated Reference: {txData.reference}</div>
             </div>
           </div>
-          <span className="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-full text-xs font-black border border-emerald-200">
+          <span className="self-start sm:self-auto px-3 py-1 bg-emerald-50 text-emerald-800 rounded-full text-xs font-black border border-emerald-200">
             {txData.settlementStatus}
           </span>
         </div>
 
         {/* Trade Participants */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs text-slate-700 bg-slate-50 p-3.5 sm:p-4 rounded-2xl border border-slate-200">
           <div>
             <span className="text-slate-500 block font-semibold">Seller Farmer:</span>
             <strong className="text-[#0f172a] text-sm">{txData.seller}</strong>
@@ -120,8 +120,8 @@ export const TransactionDetail = () => {
         </div>
 
         {/* Financial Breakdown Table */}
-        <div className="border border-slate-200 rounded-2xl p-5 space-y-3 text-xs">
-          <div className="flex justify-between border-b border-slate-100 pb-2.5">
+        <div className="border border-slate-200 rounded-2xl p-4 sm:p-5 space-y-2.5 sm:space-y-3 text-xs">
+          <div className="flex flex-col sm:flex-row sm:justify-between border-b border-slate-100 pb-2.5 gap-1">
             <span className="text-slate-600">Commodity & Quantity:</span>
             <strong className="font-semibold text-slate-900">{txData.commodity} • {txData.quantity}</strong>
           </div>
@@ -146,9 +146,9 @@ export const TransactionDetail = () => {
             <strong className="text-emerald-700">{txData.paymentStatus}</strong>
           </div>
 
-          <div className="flex justify-between pt-2 text-base font-black text-[#0f172a]">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline pt-2 text-sm sm:text-base font-black text-[#0f172a] gap-1">
             <span>Net Settlement Payable to Farmer:</span>
-            <span className="text-[#047857] font-data-tabular text-lg">{txData.netAmount}</span>
+            <span className="text-[#047857] font-data-tabular text-base sm:text-lg">{txData.netAmount}</span>
           </div>
         </div>
 
@@ -166,7 +166,7 @@ export const TransactionDetail = () => {
         <div className="pt-2 text-center print:hidden">
           <button
             onClick={handleDownloadPDF}
-            className="px-6 py-2.5 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl text-xs font-black shadow-md transition-all inline-flex items-center gap-2 cursor-pointer active:scale-98"
+            className="w-full sm:w-auto px-6 py-3 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl text-xs font-black shadow-md transition-all inline-flex items-center justify-center gap-2 cursor-pointer active:scale-98"
           >
             <Download size={15} />
             <span>{downloading ? 'Preparing Official PDF...' : 'Download Official Trade Slip (PDF)'}</span>

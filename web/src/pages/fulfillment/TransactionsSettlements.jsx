@@ -61,19 +61,19 @@ export const TransactionsSettlements = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-bold text-[#047857] uppercase tracking-wider">Fulfillment & Settlement Ledger</span>
             <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 border border-amber-300">
               SIMULATED ESCROW SETTLEMENT NODE
             </span>
           </div>
-          <h1 className="text-2xl font-black text-[#0f172a]">Transactions & Mandi Settlements</h1>
+          <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] mt-1">Transactions & Mandi Settlements</h1>
           <p className="text-xs text-slate-600 mt-1">
             State-machine escrow settlement records, verified trade slips, and transparent procurement vouchers.
           </p>
         </div>
 
-        <div className="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-2xs text-right">
+        <div className="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-2xs text-left sm:text-right">
           <div className="text-[10px] text-slate-500 font-semibold uppercase">Total Season Settlements</div>
           <div className="text-xl font-black text-[#0f172a] font-data-tabular">₹12,93,800</div>
           <div className="text-[10px] text-emerald-700 font-bold">3 Completed Trades</div>
@@ -81,18 +81,65 @@ export const TransactionsSettlements = () => {
       </div>
 
       {/* Simulated Node Notice */}
-      <div className="p-4 bg-slate-50 border border-slate-200 rounded-2xl flex items-center justify-between text-xs text-slate-600">
-        <div className="flex items-center gap-2.5">
-          <ShieldCheck size={18} className="text-[#047857] shrink-0" />
+      <div className="p-3.5 sm:p-4 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-600">
+        <div className="flex items-start sm:items-center gap-2.5">
+          <ShieldCheck size={18} className="text-[#047857] shrink-0 mt-0.5 sm:mt-0" />
           <span>
             <strong>Escrow Simulation Environment:</strong> Ledger transitions mimic automated commercial escrow fund release. No physical bank API switch or live NPCI transfer is executed.
           </span>
         </div>
-        <span className="text-[10px] font-mono text-slate-400 shrink-0 ml-3">Node: ESCROW-MANDI-SIM-01</span>
+        <span className="text-[10px] font-mono text-slate-400 shrink-0">Node: ESCROW-MANDI-SIM-01</span>
       </div>
 
-      {/* Transactions Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-3">
+        {transactions.map((t) => (
+          <div key={t.id} className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs space-y-3">
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <div className="font-mono font-black text-[#047857] text-xs">#{t.id}</div>
+                <div className="text-[10px] text-slate-500 font-mono">Lot: {t.lotId}</div>
+              </div>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-bold">
+                <CheckCircle2 size={10} /> {t.settlementStatus}
+              </span>
+            </div>
+
+            <div className="border-t border-slate-100 pt-2 space-y-1.5 text-xs">
+              <div className="flex justify-between">
+                <span className="text-slate-500">Buyer:</span>
+                <span className="font-bold text-slate-900 text-right">{t.buyer}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500">Crop & Qty:</span>
+                <span className="font-medium text-slate-800 text-right">{t.crop} ({t.quantity})</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-slate-500">Unit Rate:</span>
+                <span className="font-semibold text-slate-800 font-data-tabular">{t.unitPrice}</span>
+              </div>
+              <div className="flex justify-between items-baseline pt-1 border-t border-slate-100">
+                <span className="text-slate-500 font-medium">Net Settlement:</span>
+                <span className="font-black text-base text-[#047857] font-data-tabular">{t.netAmount}</span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+              <span className="text-[11px] text-slate-400">{t.date}</span>
+              <Link
+                to={`/transactions/${t.id}`}
+                className="inline-flex items-center gap-1.5 px-3 py-2 bg-[#047857] hover:bg-[#065f46] text-white rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer active:scale-98"
+              >
+                <FileText size={13} />
+                <span>View Slip</span>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop Table View */}
+      <div className="hidden md:block bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

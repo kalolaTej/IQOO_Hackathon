@@ -273,32 +273,32 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6 max-w-7xl mx-auto">
       {/* Greeting & Top Bar Actions */}
-      <section className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <section className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black text-[#0f172a] tracking-tight">{t('dash.welcome', 'Welcome back')}, {user.name}</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] tracking-tight">{t('dash.welcome', 'Welcome back')}, {user.name}</h1>
             <span className="px-2.5 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] text-xs font-bold border border-[#bbf7d0]">
               {getRoleLabel(user?.role)}
             </span>
           </div>
           <p className="text-xs text-slate-600 flex items-center gap-1.5 mt-1 font-medium">
             <span className="material-symbols-outlined text-sm text-[#047857]">wb_sunny</span>
-            <span>{user?.apmc || user?.location || 'Registered Farmland'} • 30s IoT Perimeter Surveillance Active</span>
+            <span className="truncate">{user?.apmc || user?.location || 'Registered Farmland'} • 30s IoT Surveillance Active</span>
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3">
           <button
             onClick={() => setShowSlotModal(true)}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-white text-[#0f172a] rounded-xl text-xs font-bold border border-slate-200 shadow-2xs hover:bg-slate-50 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-white text-[#0f172a] rounded-xl text-xs font-bold border border-slate-200 shadow-2xs hover:bg-slate-50 transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-base text-[#047857]">calendar_month</span>
             <span>{t('dash.bookSlot', 'Book Mandi Slot')}</span>
           </button>
           <Link
             to="/produce"
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#047857] text-white rounded-xl text-xs font-extrabold shadow-md hover:bg-[#065f46] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 bg-[#047857] text-white rounded-xl text-xs font-extrabold shadow-md hover:bg-[#065f46] transition-colors"
           >
             <span className="material-symbols-outlined text-base">add_box</span>
             <span>{t('dash.createLot', '+ Add Produce')}</span>
@@ -308,61 +308,61 @@ export const Dashboard = () => {
 
       {/* Siren Active Alert Banner (Shows when siren is triggered) */}
       {sirenState?.active && (
-        <div className="bg-red-600 text-white rounded-2xl p-4 shadow-xl flex items-center justify-between gap-4 animate-pulse">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white text-red-600 flex items-center justify-center font-black">
-              <Volume2 className="animate-bounce" size={24} />
+        <div className="bg-red-600 text-white rounded-2xl p-3.5 sm:p-4 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-pulse">
+          <div className="flex items-start sm:items-center gap-3">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white text-red-600 flex items-center justify-center font-black shrink-0">
+              <Volume2 className="animate-bounce" size={22} />
             </div>
             <div>
-              <div className="font-black text-sm uppercase tracking-wide flex items-center gap-2">
+              <div className="font-black text-xs sm:text-sm uppercase tracking-wide flex flex-wrap items-center gap-2">
                 <span>AUTOMATED DETERRENT SIREN ACTIVATED!</span>
-                <span className="px-2 py-0.5 rounded-full bg-red-800 text-yellow-300 text-[10px] font-black tracking-normal border border-red-400">
+                <span className="px-2 py-0.5 rounded-full bg-red-800 text-yellow-300 text-[9px] sm:text-[10px] font-black tracking-normal border border-red-400">
                   {sirenState?.mode === 'PHYSICAL' || sirenState?.hardwareResult?.startsWith('esp32_ack')
                     ? 'PHYSICAL (ESP32 ACK)'
-                    : 'SIMULATION (Software Fallback)'}
+                    : 'SIMULATION'}
                 </span>
               </div>
-              <p className="text-xs text-red-100">
-                Animal Intrusion [{sirenState.animal || 'Wild Boar'}] detected on field perimeter. High-decibel acoustic deterrent triggered.
+              <p className="text-[11px] sm:text-xs text-red-100 mt-0.5">
+                Animal Intrusion [{sirenState.animal || 'Wild Boar'}] detected on field perimeter. High-decibel deterrent active.
               </p>
             </div>
           </div>
-          <span className="px-3 py-1 bg-red-800 text-white text-xs font-bold rounded-lg shrink-0">
+          <span className="px-2.5 py-1 bg-red-800 text-white text-[10px] sm:text-xs font-bold rounded-lg shrink-0 self-start sm:self-auto">
             SIREN SOUNDING
           </span>
         </div>
       )}
 
       {/* Core Operational Section: LIVE PERIMETER CAMERA & DETECTION HISTORY */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
         {/* Live Perimeter Camera Feed (7 Cols) */}
-        <div className="lg:col-span-7 bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+        <div className="lg:col-span-7 bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
           <div>
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
                   <Camera size={16} />
                 </div>
-                <div>
-                  <h2 className="text-sm font-black text-[#0f172a]">Live Field Perimeter Camera</h2>
-                  <p className="text-[11px] text-slate-500">{perimeterCam.cameraName} • {perimeterCam.zone}</p>
+                <div className="min-w-0">
+                  <h2 className="text-sm font-black text-[#0f172a] truncate">Live Field Perimeter Camera</h2>
+                  <p className="text-[11px] text-slate-500 truncate">{perimeterCam.cameraName} • {perimeterCam.zone}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold ${
+              <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                <span className={`inline-flex items-center gap-1 px-2 sm:px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-extrabold ${
                   perimeterCam.status === 'online'
                     ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                     : 'bg-red-50 text-red-700 border border-red-200'
                 }`}>
                   <span className={`w-1.5 h-1.5 rounded-full ${perimeterCam.status === 'online' ? 'bg-emerald-600 animate-ping' : 'bg-red-600'}`}></span>
-                  {perimeterCam.status === 'online' ? 'Live Stream' : 'Camera Offline'}
+                  <span>{perimeterCam.status === 'online' ? 'Live' : 'Offline'}</span>
                 </span>
 
                 <button
                   onClick={handleManualCapture}
                   disabled={capturing}
-                  className="p-1.5 text-slate-500 hover:text-[#047857] hover:bg-slate-100 rounded-lg border border-slate-200 text-xs flex items-center gap-1 font-bold"
+                  className="p-1.5 text-slate-500 hover:text-[#047857] hover:bg-slate-100 rounded-lg border border-slate-200 text-xs flex items-center gap-1 font-bold cursor-pointer"
                   title="Trigger instant frame capture & AI analysis"
                 >
                   <RefreshCw size={13} className={capturing ? 'animate-spin text-[#047857]' : ''} />
@@ -372,7 +372,7 @@ export const Dashboard = () => {
             </div>
 
             {/* Camera Viewport */}
-            <div className="mt-4 relative rounded-2xl overflow-hidden bg-slate-950 aspect-video shadow-inner flex items-center justify-center group">
+            <div className="mt-4 relative rounded-2xl overflow-hidden bg-slate-950 aspect-video shadow-inner flex items-center justify-center group w-full">
               <img
                 src={resolveCameraStreamUrl({
                   ...perimeterCam,
@@ -386,61 +386,61 @@ export const Dashboard = () => {
               />
 
               {/* Viewport Overlay Info */}
-              <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-white text-[11px] font-mono border border-slate-700/60 flex items-center gap-2">
-                <Radio size={12} className="text-emerald-400 animate-pulse" />
+              <div className="absolute top-2.5 left-2.5 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-white text-[10px] font-mono border border-slate-700/60 flex items-center gap-1.5">
+                <Radio size={11} className="text-emerald-400 animate-pulse" />
                 <span>REC: {new Date(perimeterCam.capturedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>
               </div>
 
-              <div className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-xl text-white text-[11px] font-bold border border-slate-700/60">
+              <div className="absolute top-2.5 right-2.5 bg-slate-900/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-white text-[10px] font-bold border border-slate-700/60">
                 {perimeterCam.detectionStatus === 'animal_detected' ? (
                   <span className="text-red-400 font-extrabold flex items-center gap-1">
-                    <AlertTriangle size={13} />
+                    <AlertTriangle size={12} />
                     Intrusion Detected
                   </span>
                 ) : (
                   <span className="text-emerald-400 font-extrabold flex items-center gap-1">
-                    <CheckCircle2 size={13} />
-                    No Animal • Clear
+                    <CheckCircle2 size={12} />
+                    Clear
                   </span>
                 )}
               </div>
 
-              <div className="absolute bottom-3 left-3 right-3 bg-slate-950/75 backdrop-blur-md px-4 py-2 rounded-xl text-slate-300 text-[11px] flex items-center justify-between border border-slate-800">
-                <span>30-Second Auto Scheduler: <strong className="text-emerald-400 font-bold">Active</strong></span>
+              <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-slate-950/80 backdrop-blur-md px-3 py-1.5 rounded-lg text-slate-300 text-[10px] sm:text-[11px] flex items-center justify-between border border-slate-800">
+                <span className="truncate">Auto Scheduler: <strong className="text-emerald-400 font-bold">Active</strong></span>
                 <span>FPS: <strong className="text-white font-bold">{perimeterCam.fps || 30}</strong></span>
-                <span>Node: <strong className="text-white font-bold">{perimeterCam.cameraId}</strong></span>
+                <span className="hidden xs:inline">Node: <strong className="text-white font-bold">{perimeterCam.cameraId}</strong></span>
               </div>
             </div>
           </div>
 
           {/* Camera Actions Footer */}
-          <div className="pt-2 flex items-center justify-between border-t border-slate-100 text-xs">
-            <span className="text-slate-500 font-medium">
-              Last Frame Processed: <strong className="text-slate-800 font-bold">{new Date(perimeterCam.capturedAt).toLocaleTimeString()}</strong>
+          <div className="pt-2 flex flex-wrap items-center justify-between border-t border-slate-100 text-xs gap-2">
+            <span className="text-slate-500 font-medium text-[11px]">
+              Last Frame: <strong className="text-slate-800 font-bold">{new Date(perimeterCam.capturedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</strong>
             </span>
             <div className="flex items-center gap-2">
               <button
                 onClick={handleManualSiren}
                 disabled={triggeringSiren}
-                className="px-3 py-1.5 bg-red-50 text-red-700 border border-red-200 rounded-xl font-bold hover:bg-red-100 transition-colors flex items-center gap-1"
+                className="px-2.5 sm:px-3 py-1.5 bg-red-50 text-red-700 border border-red-200 rounded-xl font-bold hover:bg-red-100 transition-colors flex items-center gap-1 text-[11px] cursor-pointer"
               >
-                <Volume2 size={13} />
+                <Volume2 size={12} />
                 <span>Test Siren</span>
               </button>
-              <Link to="/cameras" className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold transition-colors flex items-center gap-1">
-                <span>All 4 Cameras</span>
-                <ArrowRight size={13} />
+              <Link to="/cameras" className="px-2.5 sm:px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl font-bold transition-colors flex items-center gap-1 text-[11px]">
+                <span>All Cameras</span>
+                <ArrowRight size={12} />
               </Link>
             </div>
           </div>
         </div>
 
         {/* Animal Detection History (5 Cols) */}
-        <div className="lg:col-span-5 bg-white rounded-3xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
+        <div className="lg:col-span-5 bg-white rounded-3xl p-4 sm:p-6 border border-slate-200 shadow-sm flex flex-col justify-between space-y-4">
           <div>
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3 gap-2">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-red-100 text-red-700 flex items-center justify-center">
+                <div className="w-7 h-7 rounded-lg bg-red-100 text-red-700 flex items-center justify-center shrink-0">
                   <ShieldAlert size={16} />
                 </div>
                 <div>
@@ -449,7 +449,7 @@ export const Dashboard = () => {
                 </div>
               </div>
 
-              <Link to="/detections" className="text-xs text-[#047857] font-bold hover:underline">
+              <Link to="/detections" className="text-xs text-[#047857] font-bold hover:underline shrink-0">
                 View All →
               </Link>
             </div>
@@ -478,28 +478,28 @@ export const Dashboard = () => {
                   return (
                     <div
                       key={det.id || idx}
-                      className="p-3 bg-[#f8fafc] hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-all flex items-center gap-3"
+                      className="p-2.5 sm:p-3 bg-[#f8fafc] hover:bg-slate-100/80 rounded-2xl border border-slate-200/80 transition-all flex items-center gap-2.5 sm:gap-3"
                     >
                       <img
                         src={imgUrl}
                         alt={animalName}
-                        className="w-12 h-12 rounded-xl object-cover bg-slate-200 shrink-0 border border-slate-300/60"
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl object-cover bg-slate-200 shrink-0 border border-slate-300/60"
                         onError={(e) => {
                           e.target.src = getAnimalImage(animalName);
                         }}
                       />
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between gap-1">
                           <span className="font-black text-xs text-[#0f172a] capitalize truncate">
                             {animalName.replace(/_/g, ' ')}
                           </span>
-                          <span className="px-2 py-0.5 rounded-md bg-red-100 text-red-800 text-[10px] font-black shrink-0">
-                            {conf} Confidence
+                          <span className="px-1.5 sm:px-2 py-0.5 rounded-md bg-red-100 text-red-800 text-[9px] sm:text-[10px] font-black shrink-0">
+                            {conf}
                           </span>
                         </div>
-                        <p className="text-[11px] text-slate-500 mt-0.5 flex items-center justify-between">
-                          <span>{det.camera_id || 'North Cam'}</span>
-                          <span className="font-mono text-slate-400">{new Date(detectedTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                        <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 flex items-center justify-between">
+                          <span className="truncate">{det.camera_id || 'North Cam'}</span>
+                          <span className="font-mono text-slate-400 shrink-0">{new Date(detectedTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                         </p>
                       </div>
                     </div>
@@ -518,14 +518,14 @@ export const Dashboard = () => {
                 title="Test Deterrent Siren & Play Audio"
               >
                 <Volume2 size={13} className={triggeringSiren ? 'animate-spin' : ''} />
-                <span>{triggeringSiren ? 'Siren Sounding...' : 'Test Siren Alarm'}</span>
+                <span>{triggeringSiren ? 'Siren Sounding...' : 'Test Siren'}</span>
               </button>
               <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-slate-500 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                 <span>Auto Cooldown: <strong>30s</strong></span>
               </span>
             </div>
-            <Link to="/alerts" className="text-[#047857] font-extrabold hover:underline">
+            <Link to="/alerts" className="text-[#047857] font-extrabold hover:underline text-xs">
               Alerts Console →
             </Link>
           </div>
@@ -533,9 +533,9 @@ export const Dashboard = () => {
       </section>
 
       {/* Core Status Summary Tiles */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {/* Active Lots Card */}
-        <div className="bg-white rounded-3xl p-5 shadow-xs border border-slate-200 flex flex-col justify-between space-y-4">
+        <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-xs border border-slate-200 flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500">Active Produce Lots</span>
@@ -543,7 +543,7 @@ export const Dashboard = () => {
                 <span className="material-symbols-outlined text-xl">inventory_2</span>
               </span>
             </div>
-            <div className="mt-2 flex items-baseline gap-2">
+            <div className="mt-2 flex flex-wrap items-baseline gap-2">
               <span className="text-2xl font-black text-[#0f172a]">
                 {loadingProduce ? '...' : `${produceBatches.length} ${produceBatches.length === 1 ? 'Batch' : 'Batches'}`}
               </span>
@@ -559,7 +559,7 @@ export const Dashboard = () => {
                 </span>
               )}
             </div>
-            <div className="mt-2 flex items-center gap-1.5 text-xs text-slate-600 font-medium">
+            <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs text-slate-600 font-medium">
               <span className="w-2 h-2 rounded-full bg-[#047857]"></span>
               <span>
                 {produceBatches.filter(b => b.grade && b.grade !== 'Pending' && b.grade !== 'Not Graded').length} Graded & Ready
@@ -577,7 +577,7 @@ export const Dashboard = () => {
         </div>
 
         {/* Procurement Slot Card */}
-        <div className="bg-white rounded-3xl p-5 shadow-xs border border-slate-200 flex flex-col justify-between space-y-4">
+        <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-xs border border-slate-200 flex flex-col justify-between space-y-4">
           <div>
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500">Procurement Slot</span>
@@ -586,7 +586,7 @@ export const Dashboard = () => {
               </span>
             </div>
             <div className="mt-2">
-              <span className="text-2xl font-black text-[#0f172a]">{slotInfo.time}</span>
+              <span className="text-xl sm:text-2xl font-black text-[#0f172a]">{slotInfo.time}</span>
             </div>
             <div className="mt-1 text-xs text-slate-800 font-bold">
               Token {slotInfo.token} • {slotInfo.mandi}
@@ -603,7 +603,7 @@ export const Dashboard = () => {
         </div>
 
         {/* Live Mandi Market Price Card (Connected to data.gov.in) */}
-        <div className="bg-white rounded-3xl p-5 shadow-xs border border-slate-200 flex flex-col justify-between space-y-4">
+        <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-xs border border-slate-200 flex flex-col justify-between space-y-4 sm:col-span-2 md:col-span-1">
           <div>
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500">Live Mandi Price</span>
@@ -613,7 +613,7 @@ export const Dashboard = () => {
                 </span>
               ) : (
                 <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[10px] font-extrabold border border-amber-300">
-                  ⚠ DUMMY / FALLBACK
+                  ⚠ DUMMY DATA
                 </span>
               )}
             </div>
@@ -638,14 +638,14 @@ export const Dashboard = () => {
 
       {/* Booking Slot Modal Wizard */}
       {showSlotModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-4 sm:space-y-5 my-8 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#047857] text-2xl">calendar_month</span>
-                <h2 className="text-lg font-black text-[#0f172a]">Book APMC Mandi Procurement Slot</h2>
+                <h2 className="text-base sm:text-lg font-black text-[#0f172a]">Book APMC Mandi Slot</h2>
               </div>
-              <button onClick={() => setShowSlotModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
+              <button onClick={() => setShowSlotModal(false)} className="p-1 text-slate-400 hover:text-slate-700 text-xl font-bold cursor-pointer">✕</button>
             </div>
 
             <form onSubmit={handleBookSlotSubmit} className="space-y-4 text-xs">
@@ -654,7 +654,7 @@ export const Dashboard = () => {
                 <select 
                   value={slotForm.mandi}
                   onChange={(e) => setSlotForm({...slotForm, mandi: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   <option value="Pimpalgaon APMC Yard #2">Pimpalgaon APMC Yard #2 (Nashik)</option>
                   <option value="Lasalgaon APMC Yard #1">Lasalgaon APMC Yard #1 (Nashik)</option>
@@ -667,7 +667,7 @@ export const Dashboard = () => {
                 <select 
                   value={slotForm.lot}
                   onChange={(e) => setSlotForm({...slotForm, lot: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   {produceBatches.length > 0 ? (
                     produceBatches.map(b => (
@@ -681,14 +681,14 @@ export const Dashboard = () => {
                 </select>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-slate-700 mb-1">3. Select Date *</label>
                   <input 
                     type="date"
                     value={slotForm.date}
                     onChange={(e) => setSlotForm({...slotForm, date: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                   />
                 </div>
                 <div>
@@ -696,7 +696,7 @@ export const Dashboard = () => {
                   <select 
                     value={slotForm.timeWindow}
                     onChange={(e) => setSlotForm({...slotForm, timeWindow: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                   >
                     <option value="08:30 AM - 09:15 AM">08:30 AM - 09:15 AM</option>
                     <option value="10:00 AM - 10:45 AM">10:00 AM - 10:45 AM</option>
@@ -710,24 +710,24 @@ export const Dashboard = () => {
                 <select 
                   value={slotForm.driver}
                   onChange={(e) => setSlotForm({...slotForm, driver: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   <option value="Dattatray Shinde (MH-15-EG-4412)">Dattatray Shinde (MH-15-EG-4412)</option>
                   <option value="Sanjay More (MH-15-BJ-9182)">Sanjay More (MH-15-BJ-9182)</option>
                 </select>
               </div>
 
-              <div className="pt-3 flex justify-end gap-2">
+              <div className="pt-3 flex flex-wrap items-center justify-end gap-2 border-t border-slate-100">
                 <button 
                   type="button" 
                   onClick={() => setShowSlotModal(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200"
+                  className="px-4 py-2.5 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md"
+                  className="px-5 py-2.5 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md cursor-pointer"
                 >
                   ✓ Confirm Slot & Generate Token
                 </button>
@@ -739,11 +739,11 @@ export const Dashboard = () => {
 
       {/* Reschedule Gate Pass Modal */}
       {showRescheduleModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 max-w-md w-full border border-slate-200 shadow-2xl space-y-4 sm:space-y-5 my-8 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <h2 className="text-base font-black text-[#0f172a]">Reschedule Gate Pass Entry</h2>
-              <button onClick={() => setShowRescheduleModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
+              <button onClick={() => setShowRescheduleModal(false)} className="p-1 text-slate-400 hover:text-slate-700 text-xl font-bold cursor-pointer">✕</button>
             </div>
 
             <form onSubmit={handleRescheduleSubmit} className="space-y-4 text-xs">
@@ -752,7 +752,7 @@ export const Dashboard = () => {
                 <select 
                   value={newTime}
                   onChange={(e) => setNewTime(e.target.value)}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   <option value="Tomorrow, 11:00 AM">Tomorrow, 11:00 AM</option>
                   <option value="Tomorrow, 02:30 PM">Tomorrow, 02:30 PM</option>
@@ -760,17 +760,17 @@ export const Dashboard = () => {
                 </select>
               </div>
 
-              <div className="pt-2 flex justify-end gap-2">
+              <div className="pt-2 flex flex-wrap justify-end gap-2 border-t border-slate-100">
                 <button 
                   type="button" 
                   onClick={() => setShowRescheduleModal(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200"
+                  className="px-4 py-2.5 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46]"
+                  className="px-5 py-2.5 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] cursor-pointer"
                 >
                   Confirm New Slot
                 </button>

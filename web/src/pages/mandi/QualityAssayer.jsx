@@ -70,47 +70,49 @@ export const QualityAssayer = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold text-[#047857] uppercase tracking-wider">APMC Quality Laboratory</span>
           <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-300">
             COMPUTER VISION & NIR ASSAY TERMINAL
           </span>
         </div>
-        <h1 className="text-2xl font-black text-[#0f172a]">Produce Quality Assayer Terminal</h1>
+        <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] mt-1">Produce Quality Assayer Terminal</h1>
         <p className="text-xs text-slate-500 font-medium mt-0.5">
           Standardized grading via automated morphological computer vision and digital NIR spectrometry simulation.
         </p>
       </div>
 
       {/* Lot Metadata Bar */}
-      <div className="p-4 bg-white rounded-2xl border border-slate-200 shadow-xs flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="p-3.5 sm:p-4 bg-white rounded-2xl border border-slate-200 shadow-xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
         <div>
           <span className="text-slate-400 font-bold uppercase text-[10px]">Sample Lot:</span>
-          <div className="font-black text-[#0f172a] text-sm">#LOT-2024-098 • Red Onion (Garwa)</div>
+          <div className="font-black text-[#0f172a] text-sm">#LOT-2024-098 • Red Onion</div>
         </div>
         <div>
           <span className="text-slate-400 font-bold uppercase text-[10px]">Supplier:</span>
-          <div className="font-bold text-slate-700">Rajesh Tukaram Patil (Niphad FPO)</div>
+          <div className="font-bold text-slate-700">Rajesh Tukaram Patil</div>
         </div>
         <div>
           <span className="text-slate-400 font-bold uppercase text-[10px]">Terminal Operator:</span>
           <div className="font-bold text-slate-700">Krushn Patil (#QA-4412)</div>
         </div>
-        <div className="px-3 py-1.5 bg-slate-100 rounded-xl font-mono text-[11px] font-bold text-slate-700">
-          Queue Token: #B-14
+        <div className="flex items-center">
+          <div className="w-full px-3 py-1.5 bg-slate-100 rounded-xl font-mono text-[11px] font-bold text-slate-700 text-center">
+            Queue Token: #B-14
+          </div>
         </div>
       </div>
 
       {/* COMPONENT A: REAL IMPLEMENTED COMPONENT (COMPUTER VISION GRADING) */}
-      <div className="bg-white rounded-2xl p-6 border-2 border-emerald-500/40 shadow-xl space-y-5">
+      <div className="bg-white rounded-2xl p-4 sm:p-6 border-2 border-emerald-500/40 shadow-xl space-y-4 sm:space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
+          <div className="flex items-start sm:items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
               <Eye size={18} />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h2 className="text-base font-black text-[#0f172a]">Produce Morphological Analysis</h2>
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 className="text-sm sm:text-base font-black text-[#0f172a]">Produce Morphological Analysis</h2>
                 <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300">
                   COMPUTER VISION GRADING
                 </span>
@@ -120,15 +122,15 @@ export const QualityAssayer = () => {
               </p>
             </div>
           </div>
-          <div className="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-lg text-xs font-black border border-emerald-200 shrink-0">
+          <div className="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-lg text-xs font-black border border-emerald-200 shrink-0 self-start sm:self-auto">
             OpenCV Engine: Active
           </div>
         </div>
 
         {/* 4 OpenCV Pillars: Color, Defect, Shape, Uniformity */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {/* 1. Color Analysis */}
-          <div className="p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
+          <div className="p-3.5 sm:p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
             <span className="text-[10px] font-bold text-slate-500 uppercase">1. Color Space & Hue</span>
             <div className="text-base font-black text-[#0f172a]">{cvMetrics.color.chromaUniformity}</div>
             <div className="text-xs text-slate-700 font-bold">{cvMetrics.color.hue}</div>
@@ -138,7 +140,7 @@ export const QualityAssayer = () => {
           </div>
 
           {/* 2. Defect Analysis */}
-          <div className="p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
+          <div className="p-3.5 sm:p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
             <span className="text-[10px] font-bold text-slate-500 uppercase">2. Surface Defect Ratio</span>
             <div className="text-base font-black text-[#0f172a]">{cvMetrics.defect.surfaceBlemishRatio}</div>
             <div className="text-xs text-slate-700 font-bold">Bruise: {cvMetrics.defect.mechanicalDamage}</div>
@@ -148,7 +150,7 @@ export const QualityAssayer = () => {
           </div>
 
           {/* 3. Shape & Sizing */}
-          <div className="p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
+          <div className="p-3.5 sm:p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
             <span className="text-[10px] font-bold text-slate-500 uppercase">3. Equatorial Sizing</span>
             <div className="text-base font-black text-[#0f172a]">{cvMetrics.shape.diameterMean}</div>
             <div className="text-xs text-slate-700 font-bold">Range: {cvMetrics.shape.diameterRange}</div>
@@ -158,7 +160,7 @@ export const QualityAssayer = () => {
           </div>
 
           {/* 4. Uniformity */}
-          <div className="p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
+          <div className="p-3.5 sm:p-4 bg-[#f8fafc] rounded-xl border border-slate-200 space-y-1">
             <span className="text-[10px] font-bold text-slate-500 uppercase">4. Batch Uniformity</span>
             <div className="text-base font-black text-[#0f172a]">{cvMetrics.uniformity.sizeConsistency}</div>
             <div className="text-xs text-slate-700 font-bold">Variance: {cvMetrics.uniformity.batchStandardDev}</div>
@@ -169,29 +171,29 @@ export const QualityAssayer = () => {
         </div>
 
         {/* OpenCV Final Grade Result Banner */}
-        <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex items-center justify-between">
+        <div className="p-3.5 sm:p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
           <div className="space-y-0.5">
             <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider">
               Computer Vision Grading Result
             </span>
-            <div className="text-lg font-black text-[#047857]">{cvMetrics.gradingResult}</div>
+            <div className="text-base sm:text-lg font-black text-[#047857]">{cvMetrics.gradingResult}</div>
           </div>
-          <span className="px-3 py-1 bg-white text-emerald-800 rounded-lg text-xs font-bold border border-emerald-200 shadow-2xs">
+          <span className="px-3 py-1 bg-white text-emerald-800 rounded-lg text-xs font-bold border border-emerald-200 shadow-2xs self-start sm:self-auto">
             Export FAQ Standard Passed
           </span>
         </div>
       </div>
 
       {/* COMPONENT B: SIMULATED COMPONENT (SIMULATED NIR ASSAY) */}
-      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xl space-y-5">
+      <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-xl space-y-4 sm:space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center">
+          <div className="flex items-start sm:items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
               <Sparkles size={18} />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h2 className="text-base font-black text-[#0f172a]">Spectrometric Moisture & Sugar Assay</h2>
+              <div className="flex flex-wrap items-center gap-2">
+                <h2 className="text-sm sm:text-base font-black text-[#0f172a]">Spectrometric Moisture & Sugar Assay</h2>
                 <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300">
                   SIMULATED NIR ASSAY
                 </span>
@@ -206,31 +208,31 @@ export const QualityAssayer = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+          <div className="p-3.5 sm:p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
             <div className="flex items-center justify-between">
               <span className="text-[10px] text-slate-500 font-bold uppercase">Moisture Content</span>
               <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-800">SIMULATED</span>
             </div>
-            <div className="text-2xl font-black text-[#0f172a] font-data-tabular">{moisture}</div>
+            <div className="text-xl sm:text-2xl font-black text-[#0f172a] font-data-tabular">{moisture}</div>
             <div className="text-[10px] text-[#047857] font-bold">Optimal Storage Range (10 - 12%)</div>
           </div>
 
-          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+          <div className="p-3.5 sm:p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
             <div className="flex items-center justify-between">
               <span className="text-[10px] text-slate-500 font-bold uppercase">Total Soluble Solids (TSS)</span>
               <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-800">SIMULATED</span>
             </div>
-            <div className="text-2xl font-black text-[#0f172a] font-data-tabular">13.8° Brix</div>
+            <div className="text-xl sm:text-2xl font-black text-[#0f172a] font-data-tabular">13.8° Brix</div>
             <div className="text-[10px] text-slate-600 font-bold">High Pungency & Shelf Life</div>
           </div>
 
-          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+          <div className="p-3.5 sm:p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
             <div className="flex items-center justify-between">
               <span className="text-[10px] text-slate-500 font-bold uppercase">Optical Transmission</span>
               <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-800">SIMULATED</span>
             </div>
-            <div className="text-2xl font-black text-[#0f172a] font-data-tabular">84.6%</div>
+            <div className="text-xl sm:text-2xl font-black text-[#0f172a] font-data-tabular">84.6%</div>
             <div className="text-[10px] text-slate-600 font-bold">Zero Internal Core Rot Detected</div>
           </div>
         </div>
@@ -243,10 +245,10 @@ export const QualityAssayer = () => {
 
           <button
             onClick={handleIssueCertificate}
-            className="px-5 py-2.5 bg-[#047857] hover:bg-[#065f46] text-white font-black text-xs rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer active:scale-98 shrink-0"
+            className="w-full sm:w-auto px-5 py-3 sm:py-2.5 bg-[#047857] hover:bg-[#065f46] text-white font-black text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shrink-0"
           >
             <FileText size={15} />
-            <span>{isCertified ? '✓ Download Quality Assay Certificate' : 'Issue & Download Certified Report'}</span>
+            <span>{isCertified ? '✓ Download Quality Certificate' : 'Issue & Download Certified Report'}</span>
           </button>
         </div>
       </div>

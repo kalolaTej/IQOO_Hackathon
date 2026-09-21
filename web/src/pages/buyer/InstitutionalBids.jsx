@@ -123,32 +123,34 @@ export const InstitutionalBids = () => {
 
       <div className="space-y-4">
         {bids.map((b, idx) => (
-          <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div key={idx} className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="font-black text-[#0f172a] text-base">{b.buyer}</span>
                 <span className="px-2.5 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] text-[10px] font-extrabold border border-[#bbf7d0]">{b.po}</span>
               </div>
               <div className="text-xs text-slate-600 mt-1">{b.crop} • Volume Wanted: <strong>{b.qty}</strong> • {b.bank}</div>
             </div>
 
-            <div className="flex items-center gap-4 shrink-0">
-              <div className="text-right">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between md:justify-end gap-3 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-slate-100">
+              <div className="text-left sm:text-right">
                 <div className="text-xl font-black text-[#0f172a] font-data-tabular">{b.maxPrice}</div>
                 <div className="text-[10px] text-[#047857] font-bold">{b.status}</div>
               </div>
-              <button 
-                onClick={() => handleDownloadPoPDF(b)}
-                className="px-3.5 py-2 bg-white text-[#047857] border border-[#047857] rounded-xl text-xs font-bold hover:bg-[#dcfce7] transition-colors shadow-xs cursor-pointer flex items-center gap-1"
-              >
-                <span className="material-symbols-outlined text-base">download</span> PDF PO
-              </button>
-              <button 
-                onClick={() => handleOpenBidModal(b)}
-                className="px-4 py-2 bg-[#0f172a] text-white rounded-xl text-xs font-bold hover:bg-[#1e293b] transition-colors shadow-xs cursor-pointer active:scale-98"
-              >
-                Place Bid Offer
-              </button>
+              <div className="flex items-center gap-2">
+                <button 
+                  onClick={() => handleDownloadPoPDF(b)}
+                  className="flex-1 sm:flex-initial px-3.5 py-2.5 bg-white text-[#047857] border border-[#047857] rounded-xl text-xs font-bold hover:bg-[#dcfce7] transition-colors shadow-xs cursor-pointer flex items-center justify-center gap-1"
+                >
+                  <span className="material-symbols-outlined text-base">download</span> PDF PO
+                </button>
+                <button 
+                  onClick={() => handleOpenBidModal(b)}
+                  className="flex-1 sm:flex-initial px-4 py-2.5 bg-[#0f172a] text-white rounded-xl text-xs font-bold hover:bg-[#1e293b] transition-colors shadow-xs cursor-pointer active:scale-98 text-center"
+                >
+                  Place Bid Offer
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -156,14 +158,14 @@ export const InstitutionalBids = () => {
 
       {/* Create Purchase Order Modal */}
       {showPoModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[#047857] text-2xl">shopping_bag</span>
-                <h2 className="text-lg font-black text-[#0f172a]">Create Institutional Purchase Order</h2>
+                <h2 className="text-base sm:text-lg font-black text-[#0f172a]">Create Purchase Order</h2>
               </div>
-              <button onClick={() => setShowPoModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
+              <button onClick={() => setShowPoModal(false)} className="text-slate-400 hover:text-slate-700 p-1 rounded text-xl font-bold cursor-pointer">✕</button>
             </div>
 
             <form onSubmit={handleCreatePo} className="space-y-4 text-xs">
@@ -172,7 +174,7 @@ export const InstitutionalBids = () => {
                 <select 
                   value={newPo.crop}
                   onChange={(e) => setNewPo({...newPo, crop: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   <option value="Red Onion Grade A1">Red Onion Grade A1</option>
                   <option value="Soybean (JS-335 FAQ)">Soybean (JS-335 FAQ)</option>
@@ -181,7 +183,7 @@ export const InstitutionalBids = () => {
                 </select>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-slate-700 mb-1">Required Volume (MT) *</label>
                   <input 
@@ -190,7 +192,7 @@ export const InstitutionalBids = () => {
                     placeholder="e.g. 50"
                     value={newPo.qty}
                     onChange={(e) => setNewPo({...newPo, qty: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
                   />
                   {errors.qty && <span className="text-red-600 text-[10px] font-bold mt-0.5 block">{errors.qty}</span>}
                 </div>
@@ -201,7 +203,7 @@ export const InstitutionalBids = () => {
                     placeholder="e.g. 2550"
                     value={newPo.maxPrice}
                     onChange={(e) => setNewPo({...newPo, maxPrice: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
                   />
                   {errors.maxPrice && <span className="text-red-600 text-[10px] font-bold mt-0.5 block">{errors.maxPrice}</span>}
                 </div>
@@ -213,21 +215,21 @@ export const InstitutionalBids = () => {
                   type="text"
                   value={newPo.location}
                   onChange={(e) => setNewPo({...newPo, location: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 />
               </div>
 
-              <div className="pt-2 flex justify-end gap-2">
+              <div className="pt-2 flex flex-col-reverse sm:flex-row sm:justify-end gap-2">
                 <button 
                   type="button" 
                   onClick={() => setShowPoModal(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200"
+                  className="w-full sm:w-auto px-4 py-2.5 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 text-center cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md"
+                  className="w-full sm:w-auto px-5 py-2.5 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md text-center cursor-pointer active:scale-98"
                 >
                   + Issue Purchase Order
                 </button>
@@ -239,14 +241,14 @@ export const InstitutionalBids = () => {
 
       {/* Place Bid Offer Modal */}
       {showBidModal && selectedPo && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 max-w-md w-full border border-slate-200 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
                 <span className="text-[10px] font-bold text-[#047857] uppercase">Bid Offer Submission</span>
                 <h2 className="text-base font-black text-[#0f172a]">{selectedPo.buyer} ({selectedPo.po})</h2>
               </div>
-              <button onClick={() => setShowBidModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
+              <button onClick={() => setShowBidModal(false)} className="text-slate-400 hover:text-slate-700 p-1 rounded text-xl font-bold cursor-pointer">✕</button>
             </div>
 
             <form onSubmit={handleSubmitBidOffer} className="space-y-4 text-xs">
@@ -261,7 +263,7 @@ export const InstitutionalBids = () => {
                   type="number"
                   value={bidOffer.bidPrice}
                   onChange={(e) => setBidOffer({...bidOffer, bidPrice: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-black text-[#0f172a] font-data-tabular outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-black text-[#0f172a] font-data-tabular outline-none focus:border-[#047857]"
                   required
                 />
               </div>
@@ -273,22 +275,22 @@ export const InstitutionalBids = () => {
                   step="0.5"
                   value={bidOffer.qty}
                   onChange={(e) => setBidOffer({...bidOffer, qty: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
                   required
                 />
               </div>
 
-              <div className="pt-2 flex justify-end gap-2">
+              <div className="pt-2 flex flex-col-reverse sm:flex-row sm:justify-end gap-2">
                 <button 
                   type="button" 
                   onClick={() => setShowBidModal(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200"
+                  className="w-full sm:w-auto px-4 py-2.5 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 text-center cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md"
+                  className="w-full sm:w-auto px-5 py-2.5 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md text-center cursor-pointer active:scale-98"
                 >
                   Submit Competitive Bid
                 </button>

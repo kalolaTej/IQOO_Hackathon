@@ -230,12 +230,12 @@ export const CropIncidents = () => {
   const resCount = incidents.filter(i => i.status === 'RESOLVED').length;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-2 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 pb-2 border-b border-slate-200">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black text-[#0f172a] tracking-tight">Crop Protection Field Incidents & Claims</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] tracking-tight">Crop Protection Field Incidents & Claims</h1>
             <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">
               {openCount} Open Incident{openCount !== 1 ? 's' : ''}
             </span>
@@ -245,15 +245,15 @@ export const CropIncidents = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+          <div className="flex items-center gap-1.5 flex-1 sm:flex-none">
             <span className="text-xs text-slate-500 font-bold flex items-center gap-1">
               <Filter size={13} /> Filter:
             </span>
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="text-xs font-bold bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-[#0f172a] outline-none"
+              className="w-full sm:w-auto text-xs font-bold bg-white border border-slate-200 rounded-xl px-2.5 py-2 text-[#0f172a] outline-none min-h-[36px]"
             >
               <option value="All">All Incidents ({incidents.length})</option>
               <option value="OPEN">Open ({openCount})</option>
@@ -264,33 +264,34 @@ export const CropIncidents = () => {
 
           <button
             onClick={() => setShowCreateModal(true)}
-            className="px-4 py-2 bg-[#047857] hover:bg-[#065f46] text-white rounded-xl text-xs font-extrabold shadow-md transition-colors flex items-center gap-1.5 cursor-pointer active:scale-95"
+            className="flex-1 sm:flex-none px-4 py-2 bg-[#047857] hover:bg-[#065f46] text-white rounded-xl text-xs font-extrabold shadow-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 min-h-[36px]"
           >
             <Plus size={15} />
-            <span>+ Log Field Incident</span>
+            <span>+ Log Incident</span>
           </button>
         </div>
       </div>
 
       {/* Status Counters */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
         <div className="p-3.5 bg-red-50/80 border border-red-200 rounded-2xl">
           <span className="text-[10px] font-bold text-red-700 uppercase tracking-wider block">Open Incidents</span>
-          <strong className="text-xl font-black text-red-900 mt-0.5 block font-data-tabular">{openCount} Cases</strong>
+          <strong className="text-lg sm:text-xl font-black text-red-900 mt-0.5 block font-data-tabular">{openCount} Cases</strong>
         </div>
         <div className="p-3.5 bg-amber-50/80 border border-amber-200 rounded-2xl">
           <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">Acknowledged</span>
-          <strong className="text-xl font-black text-amber-900 mt-0.5 block font-data-tabular">{ackCount} Cases</strong>
+          <strong className="text-lg sm:text-xl font-black text-amber-900 mt-0.5 block font-data-tabular">{ackCount} Cases</strong>
         </div>
         <div className="p-3.5 bg-[#f0fdf4] border border-[#bbf7d0] rounded-2xl">
           <span className="text-[10px] font-bold text-[#15803d] uppercase tracking-wider block">Resolved</span>
-          <strong className="text-xl font-black text-[#15803d] mt-0.5 block font-data-tabular">{resCount} Cases</strong>
+          <strong className="text-lg sm:text-xl font-black text-[#15803d] mt-0.5 block font-data-tabular">{resCount} Cases</strong>
         </div>
       </div>
 
-      {/* Incidents Table */}
+      {/* Incidents Container */}
       <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
-        <div className="overflow-x-auto">
+        {/* Desktop Table View */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-[#0f172a] text-[#dcfce7] text-[11px] font-extrabold uppercase tracking-wider">
@@ -374,25 +375,99 @@ export const CropIncidents = () => {
             </tbody>
           </table>
         </div>
+
+        {/* Mobile Cards View */}
+        <div className="md:hidden divide-y divide-slate-100">
+          {filteredIncidents.map((row) => {
+            const isOpen = row.status === 'OPEN';
+            const isAck = row.status === 'ACKNOWLEDGED';
+
+            return (
+              <div key={row.id} className="p-4 space-y-3">
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold text-[#047857]">{row.id}</span>
+                    <h3 className="font-extrabold text-[#0f172a] text-sm mt-0.5">{row.crop}</h3>
+                    <span className="text-xs text-slate-500 font-medium">{row.zone}</span>
+                  </div>
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase shrink-0 ${
+                    isOpen
+                      ? 'bg-red-100 text-red-800 border border-red-200'
+                      : isAck
+                      ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                      : 'bg-[#dcfce7] text-[#15803d] border border-[#bbf7d0]'
+                  }`}>
+                    ● {row.status}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 text-xs bg-slate-50 p-2.5 rounded-xl">
+                  <div>
+                    <span className="text-[10px] text-slate-400 font-bold block">Species / Cause</span>
+                    <span className="font-bold text-slate-800">{row.animal}</span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] text-slate-400 font-bold block">Damage Estimate</span>
+                    <span className="font-bold text-slate-800">{row.damage}</span>
+                  </div>
+                  <div className="col-span-2 pt-1 border-t border-slate-200/60 flex items-center justify-between">
+                    <span className="text-[10px] text-slate-500">Insurance: <strong className="text-slate-700">{row.claimStatus}</strong></span>
+                    <span className="text-[10px] text-slate-400">{row.date}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 pt-1">
+                  <button
+                    onClick={() => {
+                      setSelectedIncident(row);
+                      setShowDetailModal(true);
+                    }}
+                    className="flex-1 py-2 bg-slate-100 hover:bg-slate-200 text-[#0f172a] rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1 cursor-pointer min-h-[36px]"
+                  >
+                    <Eye size={13} /> Details
+                  </button>
+
+                  {isOpen && (
+                    <button
+                      onClick={() => handleAcknowledge(row.id)}
+                      className="flex-1 py-2 bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1 cursor-pointer min-h-[36px]"
+                    >
+                      <Check size={13} /> Acknowledge
+                    </button>
+                  )}
+
+                  {isAck && (
+                    <button
+                      onClick={() => handleResolve(row.id)}
+                      className="flex-1 py-2 bg-[#dcfce7] hover:bg-[#bbf7d0] text-[#15803d] border border-[#bbf7d0] rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1 cursor-pointer min-h-[36px]"
+                    >
+                      <CheckCircle2 size={13} /> Resolve
+                    </button>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Incident Detail Modal */}
       {showDetailModal && selectedIncident && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto border border-slate-200 shadow-2xl space-y-4 my-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-[#047857] text-2xl">shield</span>
+                <Shield className="text-[#047857]" size={20} />
                 <div>
-                  <h2 className="text-base font-black text-[#0f172a]">Incident Record: {selectedIncident.id}</h2>
-                  <span className="text-[11px] text-slate-500 font-medium">{selectedIncident.date} at {selectedIncident.time}</span>
+                  <h2 className="text-sm sm:text-base font-black text-[#0f172a]">Incident: {selectedIncident.id}</h2>
+                  <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium">{selectedIncident.date} at {selectedIncident.time}</span>
                 </div>
               </div>
-              <button onClick={() => setShowDetailModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
+              <button onClick={() => setShowDetailModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold p-1 cursor-pointer">✕</button>
             </div>
 
             <div className="space-y-3 text-xs text-slate-700">
-              <div className="grid grid-cols-2 gap-3 p-3.5 bg-slate-50 rounded-xl border border-slate-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 p-3 sm:p-3.5 bg-slate-50 rounded-xl border border-slate-200">
                 <div><span className="text-slate-500 block">Intruding Species:</span> <strong className="text-sm text-[#0f172a]">{selectedIncident.animal}</strong></div>
                 <div><span className="text-slate-500 block">Severity Tier:</span> <strong className="text-[#047857]">{selectedIncident.severity} Severity</strong></div>
                 <div><span className="text-slate-500 block">Affected Crop:</span> <strong>{selectedIncident.crop}</strong></div>
@@ -406,7 +481,7 @@ export const CropIncidents = () => {
                 <p className="text-xs text-slate-800 leading-relaxed font-medium">{selectedIncident.action_taken}</p>
               </div>
 
-              <div className="p-3 bg-[#f0fdf4] rounded-xl border border-[#dcfce7] flex items-center justify-between">
+              <div className="p-3 bg-[#f0fdf4] rounded-xl border border-[#dcfce7] flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <span className="text-slate-500 font-bold block uppercase text-[10px]">Insurance Status</span>
                   <strong className="text-[#15803d]">{selectedIncident.claimStatus}</strong>
@@ -418,12 +493,12 @@ export const CropIncidents = () => {
             </div>
 
             {/* Modal Actions */}
-            <div className="pt-2 flex items-center justify-between border-t border-slate-100">
-              <div className="space-x-2">
+            <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-t border-slate-100">
+              <div className="w-full sm:w-auto">
                 {selectedIncident.status === 'OPEN' && (
                   <button
                     onClick={() => handleAcknowledge(selectedIncident.id)}
-                    className="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-extrabold transition-colors cursor-pointer"
+                    className="w-full sm:w-auto px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-xs font-extrabold transition-colors cursor-pointer min-h-[38px]"
                   >
                     Acknowledge Incident
                   </button>
@@ -431,7 +506,7 @@ export const CropIncidents = () => {
                 {selectedIncident.status === 'ACKNOWLEDGED' && (
                   <button
                     onClick={() => handleResolve(selectedIncident.id)}
-                    className="px-4 py-2 bg-[#047857] hover:bg-[#065f46] text-white rounded-xl text-xs font-extrabold transition-colors cursor-pointer"
+                    className="w-full sm:w-auto px-4 py-2 bg-[#047857] hover:bg-[#065f46] text-white rounded-xl text-xs font-extrabold transition-colors cursor-pointer min-h-[38px]"
                   >
                     Mark Resolved
                   </button>
@@ -439,7 +514,7 @@ export const CropIncidents = () => {
               </div>
               <button
                 onClick={() => setShowDetailModal(false)}
-                className="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200"
+                className="w-full sm:w-auto px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-200 cursor-pointer min-h-[38px]"
               >
                 Close
               </button>
@@ -450,23 +525,23 @@ export const CropIncidents = () => {
 
       {/* Log Incident Modal */}
       {showCreateModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto border border-slate-200 shadow-2xl space-y-4 my-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-[#047857] text-2xl">shield</span>
-                <h2 className="text-lg font-black text-[#0f172a]">Log Field Intrusion Incident</h2>
+                <Shield className="text-[#047857]" size={20} />
+                <h2 className="text-sm sm:text-base font-black text-[#0f172a]">Log Field Intrusion Incident</h2>
               </div>
-              <button onClick={() => setShowCreateModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
+              <button onClick={() => setShowCreateModal(false)} className="text-slate-400 hover:text-slate-700 text-xl font-bold p-1 cursor-pointer">✕</button>
             </div>
 
-            <form onSubmit={handleCreate} className="space-y-4 text-xs">
+            <form onSubmit={handleCreate} className="space-y-3.5 text-xs">
               <div>
                 <label className="block font-bold text-slate-700 mb-1">Field Plot & Crop Variety *</label>
                 <select
                   value={newIncident.crop}
                   onChange={(e) => setNewIncident({...newIncident, crop: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   <option value="Red Onion (Garwa Plot #1)">Red Onion (Garwa Plot #1)</option>
                   <option value="Soybean (East Plot #2)">Soybean (East Plot #2)</option>
@@ -475,13 +550,13 @@ export const CropIncidents = () => {
                 </select>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-slate-700 mb-1">Intruding Species *</label>
                   <select
                     value={newIncident.animal}
                     onChange={(e) => setNewIncident({...newIncident, animal: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                   >
                     <option value="Wild Boar">Wild Boar / Pig</option>
                     <option value="Cow / Cattle">Cow / Stray Cattle</option>
@@ -497,7 +572,7 @@ export const CropIncidents = () => {
                   <select
                     value={newIncident.camera}
                     onChange={(e) => setNewIncident({...newIncident, camera: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                   >
                     <option value="North Perimeter Node #1">North Perimeter Node #1</option>
                     <option value="East Boundary Node #2">East Boundary Node #2</option>
@@ -506,7 +581,7 @@ export const CropIncidents = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold text-slate-700 mb-1">Affected Area *</label>
                   <input
@@ -514,7 +589,7 @@ export const CropIncidents = () => {
                     placeholder="e.g. 0.25 Acres"
                     value={newIncident.affected_area}
                     onChange={(e) => setNewIncident({...newIncident, affected_area: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
                   />
                   {errors.affected_area && <span className="text-red-600 text-[10px] font-bold mt-0.5 block">{errors.affected_area}</span>}
                 </div>
@@ -525,7 +600,7 @@ export const CropIncidents = () => {
                     placeholder="e.g. 2.0% Crop Loss"
                     value={newIncident.damage}
                     onChange={(e) => setNewIncident({...newIncident, damage: e.target.value})}
-                    className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
+                    className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none focus:border-[#047857]"
                   />
                 </div>
               </div>
@@ -537,7 +612,7 @@ export const CropIncidents = () => {
                   placeholder="Notes on perimeter damage, tracks, or deterrent response..."
                   value={newIncident.notes}
                   onChange={(e) => setNewIncident({...newIncident, notes: e.target.value})}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-medium text-[#0f172a] outline-none focus:border-[#047857]"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-medium text-[#0f172a] outline-none focus:border-[#047857]"
                 />
               </div>
 
@@ -547,23 +622,23 @@ export const CropIncidents = () => {
                     type="checkbox"
                     checked={newIncident.fileClaim}
                     onChange={(e) => setNewIncident({...newIncident, fileClaim: e.target.checked})}
-                    className="accent-[#047857]"
+                    className="accent-[#047857] shrink-0"
                   />
                   <span>File PMFBY Crop Insurance Evidence Claim</span>
                 </label>
               </div>
 
-              <div className="pt-3 flex justify-end gap-2">
+              <div className="pt-3 flex flex-col sm:flex-row sm:justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setShowCreateModal(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200"
+                  className="w-full sm:w-auto px-4 py-2.5 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 min-h-[38px]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md"
+                  className="w-full sm:w-auto px-5 py-2.5 bg-[#047857] text-white font-extrabold rounded-xl hover:bg-[#065f46] shadow-md min-h-[38px]"
                 >
                   + Log Incident Evidence
                 </button>
@@ -577,3 +652,4 @@ export const CropIncidents = () => {
 };
 
 export default CropIncidents;
+

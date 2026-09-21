@@ -146,22 +146,24 @@ export default function Alerts() {
   const resCount = alerts.filter(a => a.status === 'RESOLVED').length;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {sirenActiveToast && (
-        <div className="fixed top-5 right-5 z-50 p-4 rounded-2xl bg-[#047857] text-white font-extrabold text-xs shadow-2xl flex items-center gap-3 border border-[#a7f3d0] animate-bounce">
-          <Volume2 size={20} className="animate-spin text-[#dcfce7]" />
-          <span>{sirenActiveToast}</span>
-          <button onClick={() => setSirenActiveToast(null)} className="ml-2 hover:opacity-80 font-bold">
+        <div className="fixed top-4 left-4 right-4 sm:left-auto sm:right-5 sm:max-w-md z-50 p-3.5 sm:p-4 rounded-2xl bg-[#047857] text-white font-extrabold text-xs shadow-2xl flex items-center justify-between gap-3 border border-[#a7f3d0] animate-bounce">
+          <div className="flex items-center gap-2">
+            <Volume2 size={18} className="animate-spin text-[#dcfce7] shrink-0" />
+            <span className="text-[11px] sm:text-xs">{sirenActiveToast}</span>
+          </div>
+          <button onClick={() => setSirenActiveToast(null)} className="ml-2 hover:opacity-80 font-bold p-1 cursor-pointer shrink-0">
             <VolumeX size={16} />
           </button>
         </div>
       )}
 
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-2 border-b border-slate-200">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black text-[#0f172a] tracking-tight">Active Animal Intrusion Alerts</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] tracking-tight">Active Animal Intrusion Alerts</h1>
             <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 border border-red-200">
               {openCount} Open Intrusion{openCount !== 1 ? 's' : ''}
             </span>
@@ -172,15 +174,15 @@ export default function Alerts() {
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+          <div className="flex items-center gap-1.5 flex-1 sm:flex-none">
             <span className="text-xs text-slate-500 font-bold flex items-center gap-1">
               <Filter size={13} /> Status:
             </span>
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="text-xs font-bold bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-[#0f172a] outline-none"
+              className="w-full sm:w-auto text-xs font-bold bg-white border border-slate-200 rounded-xl px-2.5 py-2 text-[#0f172a] outline-none min-h-[36px]"
             >
               <option value="All">All ({alerts.length})</option>
               <option value="OPEN">Open ({openCount})</option>
@@ -189,12 +191,12 @@ export default function Alerts() {
             </select>
           </div>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 flex-1 sm:flex-none">
             <span className="text-xs text-slate-500 font-bold">Severity:</span>
             <select
               value={filterSeverity}
               onChange={(e) => setFilterSeverity(e.target.value)}
-              className="text-xs font-bold bg-white border border-slate-200 rounded-xl px-2.5 py-1.5 text-[#0f172a] outline-none"
+              className="w-full sm:w-auto text-xs font-bold bg-white border border-slate-200 rounded-xl px-2.5 py-2 text-[#0f172a] outline-none min-h-[36px]"
             >
               <option value="All">All</option>
               <option value="High">High</option>
@@ -206,25 +208,25 @@ export default function Alerts() {
       </div>
 
       {/* Metrics Summary Strip */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4">
         <div className="p-3.5 bg-red-50/70 border border-red-200 rounded-2xl">
           <span className="text-[10px] font-bold text-red-700 uppercase tracking-wider block">1. Open Threats</span>
-          <strong className="text-xl font-black text-red-900 mt-0.5 block">{openCount} Active</strong>
+          <strong className="text-lg sm:text-xl font-black text-red-900 mt-0.5 block">{openCount} Active</strong>
         </div>
         <div className="p-3.5 bg-amber-50/70 border border-amber-200 rounded-2xl">
           <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">2. Acknowledged</span>
-          <strong className="text-xl font-black text-amber-900 mt-0.5 block">{ackCount} Under Audit</strong>
+          <strong className="text-lg sm:text-xl font-black text-amber-900 mt-0.5 block">{ackCount} Under Audit</strong>
         </div>
         <div className="p-3.5 bg-[#f0fdf4] border border-[#bbf7d0] rounded-2xl">
           <span className="text-[10px] font-bold text-[#15803d] uppercase tracking-wider block">3. Resolved</span>
-          <strong className="text-xl font-black text-[#15803d] mt-0.5 block">{resCount} Neutralized</strong>
+          <strong className="text-lg sm:text-xl font-black text-[#15803d] mt-0.5 block">{resCount} Neutralized</strong>
         </div>
       </div>
 
       {/* Alerts Feed */}
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {filteredAlerts.length === 0 ? (
-          <div className="p-12 text-center bg-white rounded-2xl border border-slate-200 space-y-2">
+          <div className="p-8 sm:p-12 text-center bg-white rounded-2xl border border-slate-200 space-y-2">
             <ShieldAlert size={36} className="mx-auto text-slate-300" />
             <h3 className="font-bold text-slate-700 text-sm">No Alerts in this Category</h3>
             <p className="text-xs text-slate-500">No perimeter alerts match the selected filter criteria.</p>
@@ -240,13 +242,13 @@ export default function Alerts() {
             return (
               <div
                 key={alert.id}
-                className={`bg-white rounded-2xl p-5 border transition-shadow shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 ${
+                className={`bg-white rounded-2xl p-4 sm:p-5 border transition-shadow shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 ${
                   isOpen ? 'border-red-300 bg-red-50/10' : isAck ? 'border-amber-200 bg-amber-50/10' : 'border-slate-200'
                 }`}
               >
-                <div className="flex items-start gap-3.5">
+                <div className="flex items-start gap-3 sm:gap-3.5">
                   <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${
+                    className={`w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center shrink-0 ${
                       isHigh
                         ? 'bg-red-100 text-red-700'
                         : isMedium
@@ -254,16 +256,16 @@ export default function Alerts() {
                         : 'bg-[#dcfce7] text-[#15803d]'
                     }`}
                   >
-                    <AlertTriangle size={22} />
+                    <AlertTriangle size={20} />
                   </div>
 
-                  <div className="space-y-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="text-base font-black text-[#0f172a]">{alert.animal || 'Wild Animal'} Intrusion</h3>
+                  <div className="space-y-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                      <h3 className="text-sm sm:text-base font-black text-[#0f172a]">{alert.animal || 'Wild Animal'} Intrusion</h3>
 
                       {/* Status Tag */}
                       <span
-                        className={`text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
+                        className={`text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider ${
                           isOpen
                             ? 'bg-red-100 text-red-800 border border-red-200 animate-pulse'
                             : isAck
@@ -276,7 +278,7 @@ export default function Alerts() {
 
                       {/* Severity Tag */}
                       <span
-                        className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${
+                        className={`text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-md ${
                           isHigh
                             ? 'bg-red-50 text-red-600'
                             : isMedium
@@ -298,25 +300,25 @@ export default function Alerts() {
                 </div>
 
                 {/* Multi-step Workflow Action Controls */}
-                <div className="flex flex-wrap items-center gap-2 self-start md:self-center shrink-0">
+                <div className="flex flex-wrap items-center gap-2 pt-2 md:pt-0 border-t md:border-t-0 border-slate-100 shrink-0">
                   {isOpen && (
                     <>
                       <button
                         onClick={() => handleAcknowledge(alert.id)}
-                        className="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center gap-1"
+                        className="flex-1 sm:flex-none px-3 py-2 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-1 min-h-[36px]"
                       >
                         <Eye size={13} /> Acknowledge
                       </button>
                       <button
                         onClick={() => handleResolve(alert.id)}
-                        className="px-3 py-1.5 bg-white border border-slate-200 hover:bg-slate-50 text-[#0f172a] text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center gap-1"
+                        className="flex-1 sm:flex-none px-3 py-2 bg-white border border-slate-200 hover:bg-slate-50 text-[#0f172a] text-xs font-bold rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-1 min-h-[36px]"
                       >
                         <Check size={13} /> Resolve
                       </button>
                       <button
                         onClick={() => handleSirenClick(alert.animal)}
                         title="Click to trigger siren deterrent"
-                        className="px-3.5 py-1.5 bg-[#047857] hover:bg-[#065f46] text-white text-xs font-extrabold rounded-xl transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer active:scale-95"
+                        className="w-full sm:w-auto px-3.5 py-2 bg-[#047857] hover:bg-[#065f46] text-white text-xs font-extrabold rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-xs cursor-pointer active:scale-95 min-h-[36px]"
                       >
                         <Volume2 size={13} /> Siren
                       </button>
@@ -325,10 +327,10 @@ export default function Alerts() {
 
                   {isAck && (
                     <>
-                      <span className="text-[11px] text-amber-700 font-bold mr-1">Audited by Farmer</span>
+                      <span className="text-[11px] text-amber-700 font-bold mr-1 hidden sm:inline">Audited by Farmer</span>
                       <button
                         onClick={() => handleResolve(alert.id)}
-                        className="px-4 py-2 bg-[#047857] hover:bg-[#065f46] text-white text-xs font-extrabold rounded-xl transition-colors cursor-pointer flex items-center gap-1.5 shadow-sm active:scale-95"
+                        className="w-full sm:w-auto px-4 py-2.5 bg-[#047857] hover:bg-[#065f46] text-white text-xs font-extrabold rounded-xl transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-sm active:scale-95 min-h-[38px]"
                       >
                         <CheckCircle2 size={14} /> Complete Resolution
                       </button>

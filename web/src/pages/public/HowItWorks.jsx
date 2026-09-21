@@ -9,15 +9,15 @@ export const HowItWorks = () => {
   return (
     <div className="min-h-screen bg-[#f4fbf7] text-[#0f172a] font-sans pb-16">
       {/* Header Bar */}
-      <header className="bg-[#0f172a] text-white py-4 px-6 border-b border-slate-800 shadow-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5">
-            <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-9 h-9 rounded-xl object-contain bg-white p-0.5 border border-[#dcfce7]" />
-            <span className="font-extrabold text-lg text-white">AgriSync Architecture</span>
+      <header className="bg-[#0f172a] text-white py-3 sm:py-4 px-4 sm:px-6 border-b border-slate-800 shadow-md sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <Link to="/" className="flex items-center gap-2 sm:gap-2.5">
+            <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-contain bg-white p-0.5 border border-[#dcfce7]" />
+            <span className="font-extrabold text-base sm:text-lg text-white truncate">AgriSync Architecture</span>
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <LanguageSwitcher size="sm" />
-            <Link to="/" className="text-xs bg-[#047857] text-white hover:bg-[#065f46] font-bold px-3.5 py-1.5 rounded-lg transition-colors">
+            <Link to="/" className="text-xs bg-[#047857] text-white hover:bg-[#065f46] font-bold px-3 sm:px-3.5 py-1.5 rounded-lg transition-colors whitespace-nowrap">
               {t('how.backHome', 'Back to Home')}
             </Link>
           </div>
@@ -25,23 +25,23 @@ export const HowItWorks = () => {
       </header>
 
       {/* Main Content Container */}
-      <main className="max-w-4xl mx-auto px-6 pt-10">
-        <div className="text-center mb-10">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-6 sm:pt-10">
+        <div className="text-center mb-6 sm:mb-10">
           <span className="text-xs font-extrabold uppercase tracking-wider text-[#047857] bg-[#dcfce7] px-3 py-1 rounded-full border border-[#bbf7d0]">
             {t('how.badge', 'Step-by-Step Workflow')}
           </span>
-          <h1 className="text-3xl font-black text-[#0f172a] mt-3">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#0f172a] mt-3">
             {t('how.title', 'How AgriSync End-to-End System Works')}
           </h1>
-          <p className="text-sm text-slate-600 mt-2">
+          <p className="text-xs sm:text-sm text-slate-600 mt-2">
             {t('how.subtitle', 'Connecting pre-harvest field monitoring with post-harvest Mandi sales and instant payment settlement.')}
           </p>
         </div>
 
         {/* Workflow Steps Timeline */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {/* Step 1 */}
-          <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start gap-4">
+          <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
             <div className="w-12 h-12 rounded-2xl bg-[#0f172a] text-white flex items-center justify-center font-black text-xl shrink-0">1</div>
             <div>
               <h3 className="font-extrabold text-base text-[#0f172a]">{t('how.step1Title', 'Perimeter Intrusion Detection & Field Claims')}</h3>

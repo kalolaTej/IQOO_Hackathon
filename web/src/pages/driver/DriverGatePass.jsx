@@ -96,20 +96,20 @@ export const DriverGatePass = () => {
     <div className="space-y-6 max-w-2xl mx-auto">
       {/* Header */}
       <div className="text-center space-y-1">
-        <div className="inline-flex items-center gap-2">
+        <div className="inline-flex flex-wrap items-center justify-center gap-2">
           <span className="text-xs font-bold text-[#047857] uppercase tracking-wider">Fast-Track Gate Pass Kiosk</span>
           <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 border border-amber-300">
             DIGITAL GATE PASS — DEMO
           </span>
         </div>
-        <h1 className="text-2xl font-black text-[#0f172a]">APMC Drayage Fast-Track Pass</h1>
+        <h1 className="text-xl sm:text-2xl font-black text-[#0f172a]">APMC Drayage Fast-Track Pass</h1>
         <p className="text-xs text-slate-500 font-medium">
           Digital gate pass for ANPR barcode entry. Synchronized with active mandi queue token.
         </p>
       </div>
 
       {/* Active Token Switcher */}
-      <div className="flex justify-center gap-2">
+      <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2">
         {GATE_PASS_RECORDS.map((p, idx) => (
           <button
             key={p.passId}
@@ -120,32 +120,32 @@ export const DriverGatePass = () => {
                 : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
             }`}
           >
-            {p.token} ({p.plate})
+            {p.token} <span className="font-mono font-normal">({p.plate})</span>
           </button>
         ))}
       </div>
 
       {/* Main Card */}
-      <div id="driver-gate-pass-card" className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-[#047857] shadow-xl text-center space-y-5">
+      <div id="driver-gate-pass-card" className="bg-white rounded-3xl p-4 sm:p-8 border-2 border-[#047857] shadow-xl text-center space-y-4 sm:space-y-5">
         {/* QR Code Frame */}
-        <div className="inline-block p-4 bg-white border-2 border-slate-900 rounded-2xl shadow-inner">
+        <div className="inline-block p-3 sm:p-4 bg-white border-2 border-slate-900 rounded-2xl shadow-inner">
           <img
             src={qrUrl}
             alt="Scannable Gate Pass QR Code"
-            className="w-48 h-48 mx-auto rounded-xl shadow-xs border border-slate-200"
+            className="w-36 h-36 sm:w-48 sm:h-48 mx-auto rounded-xl shadow-xs border border-slate-200"
           />
-          <span className="font-mono font-black text-sm text-[#0f172a] mt-3 block">
+          <span className="font-mono font-black text-xs sm:text-sm text-[#0f172a] mt-2 sm:mt-3 block">
             {activePass.passId}
           </span>
         </div>
 
         {/* Pass Details */}
         <div className="space-y-2 text-xs text-[#0f172a]">
-          <div className="text-lg font-black text-[#047857]">
+          <div className="text-base sm:text-lg font-black text-[#047857]">
             {activePass.token} • Pimpalgaon APMC Yard #2
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-left bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-left bg-slate-50 p-3.5 sm:p-4 rounded-xl border border-slate-200 text-xs">
             <div>
               <span className="text-slate-500 block">Driver Name:</span>
               <strong className="text-slate-900">{activePass.driver}</strong>
@@ -162,12 +162,12 @@ export const DriverGatePass = () => {
               <span className="text-slate-500 block">Assigned Gate:</span>
               <strong className="text-[#047857]">{activePass.gate}</strong>
             </div>
-            <div className="sm:col-span-2 pt-1 border-t border-slate-200 flex justify-between">
+            <div className="sm:col-span-2 pt-2 border-t border-slate-200 flex flex-col sm:flex-row justify-between gap-1">
               <div>
                 <span className="text-slate-500 block">Validity:</span>
                 <strong className="text-slate-800">{activePass.validity}</strong>
               </div>
-              <div className="text-right">
+              <div className="text-left sm:text-right">
                 <span className="text-slate-500 block">Arrival Slot:</span>
                 <strong className="text-slate-800">{activePass.arrivalWindow}</strong>
               </div>
@@ -187,7 +187,7 @@ export const DriverGatePass = () => {
         <div className="pt-2">
           <button
             onClick={handleDownloadPDF}
-            className="px-6 py-2.5 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl text-xs font-extrabold shadow-md transition-all inline-flex items-center gap-2 cursor-pointer active:scale-98"
+            className="w-full sm:w-auto px-6 py-3 bg-[#0f172a] hover:bg-[#1e293b] text-white rounded-xl text-xs font-extrabold shadow-md transition-all inline-flex items-center justify-center gap-2 cursor-pointer active:scale-98"
           >
             <Download size={15} /> Download Gate Pass PDF
           </button>

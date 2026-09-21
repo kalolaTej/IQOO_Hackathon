@@ -136,32 +136,32 @@ export default function LiveDetections() {
               }}
             />
             {/* camera stream header overlay */}
-            <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-              <div className="bg-black/65 backdrop-blur-xs text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-2">
-                <Video size={15} className="text-[#8FAF5A]" />
-                <span>{activeDetection?.camera_name || 'North Field Stream'} ({activeDetection?.camera_id || 'cam_01'})</span>
+            <div className="absolute top-2 sm:top-4 left-2 sm:left-4 right-2 sm:right-4 flex flex-wrap items-center justify-between gap-1.5 sm:gap-2 z-10">
+              <div className="bg-black/65 backdrop-blur-xs text-white px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl text-[10px] sm:text-xs font-bold flex items-center gap-1.5 sm:gap-2">
+                <Video size={14} className="text-[#8FAF5A] shrink-0" />
+                <span className="truncate max-w-[140px] sm:max-w-none">{activeDetection?.camera_name || 'North Field Stream'}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="bg-[#059669] text-white px-2.5 py-1 rounded-lg text-xs font-bold">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="bg-[#059669] text-white px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-bold">
                   {activeDetection?.fps || 30} FPS
                 </span>
-                <span className="bg-[#8FAF5A] text-[#2D3D12] px-2.5 py-1 rounded-lg text-xs font-extrabold">
-                  {activeDetection?.confidence || 94}% CONFIDENCE
+                <span className="bg-[#8FAF5A] text-[#2D3D12] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg text-[10px] sm:text-xs font-extrabold">
+                  {activeDetection?.confidence || 94}% CONF
                 </span>
               </div>
             </div>
 
             {/* detection target badge overlay */}
-            <div className="absolute bottom-4 left-4 bg-white/95 text-[#2F2F2F] px-4 py-2 rounded-xl text-xs font-extrabold shadow-md border border-[#E5E7EB] flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#D97706]"></span>
-              <span className="capitalize">{activeDetection?.animal || 'Monitoring'} Detected</span>
-              <span className="text-[#666666] font-medium text-xs">
+            <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-white/95 text-[#2F2F2F] px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-extrabold shadow-md border border-[#E5E7EB] flex items-center gap-1.5 sm:gap-2 max-w-[calc(100%-16px)]">
+              <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-[#D97706] shrink-0"></span>
+              <span className="capitalize truncate">{activeDetection?.animal || 'Monitoring'} Detected</span>
+              <span className="text-[#666666] font-medium text-[10px] sm:text-xs truncate">
                 ({activeDetection?.zone || 'North Field'})
               </span>
             </div>
           </div>
 
-          <div className="p-4 bg-white border-t border-[#E5E7EB] flex items-center justify-between text-xs text-[#666666] font-medium">
+          <div className="p-3 sm:p-4 bg-white border-t border-[#E5E7EB] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 text-xs text-[#666666] font-medium">
             <span className="flex items-center gap-1.5">
               <Clock size={15} className="text-[#8A8A8A]" />
               Last event logged: {new Date(activeDetection?.created_at || Date.now()).toLocaleTimeString()}

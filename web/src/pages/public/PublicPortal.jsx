@@ -93,16 +93,16 @@ export const PublicPortal = () => {
   return (
     <div className="min-h-screen bg-white text-[#0f172a] font-sans">
       {/* Main Navigation Bar */}
-      <header className="bg-white/90 backdrop-blur-md py-3 px-6 shadow-xs border-b border-[#e2e8f0] sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-11 h-11 rounded-xl object-contain shadow-xs bg-white p-0.5 border border-[#dcfce7]" />
+      <header className="bg-white/90 backdrop-blur-md py-3 px-3 sm:px-6 shadow-xs border-b border-[#e2e8f0] sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <img src="/agrisync-logo.png" alt="AgriSync Logo" className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl object-contain shadow-xs bg-white p-0.5 border border-[#dcfce7]" />
             <div>
               <div className="flex items-center gap-1.5">
-                <span className="text-xl font-extrabold text-[#166534] tracking-tight leading-none">AgriSync</span>
-                <span className="bg-[#dcfce7] text-[#166534] text-[10px] px-1.5 py-0.2 rounded font-bold border border-[#bbf7d0]">INDIA</span>
+                <span className="text-lg sm:text-xl font-extrabold text-[#166534] tracking-tight leading-none">AgriSync</span>
+                <span className="bg-[#dcfce7] text-[#166534] text-[9px] sm:text-[10px] px-1.5 py-0.2 rounded font-bold border border-[#bbf7d0]">INDIA</span>
               </div>
-              <p className="text-[11px] text-slate-500 font-medium mt-0.5">{t('hero.nationalMandi', 'National Mandi & Procurement Platform')}</p>
+              <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium mt-0.5 truncate max-w-[140px] sm:max-w-none">{t('hero.nationalMandi', 'National Mandi & Procurement Platform')}</p>
             </div>
           </Link>
 
@@ -111,9 +111,9 @@ export const PublicPortal = () => {
             <Link to="/how-it-works" className="hover:text-[#047857]">{t('hero.howItWorksLink', 'How It Works')}</Link>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <LanguageSwitcher size="sm" />
-            <button onClick={() => handleFocusAuth('login')} className="text-xs bg-[#047857] text-white hover:bg-[#065f46] font-extrabold px-4 py-2 rounded-xl transition-all shadow-md cursor-pointer">
+            <button onClick={() => handleFocusAuth('login')} className="text-xs bg-[#047857] text-white hover:bg-[#065f46] font-extrabold px-3 sm:px-4 py-2 rounded-xl transition-all shadow-md cursor-pointer whitespace-nowrap">
               {t('hero.loginRegisterBtn', 'Login / Register')}
             </button>
           </div>
@@ -121,30 +121,30 @@ export const PublicPortal = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 px-6 bg-gradient-to-b from-[#f0fdf4] via-[#f4fbf7] to-white relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="py-10 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-[#f0fdf4] via-[#f4fbf7] to-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Text */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dcfce7] text-[#166534] border border-[#bbf7d0] text-xs font-bold">
-              <span className="w-2 h-2 rounded-full bg-[#047857] animate-pulse"></span>
-              <span>{t('hero.badge', 'Trusted by 45,000+ Farmers & 12 APMC Mandis')}</span>
+              <span className="w-2 h-2 rounded-full bg-[#047857] animate-pulse shrink-0"></span>
+              <span className="text-[11px] sm:text-xs">{t('hero.badge', 'Trusted by 45,000+ Farmers & 12 APMC Mandis')}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl font-black text-[#0f172a] tracking-tight leading-[1.1]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0f172a] tracking-tight leading-[1.15] sm:leading-[1.1]">
               {t('hero.titleLine1', 'From Farm Protection to')} <br />
               <span className="text-[#047857]">{t('hero.titleLine2', 'Better Selling Decisions.')}</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
               {t('hero.desc', 'AgriSync connects solar perimeter intrusion defense with real-time APMC mandi slot booking, NIR produce assaying, and direct institutional buyer matching.')}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <button onClick={() => handleFocusAuth('login')} className="px-6 py-3.5 rounded-xl bg-[#047857] text-white font-extrabold text-sm hover:bg-[#065f46] shadow-lg transition-all flex items-center gap-2 cursor-pointer">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+              <button onClick={() => handleFocusAuth('login')} className="px-6 py-3.5 rounded-xl bg-[#047857] text-white font-extrabold text-sm hover:bg-[#065f46] shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span className="material-symbols-outlined">login</span> {t('hero.loginWorkspace', 'Login to Workspace')}
               </button>
-              <Link to="/how-it-works" className="px-6 py-3.5 rounded-xl bg-white text-[#0f172a] font-bold text-sm border border-slate-200 hover:bg-slate-50 shadow-xs transition-all flex items-center gap-2">
+              <Link to="/how-it-works" className="px-6 py-3.5 rounded-xl bg-white text-[#0f172a] font-bold text-sm border border-slate-200 hover:bg-slate-50 shadow-xs transition-all flex items-center justify-center gap-2">
                 <span className="material-symbols-outlined text-[#047857]">play_circle</span> {t('hero.exploreHow', 'Explore How It Works')}
               </Link>
             </div>
@@ -157,20 +157,20 @@ export const PublicPortal = () => {
               <div className="flex border-b border-slate-100">
                 <button 
                   onClick={() => handleTabChange('login')}
-                  className={`flex-1 py-4 text-sm font-extrabold transition-colors ${activeAuthTab === 'login' ? 'bg-[#f4fbf7] text-[#047857] border-b-2 border-[#047857]' : 'bg-white text-slate-500 hover:text-slate-800'}`}
+                  className={`flex-1 py-3.5 sm:py-4 text-sm font-extrabold transition-colors cursor-pointer ${activeAuthTab === 'login' ? 'bg-[#f4fbf7] text-[#047857] border-b-2 border-[#047857]' : 'bg-white text-slate-500 hover:text-slate-800'}`}
                 >
                   {t('auth.loginTab', 'Login')}
                 </button>
                 <button 
                   onClick={() => handleTabChange('register')}
-                  className={`flex-1 py-4 text-sm font-extrabold transition-colors ${activeAuthTab === 'register' ? 'bg-[#f4fbf7] text-[#047857] border-b-2 border-[#047857]' : 'bg-white text-slate-500 hover:text-slate-800'}`}
+                  className={`flex-1 py-3.5 sm:py-4 text-sm font-extrabold transition-colors cursor-pointer ${activeAuthTab === 'register' ? 'bg-[#f4fbf7] text-[#047857] border-b-2 border-[#047857]' : 'bg-white text-slate-500 hover:text-slate-800'}`}
                 >
                   {t('auth.registerTab', 'Register')}
                 </button>
               </div>
 
               {/* Content */}
-              <div className="p-6 max-h-[550px] overflow-y-auto">
+              <div className="p-4 sm:p-6 max-h-[550px] overflow-y-auto">
                 {activeAuthTab === 'login' && (
                   <form key={formKey} autoComplete="off" onSubmit={handleLoginSubmit} className="space-y-4 text-xs">
                     {loginError && (
@@ -223,16 +223,16 @@ export const PublicPortal = () => {
                     <div className="pt-3 border-t border-slate-100 mt-3">
                       <span className="block text-[10px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">{t('auth.quickDemo', '⚡ Quick 1-Click Demo Login')}</span>
                       <div className="grid grid-cols-2 gap-2">
-                        <button type="button" onClick={() => handleQuickDemoLogin('farmer')} className="px-2.5 py-1.5 bg-[#dcfce7] text-[#166534] rounded-lg font-extrabold text-[11px] hover:bg-[#bbf7d0] transition-colors border border-[#bbf7d0] text-left">
+                        <button type="button" onClick={() => handleQuickDemoLogin('farmer')} className="px-2.5 py-2 bg-[#dcfce7] text-[#166534] rounded-lg font-extrabold text-[11px] hover:bg-[#bbf7d0] transition-colors border border-[#bbf7d0] text-left cursor-pointer">
                           {t('auth.demoFarmer', '🌾 Farmer FPO')}
                         </button>
-                        <button type="button" onClick={() => handleQuickDemoLogin('apmc')} className="px-2.5 py-1.5 bg-slate-100 text-[#0f172a] rounded-lg font-extrabold text-[11px] hover:bg-slate-200 transition-colors border border-slate-200 text-left">
+                        <button type="button" onClick={() => handleQuickDemoLogin('apmc')} className="px-2.5 py-2 bg-slate-100 text-[#0f172a] rounded-lg font-extrabold text-[11px] hover:bg-slate-200 transition-colors border border-slate-200 text-left cursor-pointer">
                           {t('auth.demoApmc', '🏢 APMC Mandi')}
                         </button>
-                        <button type="button" onClick={() => handleQuickDemoLogin('buyer')} className="px-2.5 py-1.5 bg-slate-100 text-[#0f172a] rounded-lg font-extrabold text-[11px] hover:bg-slate-200 transition-colors border border-slate-200 text-left">
+                        <button type="button" onClick={() => handleQuickDemoLogin('buyer')} className="px-2.5 py-2 bg-slate-100 text-[#0f172a] rounded-lg font-extrabold text-[11px] hover:bg-slate-200 transition-colors border border-slate-200 text-left cursor-pointer">
                           {t('auth.demoBuyer', '💼 Buyer Co.')}
                         </button>
-                        <button type="button" onClick={() => handleQuickDemoLogin('driver')} className="px-2.5 py-1.5 bg-slate-100 text-[#0f172a] rounded-lg font-extrabold text-[11px] hover:bg-slate-200 transition-colors border border-slate-200 text-left">
+                        <button type="button" onClick={() => handleQuickDemoLogin('driver')} className="px-2.5 py-2 bg-slate-100 text-[#0f172a] rounded-lg font-extrabold text-[11px] hover:bg-slate-200 transition-colors border border-slate-200 text-left cursor-pointer">
                           {t('auth.demoDriver', '🚛 Drayage Driver')}
                         </button>
                       </div>
@@ -277,7 +277,7 @@ export const PublicPortal = () => {
                         className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl font-semibold text-[#0f172a] outline-none focus:border-[#047857]"
                       />
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div>
                         <label className="block font-bold text-slate-700 mb-1">{t('auth.bankAccount', 'Bank A/c Number')}</label>
                         <input 

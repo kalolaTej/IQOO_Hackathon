@@ -88,13 +88,13 @@ export const WeighbridgeConsole = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold text-[#047857] uppercase tracking-wider">APMC Scale Operator Console</span>
           <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 border border-amber-300">
             DIGITAL WEIGHBRIDGE SIMULATION
           </span>
         </div>
-        <h1 className="text-2xl font-black text-[#0f172a]">Digital Weighbridge Operator Terminal</h1>
+        <h1 className="text-xl sm:text-2xl font-black text-[#0f172a] mt-1">Digital Weighbridge Operator Terminal</h1>
         <p className="text-xs text-slate-500 font-medium mt-0.5">
           Dual-axle gross and tare vehicle scale calibration terminal. No physical weighbridge hardware connected.
         </p>
@@ -102,16 +102,16 @@ export const WeighbridgeConsole = () => {
 
       {/* Validation Alert */}
       {!isValid && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 text-xs font-black">
-            <AlertTriangle size={18} className="text-red-600 shrink-0" />
+        <div className="p-3.5 sm:p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+          <div className="flex items-start gap-2.5 text-xs font-black">
+            <AlertTriangle size={18} className="text-red-600 shrink-0 mt-0.5 sm:mt-0" />
             <span>
               Scale Validation Error: Gross weight ({grossDisplay}) cannot be less than vehicle tare weight ({tareDisplay}). Net produce weight cannot be negative.
             </span>
           </div>
           <button
             onClick={handleResetToStandard}
-            className="text-[11px] underline font-bold hover:text-red-900 shrink-0 ml-3 cursor-pointer"
+            className="text-[11px] underline font-bold hover:text-red-900 shrink-0 cursor-pointer self-end sm:self-auto"
           >
             Reset Scale
           </button>
@@ -119,7 +119,7 @@ export const WeighbridgeConsole = () => {
       )}
 
       {/* Main Console Box */}
-      <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xl space-y-6">
+      <div className="bg-white rounded-2xl p-4 sm:p-6 border border-slate-200 shadow-xl space-y-5 sm:space-y-6">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <Scale size={18} className="text-[#047857]" />
@@ -162,21 +162,21 @@ export const WeighbridgeConsole = () => {
         </div>
 
         {/* Calculated Results Display */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+          <div className="p-3.5 sm:p-4 bg-slate-50 rounded-xl border border-slate-200 text-center">
             <span className="text-[10px] text-slate-500 font-semibold uppercase">Gross Weight</span>
-            <div className="text-2xl font-black text-[#0f172a] font-data-tabular mt-1">{grossDisplay}</div>
-            <div className="text-[10px] text-slate-400 mt-1">Scale Sensor #1</div>
+            <div className="text-xl sm:text-2xl font-black text-[#0f172a] font-data-tabular mt-1">{grossDisplay}</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Scale Sensor #1</div>
           </div>
 
-          <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-center">
+          <div className="p-3.5 sm:p-4 bg-slate-50 rounded-xl border border-slate-200 text-center">
             <span className="text-[10px] text-slate-500 font-semibold uppercase">Tare Weight</span>
-            <div className="text-2xl font-black text-[#0f172a] font-data-tabular mt-1">{tareDisplay}</div>
-            <div className="text-[10px] text-slate-400 mt-1">Scale Sensor #2</div>
+            <div className="text-xl sm:text-2xl font-black text-[#0f172a] font-data-tabular mt-1">{tareDisplay}</div>
+            <div className="text-[10px] text-slate-400 mt-0.5">Scale Sensor #2</div>
           </div>
 
           <div
-            className={`p-4 rounded-xl text-center border transition-all ${
+            className={`p-3.5 sm:p-4 rounded-xl text-center border transition-all ${
               isValid ? 'bg-[#dcfce7] border-[#bbf7d0]' : 'bg-red-50 border-red-200'
             }`}
           >
@@ -184,28 +184,28 @@ export const WeighbridgeConsole = () => {
               Net Harvest Produce Weight
             </span>
             <div
-              className={`text-2xl font-black font-data-tabular mt-1 ${
+              className={`text-xl sm:text-2xl font-black font-data-tabular mt-1 ${
                 isValid ? 'text-[#047857]' : 'text-red-700'
               }`}
             >
               {netDisplay}
             </div>
-            <div className={`text-[10px] font-bold mt-1 ${isValid ? 'text-[#15803d]' : 'text-red-500'}`}>
+            <div className={`text-[10px] font-bold mt-0.5 ${isValid ? 'text-[#15803d]' : 'text-red-500'}`}>
               {isValid ? `${netMetricTons} (Certified Harvest Net)` : 'Invalid Scale Values'}
             </div>
           </div>
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
-          <div className="text-xs text-slate-500 font-medium">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+          <div className="text-xs text-slate-500 font-medium text-center sm:text-left">
             Active Lot Under Scale: <strong className="text-slate-800">Token #B-14 (MH-15-EG-4412)</strong>
           </div>
 
           <button
             onClick={handleConfirmWeighing}
             disabled={!isValid}
-            className={`px-6 py-3 font-black text-xs rounded-xl shadow-md transition-all flex items-center gap-2 cursor-pointer active:scale-98 ${
+            className={`w-full sm:w-auto px-6 py-3 font-black text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 ${
               isValid
                 ? 'bg-[#047857] hover:bg-[#065f46] text-white'
                 : 'bg-slate-300 text-slate-500 cursor-not-allowed'
@@ -218,8 +218,8 @@ export const WeighbridgeConsole = () => {
 
       {/* Certified Weighbridge Slip Modal */}
       {showSlipModal && confirmedReceipt && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 max-w-lg w-full border border-slate-200 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
                 <FileText className="text-[#047857]" size={22} />
@@ -229,7 +229,7 @@ export const WeighbridgeConsole = () => {
               </div>
               <button
                 onClick={() => setShowSlipModal(false)}
-                className="text-slate-400 hover:text-slate-700 text-xl font-bold cursor-pointer"
+                className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 text-xl font-bold cursor-pointer transition-colors"
               >
                 ✕
               </button>
@@ -278,22 +278,22 @@ export const WeighbridgeConsole = () => {
                 </div>
               </div>
 
-              <div className="text-[10px] text-slate-500 pt-2 border-t border-slate-200 flex justify-between">
+              <div className="text-[10px] text-slate-500 pt-2 border-t border-slate-200 flex flex-col sm:flex-row justify-between gap-1">
                 <span>Pimpalgaon APMC Yard Terminal #1</span>
                 <span>{confirmedReceipt.timestamp}</span>
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2">
+            <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-2 pt-2">
               <button
                 onClick={() => setShowSlipModal(false)}
-                className="px-4 py-2 bg-slate-100 text-slate-700 font-bold text-xs rounded-xl hover:bg-slate-200 cursor-pointer"
+                className="w-full sm:w-auto px-4 py-2.5 bg-slate-100 text-slate-700 font-bold text-xs rounded-xl hover:bg-slate-200 cursor-pointer text-center"
               >
                 Close
               </button>
               <button
                 onClick={handlePrintSlip}
-                className="px-5 py-2 bg-[#047857] hover:bg-[#065f46] text-white font-black text-xs rounded-xl shadow-md flex items-center gap-1.5 cursor-pointer active:scale-98"
+                className="w-full sm:w-auto px-5 py-2.5 bg-[#047857] hover:bg-[#065f46] text-white font-black text-xs rounded-xl shadow-md flex items-center justify-center gap-1.5 cursor-pointer active:scale-98"
               >
                 <Printer size={15} /> Print Official Slip
               </button>

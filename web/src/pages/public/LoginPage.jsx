@@ -34,22 +34,22 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4fbf7] flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans">
+    <div className="min-h-screen bg-[#f4fbf7] flex flex-col justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <div className="flex justify-center mb-3">
           <LanguageSwitcher size="sm" />
         </div>
         <Link to="/" className="inline-block">
-          <img src="/agrisync-logo.png" alt="AgriSync Logo" className="mx-auto w-24 h-24 rounded-2xl object-contain shadow-lg mb-4 bg-white p-1 border border-[#dcfce7]" />
+          <img src="/agrisync-logo.png" alt="AgriSync Logo" className="mx-auto w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-contain shadow-lg mb-3 sm:mb-4 bg-white p-1 border border-[#dcfce7]" />
         </Link>
-        <h2 className="mt-2 text-3xl font-black text-[#0f172a] tracking-tight">{t('auth.signInTitle', 'Sign in to AgriSync')}</h2>
-        <p className="mt-2 text-sm text-slate-600 font-semibold">
+        <h2 className="mt-1 sm:mt-2 text-2xl sm:text-3xl font-black text-[#0f172a] tracking-tight">{t('auth.signInTitle', 'Sign in to AgriSync')}</h2>
+        <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-slate-600 font-semibold">
           Or <Link to="/register" className="font-extrabold text-[#047857] hover:text-[#065f46]">{t('auth.orRegister', 'register as a new user')}</Link>
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow-xl border border-slate-200 rounded-3xl sm:px-10">
+      <div className="mt-6 sm:mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white py-6 sm:py-8 px-4 sm:px-10 shadow-xl border border-slate-200 rounded-3xl">
           <form onSubmit={handleLoginSubmit} className="space-y-5">
             {loginError && (
               <div className="p-3 bg-red-50 text-red-700 rounded-xl border border-red-200 font-bold text-xs">

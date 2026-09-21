@@ -136,11 +136,11 @@ export default function Detections() {
   })
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* page header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-[#E5E7EB]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-2 border-b border-[#E5E7EB]">
         <div>
-          <h1 className="text-2xl font-extrabold text-[#2F2F2F] tracking-tight">Detection Logs & History</h1>
+          <h1 className="text-xl sm:text-2xl font-extrabold text-[#2F2F2F] tracking-tight">Detection Logs & History</h1>
           <p className="text-xs text-[#666666] mt-1 font-medium">Search, filter, and audit past intrusion events captured across edge nodes.</p>
         </div>
 
@@ -149,7 +149,7 @@ export default function Detections() {
             setPage(1)
             fetchDetections()
           }}
-          className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg border border-[#E5E7EB] bg-white hover:bg-[#FAFBF8] text-[#2F2F2F] text-xs font-bold transition-colors shadow-2xs self-start sm:self-auto"
+          className="flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-[#E5E7EB] bg-white hover:bg-[#FAFBF8] text-[#2F2F2F] text-xs font-bold transition-colors shadow-2xs self-start sm:self-auto min-h-[38px] cursor-pointer"
         >
           <RefreshCw size={14} />
           <span>Refresh Audit Logs</span>
@@ -157,9 +157,9 @@ export default function Detections() {
       </div>
 
       {/* filters & search toolbar */}
-      <div className="card-base p-4 grid grid-cols-1 sm:grid-cols-4 gap-4">
+      <div className="card-base p-3.5 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {/* search input */}
-        <div className="sm:col-span-1">
+        <div>
           <label className="text-xs font-bold text-[#666666] mb-1 flex items-center gap-1">
             <Search size={13} /> Keyword Search
           </label>
@@ -167,8 +167,8 @@ export default function Detections() {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search cow, bear..."
-            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A]"
+            placeholder="Search cow, wild boar..."
+            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A] min-h-[38px]"
           />
         </div>
 
@@ -183,7 +183,7 @@ export default function Detections() {
               setCameraFilter(e.target.value)
               setPage(1)
             }}
-            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A]"
+            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A] min-h-[38px]"
           >
             <option value="All">All Cameras</option>
             <option value="cam_01">North Field Cam (cam_01)</option>
@@ -203,10 +203,11 @@ export default function Detections() {
               setAnimalFilter(e.target.value)
               setPage(1)
             }}
-            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A]"
+            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A] min-h-[38px]"
           >
             <option value="All">All Species</option>
             <option value="cow">Cow / Cattle</option>
+            <option value="wild_boar">Wild Boar</option>
             <option value="dog">Wild Dog</option>
             <option value="bear">Bear</option>
             <option value="pig">Pig</option>
@@ -222,7 +223,7 @@ export default function Detections() {
           <select
             value={dateRangeFilter}
             onChange={(e) => setDateRangeFilter(e.target.value)}
-            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A]"
+            className="w-full text-xs font-medium bg-[#FAFBF8] border border-[#E5E7EB] rounded-lg px-3 py-2 text-[#2F2F2F] focus:outline-none focus:ring-2 focus:ring-[#8FAF5A]/30 focus:border-[#8FAF5A] min-h-[38px]"
           >
             <option value="All Time">All Time</option>
             <option value="Today">Today Only</option>
@@ -230,7 +231,7 @@ export default function Detections() {
         </div>
       </div>
 
-      {/* detection logs table */}
+      {/* detection logs */}
       {loading ? (
         <div className="space-y-3">
           {[1, 2, 3, 4].map((i) => (
@@ -238,7 +239,7 @@ export default function Detections() {
           ))}
         </div>
       ) : filteredItems.length === 0 ? (
-        <div className="text-center py-16 card-base space-y-2">
+        <div className="text-center py-16 card-base space-y-2 p-6">
           <ShieldCheck size={36} className="mx-auto text-[#8A8A8A] opacity-60" />
           <p className="text-base font-bold text-[#2F2F2F]">No detection logs found in database.</p>
           <p className="text-xs text-[#666666] font-medium">Monitoring active perimeter streams for new intrusions.</p>
@@ -258,7 +259,8 @@ export default function Detections() {
         </div>
       ) : (
         <div className="card-base overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* Desktop Table View */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead className="bg-[#f8fafc] border-b border-slate-200 text-slate-600 font-bold text-[11px] uppercase tracking-wider">
                 <tr>
@@ -293,7 +295,7 @@ export default function Detections() {
                       </td>
                       <td className="p-3">
                         <span className="font-extrabold text-[#0f172a] capitalize text-sm block">
-                          {item?.animal || 'Animal'}
+                          {item?.animal?.replace(/_/g, ' ') || 'Animal'}
                         </span>
                         <span className="text-[10px] font-mono text-slate-400">ID: {item?.id}</span>
                       </td>
@@ -343,7 +345,7 @@ export default function Detections() {
                       <td className="p-3 pr-5 text-right">
                         <Link
                           to={`/detections/${item?.id || 'det_01'}`}
-                          className="inline-flex items-center gap-1 text-[#047857] hover:underline font-bold text-xs"
+                          className="inline-flex items-center gap-1 text-[#047857] hover:underline font-bold text-xs min-h-[32px]"
                         >
                           <span>Inspect</span>
                           <ChevronRight size={14} />
@@ -356,11 +358,85 @@ export default function Detections() {
             </table>
           </div>
 
+          {/* Mobile Card View */}
+          <div className="md:hidden divide-y divide-slate-100">
+            {filteredItems.map((item, idx) => {
+              const imgSrc = getAnimalImage(item?.animal, item?.image_url)
+              const isRealYolo = item?.source === 'real' || item?.source === 'yolo' || (item?.confidence && item?.source !== 'demo')
+
+              return (
+                <div key={item?.id || idx} className="p-4 space-y-3">
+                  <div className="flex items-start gap-3">
+                    <img
+                      src={imgSrc}
+                      alt={item?.animal || 'animal'}
+                      referrerPolicy="no-referrer"
+                      className="w-16 h-16 object-cover rounded-xl border border-slate-200 shadow-2xs shrink-0"
+                      onError={(e) => {
+                        e.currentTarget.src = ANIMAL_IMAGES.cow
+                      }}
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1">
+                        <h3 className="font-extrabold text-[#0f172a] capitalize text-base truncate">
+                          {item?.animal?.replace(/_/g, ' ') || 'Animal'}
+                        </h3>
+                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold shrink-0 ${
+                          item?.status === 'Resolved'
+                            ? 'bg-slate-100 text-slate-700'
+                            : 'bg-red-100 text-red-700 border border-red-200'
+                        }`}>
+                          {item?.status || 'Active Alert'}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-700 font-semibold truncate mt-0.5">
+                        {item?.camera_name || item?.camera_id || 'North Perimeter Cam'}
+                      </p>
+                      <p className="text-[11px] text-[#047857] font-medium truncate">
+                        {item?.zone || 'Perimeter Zone'}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 text-xs">
+                    <div>
+                      {isRealYolo ? (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-[#dcfce7] text-[#15803d] font-bold text-[10px]">
+                          YOLO • {item?.confidence}% Confidence
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-bold text-[10px]">
+                          Simulated Event
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[11px] text-slate-500">
+                      {new Date(item?.created_at || item?.detected_at || Date.now()).toLocaleTimeString([], {
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      })}
+                    </span>
+                  </div>
+
+                  <div className="pt-1">
+                    <Link
+                      to={`/detections/${item?.id || 'det_01'}`}
+                      className="w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1 min-h-[38px]"
+                    >
+                      <span>Inspect Detection Snapshot</span>
+                      <ChevronRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+
           {hasMore && (
             <div className="p-4 border-t border-[#E5E7EB] text-center bg-[#FAFBF8]">
               <button
                 onClick={() => setPage((prev) => prev + 1)}
-                className="px-4 py-2 bg-white border border-[#E5E7EB] rounded-lg text-xs font-bold text-[#2F2F2F] hover:bg-[#FAFBF8] transition-colors shadow-2xs"
+                className="w-full sm:w-auto px-4 py-2.5 bg-white border border-[#E5E7EB] rounded-lg text-xs font-bold text-[#2F2F2F] hover:bg-[#FAFBF8] transition-colors shadow-2xs min-h-[40px]"
               >
                 Load More Detection Records
               </button>

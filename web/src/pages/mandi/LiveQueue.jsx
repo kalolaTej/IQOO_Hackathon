@@ -306,7 +306,7 @@ export const LiveQueue = () => {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-200 pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto no-scrollbar">
         {[
           { id: 'active', label: 'Active Queue (In-Yard & Waiting)' },
           { id: 'waiting', label: 'Waiting at Gate' },
@@ -316,7 +316,7 @@ export const LiveQueue = () => {
           <button
             key={tab.id}
             onClick={() => setFilterStatus(tab.id)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-extrabold transition-all cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-extrabold transition-all whitespace-nowrap cursor-pointer shrink-0 ${
               filterStatus === tab.id
                 ? 'bg-[#0f172a] text-white shadow-xs'
                 : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
@@ -327,8 +327,97 @@ export const LiveQueue = () => {
         ))}
       </div>
 
-      {/* Queue Table */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
+      {/* Mobile Cards View */}
+      <div className="md:hidden space-y-3">
+        {filteredTokens.length === 0 ? (
+          <div className="p-8 text-center bg-white rounded-2xl border border-slate-200 text-slate-500 font-medium text-xs">
+            No vehicles found in this queue segment.
+          </div>
+        ) : (
+          filteredTokens.map((row) => {
+            const isWaiting = row.status === 'waiting';
+            const isInProgress = row.status === 'in_progress';
+            const isCompleted = row.status === 'completed';
+
+            return (
+              <div key={row.id} className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-slate-100 text-slate-700 text-xs font-black flex items-center justify-center font-data-tabular">
+                      #{row.queue_position || '—'}
+                    </span>
+                    <span className="font-black text-[#047857] font-data-tabular text-sm">{row.token}</span>
+                  </div>
+                  <div>
+                    {isWaiting && (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-[10px] font-black uppercase">
+                        <Clock size={10} /> WAITING
+                      </span>
+                    )}
+                    {isInProgress && (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-200 text-[10px] font-black uppercase">
+                        <PlayCircle size={10} /> IN PROGRESS
+                      </span>
+                    )}
+                    {isCompleted && (
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-black uppercase">
+                        <CheckCircle2 size={10} /> COMPLETED
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="border-t border-slate-100 pt-2 space-y-1 text-xs">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Farmer:</span>
+                    <span className="font-bold text-slate-900">{row.farmer}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Lot & Commodity:</span>
+                    <span className="font-semibold text-slate-800">{row.crop} <span className="text-slate-400 font-mono text-[10px]">({row.lot})</span></span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Vehicle / Driver:</span>
+                    <span className="text-slate-700 font-mono font-bold">{row.vehicle} <span className="font-sans font-normal text-slate-500">({row.driver})</span></span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Gate / Est. Wait:</span>
+                    <span className="font-bold text-[#0f172a]">{row.gate} • {row.wait}</span>
+                  </div>
+                </div>
+
+                {isOperator && (
+                  <div className="pt-2 border-t border-slate-100 flex justify-end">
+                    {isWaiting && (
+                      <button
+                        onClick={() => handleAdvance(row.id)}
+                        disabled={advancingId === row.id}
+                        className="w-full py-2 bg-[#047857] hover:bg-[#065f46] text-white rounded-xl text-xs font-black transition-all shadow-xs active:scale-98 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-1"
+                      >
+                        <span>ADVANCE QUEUE</span>
+                        <ArrowRight size={13} />
+                      </button>
+                    )}
+                    {isInProgress && (
+                      <button
+                        onClick={() => handleAdvance(row.id)}
+                        disabled={advancingId === row.id}
+                        className="w-full py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-xl text-xs font-black transition-all shadow-xs active:scale-98 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-1"
+                      >
+                        <span>COMPLETE DELIVERIES</span>
+                        <CheckCircle2 size={13} />
+                      </button>
+                    )}
+                  </div>
+                )}
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      {/* Desktop Table */}
+      <div className="hidden md:block bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>

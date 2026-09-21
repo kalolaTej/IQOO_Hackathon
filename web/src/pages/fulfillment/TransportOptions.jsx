@@ -242,8 +242,8 @@ export const TransportOptions = () => {
 
       {/* Booking Validation Modal */}
       {showModal && selectedDriver && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full border border-slate-200 shadow-2xl space-y-5">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-3xl p-5 sm:p-7 max-w-md w-full border border-slate-200 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto my-auto">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div>
                 <span className="text-[10px] font-bold text-[#047857] uppercase">Confirm Drayage Booking</span>
@@ -251,7 +251,7 @@ export const TransportOptions = () => {
               </div>
               <button
                 onClick={() => setShowModal(false)}
-                className="text-slate-400 hover:text-slate-700 text-xl font-bold cursor-pointer"
+                className="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 text-xl font-bold cursor-pointer transition-colors"
               >
                 ✕
               </button>
@@ -259,15 +259,15 @@ export const TransportOptions = () => {
 
             <form onSubmit={handleConfirmTransportBooking} className="space-y-4 text-xs">
               <div className="p-3 bg-slate-50 rounded-xl space-y-1.5 text-slate-700">
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-2">
                   <span className="text-slate-500">Assigned Driver:</span>
                   <strong>{selectedDriver.name}</strong>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-2">
                   <span className="text-slate-500">Vehicle Registration:</span>
                   <strong className="font-mono">{selectedDriver.plate}</strong>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-2">
                   <span className="text-slate-500">Vehicle Max Capacity:</span>
                   <strong className="text-[#047857]">{selectedDriver.capacityDisplay}</strong>
                 </div>
@@ -278,7 +278,7 @@ export const TransportOptions = () => {
                 <select
                   value={bookingPayload.lot}
                   onChange={(e) => setBookingPayload({ ...bookingPayload, lot: e.target.value })}
-                  className="w-full px-3.5 py-2 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
+                  className="w-full px-3.5 py-2.5 bg-[#f8fafc] border border-slate-200 rounded-xl text-xs font-bold text-[#0f172a] outline-none"
                 >
                   <option value="LOT-2024-098 (Red Onion - 24.0 MT)">LOT-2024-098 (Red Onion - 24.0 MT)</option>
                   <option value="LOT-2024-102 (Soybean - 12.5 MT)">LOT-2024-102 (Soybean - 12.5 MT)</option>
@@ -296,7 +296,7 @@ export const TransportOptions = () => {
                   step="0.1"
                   value={bookingPayload.requestedQuantityMT}
                   onChange={(e) => handleQuantityChange(e.target.value, selectedDriver.capacityMT)}
-                  className={`w-full px-3.5 py-2 rounded-xl font-data-tabular font-bold outline-none border ${
+                  className={`w-full px-3.5 py-2.5 rounded-xl font-data-tabular font-bold outline-none border ${
                     validationError ? 'border-red-500 bg-red-50 text-red-900' : 'border-slate-200 bg-[#f8fafc] text-[#0f172a]'
                   }`}
                 />
@@ -308,7 +308,7 @@ export const TransportOptions = () => {
                 )}
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-600 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                 <div>
                   <span className="block text-slate-400">Pickup Location:</span>
                   <strong>{bookingPayload.origin}</strong>
@@ -319,18 +319,18 @@ export const TransportOptions = () => {
                 </div>
               </div>
 
-              <div className="pt-2 flex justify-end gap-2">
+              <div className="pt-2 flex flex-col-reverse sm:flex-row sm:justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 cursor-pointer"
+                  className="w-full sm:w-auto px-4 py-2.5 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 cursor-pointer text-center"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={Boolean(validationError)}
-                  className={`px-5 py-2 font-black rounded-xl shadow-md transition-all ${
+                  className={`w-full sm:w-auto px-5 py-2.5 font-black rounded-xl shadow-md transition-all text-center ${
                     validationError
                       ? 'bg-slate-200 text-slate-400 cursor-not-allowed'
                       : 'bg-[#047857] hover:bg-[#065f46] text-white cursor-pointer active:scale-98'
