@@ -223,7 +223,7 @@ export const DashboardLayout = ({ children }) => {
       {/* Main Layout Body */}
       <div className="pl-0 lg:pl-64 flex-1 flex flex-col min-w-0 w-full">
         <Navbar onToggleSidebar={() => setSidebarOpen((prev) => !prev)} sidebarOpen={sidebarOpen} />
-        <main className="pt-16 min-h-screen p-3 sm:p-6 bg-[#f4fbf7] w-full max-w-full overflow-x-hidden safe-bottom">
+        <main className="pt-24 sm:pt-28 min-h-screen px-3.5 sm:px-6 pb-12 bg-[#f4fbf7] w-full max-w-full overflow-x-hidden safe-bottom">
           {children}
         </main>
       </div>
