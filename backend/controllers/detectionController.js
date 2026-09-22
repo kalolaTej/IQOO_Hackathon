@@ -158,6 +158,89 @@ const triggerSirenManual = async (req, res) => {
   }
 };
 
+/**
+ * DELETE /api/detections (Clear all detection logs)
+ */
+const clearAllDetections = async (req, res) => {
+  try {
+    const io = req.app.get('io');
+
+    // 1. Clear Supabase tables if configured
+    try {
+      if (supabase && typeof supabase.from === 'function') {
+        await supabase
+          .from('detections')
+          .delete()
+          .neq('id', '00000000-0000-0000-0000-000000000000');
+
+        await supabase
+          .from('field_captures')
+          .delete()
+          .neq('id', '00000000-0000-0000-0000-000000000000');
+      }
+    } catch (dbErr) {
+      console.warn('[clearAllDetections] Supabase clear warning:', dbErr.message);
+    }
+
+    // 2. Clear local store
+    localStore.clear('detections');
+    localStore.clear('field_captures');
+
+    // 3. Broadcast real-time update to web clients
+    if (io) {
+      io.emit('detections_cleared', { timestamp: new Date().toISOString() });
+      io.emit('detection_update', []);
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'All detection logs and field captures successfully cleared.',
+    });
+  } catch (err) {
+    console.error('[clearAllDetections error]:', err);
+    return res.status(500).json({ error: `Failed to clear detections: ${err.message}` });
+  }
+};
+
+/**
+ * DELETE /api/detections/:id (Delete single detection log)
+ */
+const deleteDetectionById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const io = req.app.get('io');
+
+    // 1. Delete from Supabase if configured
+    try {
+      if (supabase && typeof supabase.from === 'function') {
+        await supabase
+          .from('detections')
+          .delete()
+          .eq('id', id);
+      }
+    } catch (dbErr) {
+      console.warn('[deleteDetectionById] Supabase delete warning:', dbErr.message);
+    }
+
+    // 2. Delete from local store
+    const deleted = localStore.delete('detections', id);
+
+    // 3. Broadcast socket event
+    if (io) {
+      io.emit('detection_deleted', { id });
+    }
+
+    return res.status(200).json({
+      success: true,
+      deleted,
+      message: `Detection ${id} deleted successfully.`,
+    });
+  } catch (err) {
+    console.error('[deleteDetectionById error]:', err);
+    return res.status(500).json({ error: `Failed to delete detection: ${err.message}` });
+  }
+};
+
 module.exports = {
   createDetection,
   getDetections,
@@ -165,4 +248,6 @@ module.exports = {
   getFieldCaptures,
   getSirenCurrentStatus,
   triggerSirenManual,
+  clearAllDetections,
+  deleteDetectionById,
 };

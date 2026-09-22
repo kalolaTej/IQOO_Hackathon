@@ -2,45 +2,16 @@ import { API_BASE_URL, SOCKET_URL } from '../lib/api';
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { io } from 'socket.io-client'
-import { Filter, Calendar, Camera, ChevronRight, RefreshCw, Search, ShieldCheck } from 'lucide-react'
+import { Filter, Calendar, Camera, ChevronRight, RefreshCw, Search, ShieldCheck, Trash2, AlertTriangle, CheckCircle2 } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import { getAnimalImage, ANIMAL_IMAGES } from '../lib/animalImages'
-
-const DEFAULT_DEMO_DETECTIONS = [
-  {
-    id: 'DET-2026-091',
-    animal: 'wild_boar',
-    camera_id: 'cam_01',
-    camera_name: 'North Perimeter Cam',
-    farm_name: 'Rajesh Farm (Niphad)',
-    zone: 'North Field - Onion Plot',
-    confidence: 92,
-    source: 'live',
-    status: 'Alert Dispatched',
-    detected_at: new Date(Date.now() - 1000 * 60 * 18).toISOString(),
-    image_url: '/uploads/detections/sample_wild_boar.jpg'
-  },
-  {
-    id: 'DET-2026-088',
-    animal: 'cow',
-    camera_id: 'cam_02',
-    camera_name: 'East Boundary Cam',
-    farm_name: 'Rajesh Farm (Niphad)',
-    zone: 'East Boundary - Sugarcane',
-    confidence: 88,
-    source: 'live',
-    status: 'Resolved',
-    detected_at: new Date(Date.now() - 1000 * 60 * 85).toISOString(),
-    image_url: '/uploads/detections/sample_cow.jpg'
-  }
-];
 
 export default function Detections() {
   const { session } = useAuth()
   const [searchParams] = useSearchParams()
   const initialSearch = searchParams.get('search') || ''
 
-  const [detections, setDetections] = useState(DEFAULT_DEMO_DETECTIONS)
+  const [detections, setDetections] = useState([])
   const [loading, setLoading] = useState(true)
   const [cameraFilter, setCameraFilter] = useState('All')
   const [animalFilter, setAnimalFilter] = useState('All')
@@ -48,6 +19,10 @@ export default function Detections() {
   const [searchQuery, setSearchQuery] = useState(initialSearch)
   const [page, setPage] = useState(1)
   const [hasMore, setHasMore] = useState(false)
+  const [showClearModal, setShowClearModal] = useState(false)
+  const [clearing, setClearing] = useState(false)
+  const [deletingId, setDeletingId] = useState(null)
+  const [actionSuccessMessage, setActionSuccessMessage] = useState('')
   const limit = 15
 
   const fetchDetections = useCallback(async () => {
@@ -75,19 +50,14 @@ export default function Detections() {
           ? data.detections
           : []
 
-        if (items.length > 0) {
-          setDetections((prev) => (page === 1 ? items : [...prev, ...items]))
-          setHasMore(items.length >= limit)
-        } else {
-          setDetections((prev) => (prev.length > 0 ? prev : DEFAULT_DEMO_DETECTIONS))
-          setHasMore(false)
-        }
+        setDetections((prev) => (page === 1 ? items : [...prev, ...items]))
+        setHasMore(items.length >= limit)
       } else {
-        setDetections((prev) => (prev.length > 0 ? prev : DEFAULT_DEMO_DETECTIONS))
+        if (page === 1) setDetections([])
         setHasMore(false)
       }
     } catch {
-      setDetections((prev) => (prev.length > 0 ? prev : DEFAULT_DEMO_DETECTIONS))
+      if (page === 1) setDetections([])
       setHasMore(false)
     } finally {
       setLoading(false)
@@ -106,10 +76,74 @@ export default function Detections() {
       }
     })
 
+    socket.on('detections_cleared', () => {
+      setDetections([])
+      setHasMore(false)
+    })
+
+    socket.on('detection_deleted', ({ id }) => {
+      if (id) {
+        setDetections((prev) => prev.filter((d) => d.id !== id))
+      }
+    })
+
     return () => {
       socket.disconnect()
     }
   }, [fetchDetections])
+
+  const handleClearAll = async () => {
+    setClearing(true)
+    try {
+      const headers = { 'Content-Type': 'application/json' }
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`
+      }
+      const res = await fetch(`${API_BASE_URL}/api/detections`, {
+        method: 'DELETE',
+        headers,
+      })
+      if (res.ok) {
+        setDetections([])
+        setHasMore(false)
+        setShowClearModal(false)
+        setActionSuccessMessage('Detection history successfully cleared from database.')
+        setTimeout(() => setActionSuccessMessage(''), 4000)
+      } else {
+        const err = await res.json().catch(() => ({}))
+        alert(`Failed to clear detections: ${err.error || 'Server error'}`)
+      }
+    } catch (e) {
+      alert(`Error clearing detections: ${e.message}`)
+    } finally {
+      setClearing(false)
+    }
+  }
+
+  const handleDeleteOne = async (id, e) => {
+    if (e) e.stopPropagation()
+    if (!window.confirm('Delete this detection log?')) return
+    setDeletingId(id)
+    try {
+      const headers = {}
+      if (session?.access_token) {
+        headers['Authorization'] = `Bearer ${session.access_token}`
+      }
+      const res = await fetch(`${API_BASE_URL}/api/detections/${id}`, {
+        method: 'DELETE',
+        headers,
+      })
+      if (res.ok) {
+        setDetections((prev) => prev.filter((d) => d.id !== id))
+      } else {
+        alert('Failed to delete detection log.')
+      }
+    } catch (err) {
+      alert(`Error: ${err.message}`)
+    } finally {
+      setDeletingId(null)
+    }
+  }
 
   const detectionList = Array.isArray(detections) ? detections : []
 
@@ -137,6 +171,14 @@ export default function Detections() {
 
   return (
     <div className="space-y-4 sm:space-y-6">
+      {/* feedback message */}
+      {actionSuccessMessage && (
+        <div className="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs font-bold animate-fadeIn">
+          <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
+          <span>{actionSuccessMessage}</span>
+        </div>
+      )}
+
       {/* page header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-2 border-b border-[#E5E7EB]">
         <div>
@@ -144,17 +186,79 @@ export default function Detections() {
           <p className="text-xs text-[#666666] mt-1 font-medium">Search, filter, and audit past intrusion events captured across edge nodes.</p>
         </div>
 
-        <button
-          onClick={() => {
-            setPage(1)
-            fetchDetections()
-          }}
-          className="flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-[#E5E7EB] bg-white hover:bg-[#FAFBF8] text-[#2F2F2F] text-xs font-bold transition-colors shadow-2xs self-start sm:self-auto min-h-[38px] cursor-pointer"
-        >
-          <RefreshCw size={14} />
-          <span>Refresh Audit Logs</span>
-        </button>
+        <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+          <button
+            onClick={() => {
+              setPage(1)
+              fetchDetections()
+            }}
+            className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-[#E5E7EB] bg-white hover:bg-[#FAFBF8] text-[#2F2F2F] text-xs font-bold transition-colors shadow-2xs min-h-[38px] cursor-pointer"
+          >
+            <RefreshCw size={14} />
+            <span>Refresh</span>
+          </button>
+
+          <button
+            onClick={() => setShowClearModal(true)}
+            disabled={detectionList.length === 0}
+            className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-bold transition-colors shadow-2xs min-h-[38px] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <Trash2 size={14} />
+            <span>Clear History</span>
+          </button>
+        </div>
       </div>
+
+      {/* Confirmation Modal */}
+      {showClearModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fadeIn">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
+            <div className="w-12 h-12 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center mx-auto">
+              <AlertTriangle size={24} />
+            </div>
+
+            <div className="text-center space-y-1">
+              <h3 className="text-lg font-extrabold text-[#2F2F2F]">Clear All Detection History?</h3>
+              <p className="text-xs text-[#666666] leading-relaxed">
+                This will permanently delete all past intrusion records, snapshots, and animal alerts from your database.
+              </p>
+            </div>
+
+            <div className="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs font-medium">
+              💡 <strong>Note:</strong> Live edge cameras and sirens will continue monitoring actively.
+            </div>
+
+            <div className="flex items-center gap-3 pt-2">
+              <button
+                type="button"
+                onClick={() => setShowClearModal(false)}
+                disabled={clearing}
+                className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 text-xs font-bold transition-colors cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleClearAll}
+                disabled={clearing}
+                className="flex-1 px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold transition-colors shadow-md flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-50"
+              >
+                {clearing ? (
+                  <>
+                    <RefreshCw size={14} className="animate-spin" />
+                    <span>Clearing...</span>
+                  </>
+                ) : (
+                  <>
+                    <Trash2 size={14} />
+                    <span>Yes, Clear All</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* filters & search toolbar */}
       <div className="card-base p-3.5 sm:p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -343,13 +447,29 @@ export default function Detections() {
                         })}
                       </td>
                       <td className="p-3 pr-5 text-right">
-                        <Link
-                          to={`/detections/${item?.id || 'det_01'}`}
-                          className="inline-flex items-center gap-1 text-[#047857] hover:underline font-bold text-xs min-h-[32px]"
-                        >
-                          <span>Inspect</span>
-                          <ChevronRight size={14} />
-                        </Link>
+                        <div className="flex items-center justify-end gap-2">
+                          <Link
+                            to={`/detections/${item?.id || 'det_01'}`}
+                            className="inline-flex items-center gap-1 text-[#047857] hover:underline font-bold text-xs min-h-[32px] px-2 py-1 rounded-md hover:bg-emerald-50 transition-colors"
+                          >
+                            <span>Inspect</span>
+                            <ChevronRight size={14} />
+                          </Link>
+                          {item?.id && (
+                            <button
+                              onClick={(e) => handleDeleteOne(item.id, e)}
+                              disabled={deletingId === item.id}
+                              title="Delete log"
+                              className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors cursor-pointer disabled:opacity-50"
+                            >
+                              {deletingId === item.id ? (
+                                <RefreshCw size={13} className="animate-spin" />
+                              ) : (
+                                <Trash2 size={13} />
+                              )}
+                            </button>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   )
@@ -381,13 +501,24 @@ export default function Detections() {
                         <h3 className="font-extrabold text-[#0f172a] capitalize text-base truncate">
                           {item?.animal?.replace(/_/g, ' ') || 'Animal'}
                         </h3>
-                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold shrink-0 ${
-                          item?.status === 'Resolved'
-                            ? 'bg-slate-100 text-slate-700'
-                            : 'bg-red-100 text-red-700 border border-red-200'
-                        }`}>
-                          {item?.status || 'Active Alert'}
-                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold shrink-0 ${
+                            item?.status === 'Resolved'
+                              ? 'bg-slate-100 text-slate-700'
+                              : 'bg-red-100 text-red-700 border border-red-200'
+                          }`}>
+                            {item?.status || 'Active Alert'}
+                          </span>
+                          {item?.id && (
+                            <button
+                              onClick={(e) => handleDeleteOne(item.id, e)}
+                              disabled={deletingId === item.id}
+                              className="p-1 text-slate-400 hover:text-rose-600 rounded cursor-pointer"
+                            >
+                              <Trash2 size={13} />
+                            </button>
+                          )}
+                        </div>
                       </div>
                       <p className="text-xs text-slate-700 font-semibold truncate mt-0.5">
                         {item?.camera_name || item?.camera_id || 'North Perimeter Cam'}
@@ -418,10 +549,10 @@ export default function Detections() {
                     </span>
                   </div>
 
-                  <div className="pt-1">
+                  <div className="pt-1 flex items-center gap-2">
                     <Link
                       to={`/detections/${item?.id || 'det_01'}`}
-                      className="w-full py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1 min-h-[38px]"
+                      className="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1 min-h-[38px]"
                     >
                       <span>Inspect Detection Snapshot</span>
                       <ChevronRight size={14} />

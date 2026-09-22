@@ -7,6 +7,8 @@ const {
   getFieldCaptures,
   getSirenCurrentStatus,
   triggerSirenManual,
+  clearAllDetections,
+  deleteDetectionById,
 } = require('../controllers/detectionController');
 
 const upload = multer({
@@ -23,6 +25,8 @@ router.post('/detections', upload.single('image'), createDetection);
 // Detection Logs & Field Captures
 router.get('/detections', getDetections);
 router.get('/detections/:id', getDetectionById);
+router.delete('/detections/:id', deleteDetectionById);
+router.delete('/detections', clearAllDetections);
 router.get('/field-captures', getFieldCaptures);
 
 // Siren Controls & Status

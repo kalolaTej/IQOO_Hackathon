@@ -177,6 +177,16 @@ export const Dashboard = () => {
       }
     });
 
+    socket.on('detections_cleared', () => {
+      setDetections([]);
+    });
+
+    socket.on('detection_deleted', ({ id }) => {
+      if (id) {
+        setDetections((prev) => prev.filter((d) => d.id !== id));
+      }
+    });
+
     socket.on('siren-triggered', (sirenEvt) => {
       if (sirenEvt) {
         setSirenState(sirenEvt.state || { active: true, animal: sirenEvt.animal });

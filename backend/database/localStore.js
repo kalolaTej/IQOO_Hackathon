@@ -262,6 +262,13 @@ const localStore = {
     }
     return false;
   },
+
+  clear(table) {
+    const store = loadStore();
+    store[table] = [];
+    saveStore(store);
+    return true;
+  },
 };
 
 module.exports = localStore;
